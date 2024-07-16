@@ -1,10 +1,113 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { isValidEmail, isValidPhone } from '../../Utils/validataion';
+import { toast } from 'react-toastify';
+import { useNavigate, Link } from 'react-router-dom';
+
+import { saveForexEnquiry } from '../../api/forex';
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
 import { FaArrowRight } from "react-icons/fa6";
 import { FaCircleCheck } from "react-icons/fa6";
 import { Helmet } from 'react-helmet';
 export const Forex = () => {
+
+  const initialState = {
+    studentName: "",
+    country: "",
+    universityName: "",  
+    primaryNumber: "",
+    email: "",
+    message: "",
+  }
+  const initialStateErrors = {
+    studentName:{ required: false },
+    country:{ required: false },
+    universityName:{ required: false },  
+    primaryNumber:{ required: false },
+    email:{ required: false },
+    message:{ required: false },
+  }
+
+  const [forex, setForex] = useState(initialState)
+  const [errors, setErrors] = useState(initialStateErrors)
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate()
+
+  const handleValidation = (data) => {
+    let error = initialStateErrors;
+    if (!data.studentName) {
+      error.studentName.required = true;
+    }
+    if (!data.country) {
+      error.country.required = true;
+    }
+
+    if (!data.universityName) {
+      error.universityName.required = true;
+    }
+   
+    if (!data.primaryNumber) {
+      error.primaryNumber.required = true;
+    }
+  
+    if (!data.email) {
+      error.email.required = true;
+    }
+
+
+
+    if (!isValidEmail(data.email)) {
+      error.email.valid = true;
+    }
+    if (!isValidPhone(data.primaryNumber)) {
+      error.primaryNumber.valid = true;
+    }
+   
+    return error
+  }
+
+  const handleInputs = (event) => {
+    const { name, value } = event.target
+    setForex({ ...forex, [event?.target?.name]: event?.target?.value })
+    if (submitted) {
+      const newError = handleValidation({ ...forex, [event.target.name]: event.target.value })
+      setErrors(newError)
+    }
+  }
+
+
+
+
+
+  const handleErrors = (obj) => {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const prop = obj[key];
+        if (prop.required === true || prop.valid === true) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newError = handleValidation(forex);
+    setErrors(newError);
+    setSubmitted(true);
+    if (handleErrors(newError)) {
+      saveForexEnquiry(forex)
+        .then((res) => {
+          toast.success("Enquiry Submitted Successfully");
+          navigate("/Forex");
+        })
+        .catch((err) => {
+          toast.error(err?.response?.data?.message);
+        });
+    }
+  };
+
   return (
     <div>
         <Helmet>
@@ -222,19 +325,30 @@ export const Forex = () => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'16px'}}>
+        <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'16px'}} onSubmit={handleSubmit}>
           <div className="row g-3 mb-3">
             <div className="col">
               <div className="form-floating">
-              <input type="text" className='form-control ' placeholder='Name' id="floatingInputGrid" />
+              <input type="text" className='form-control' name='studentName' onChange={handleInputs} placeholder='Name' id="floatingInputGrid" />
               <label for='floatingInputGrid'>Name</label>
+              {errors.studentName.required ? (
+                        <div className="text-danger form-text">
+                          This field is required.
+                        </div>
+                      ) : null}
               </div>
              
             </div>
             <div className="col">
               <div className="form-floating">
-              <input type="text" className='form-control' placeholder='Country' id="floatingInputGrid" />
+              <input type="text" className='form-control' onChange={handleInputs} name='country' placeholder='Country' id="floatingInputGrid" />
               <label for='floatingInputGrid'>Country</label>
+              {errors.country.required ? (
+                        <div className="text-danger form-text">
+                          This field is required.
+                        </div>
+                      ) : null}
+             
               </div>
              
             </div>
@@ -242,44 +356,59 @@ export const Forex = () => {
           <div className="row g-3 mb-3">
             <div className="col">
               <div className="form-floating">
-              <input type="text" className='form-control' placeholder='University' id="floatingInputGrid" required />
+              <input type="text" className='form-control' name='universityName' onChange={handleInputs} placeholder='University' id="floatingInputGrid" required />
               <label for='floatingInputGrid'>University</label>
+              {errors.universityName.required ? (
+                        <div className="text-danger form-text">
+                          This field is required.
+                        </div>
+                      ) : null}
               </div>
              
             </div>
-            <div className="col">
+             {/* <div className="col">
               <div className="form-floating">
               <input type="text" className='form-control' placeholder='Student ID' id="floatingInputGrid" />
               <label for='floatingInputGrid'>Student ID</label>
               </div>
              
-            </div>
-          </div>
+            </div> */}
+          </div> 
           <div className="row g-3 mb-3">
             <div className="col">
               <div className="form-floating">
-              <input type="email" className='form-control' placeholder='E-Mail' id="floatingInputGrid" />
+              <input type="text" name='email' onChange={handleInputs} className='form-control' placeholder='E-Mail' id="floatingInputGrid" />
               <label for='floatingInputGrid'>E-Mail</label>
+              {errors.email.required ? (
+                        <div className="text-danger form-text">
+                          This field is required.
+                        </div>
+                      ) : errors.email.valid ? (
+                        <div className="text-danger form-text">
+                          Enter valid Email Id.
+                        </div>
+                      ) : null}
+            
               </div>
              
             </div>
             <div className="col">
               <div className="form-floating">
-              <input type="text" className='form-control' placeholder='Contact' id="floatingInputGrid" />
+              <input type="text" onChange={handleInputs} name='contact'  className='form-control' placeholder='Contact' id="floatingInputGrid" />
               <label for='floatingInputGrid'>Contact</label>
               </div>
              
             </div>
           </div>
           <div class="form-floating">
-  <textarea class="form-control" placeholder="Message" id="floatingTextarea" style={{height:'110px'}}></textarea>
+  <textarea class="form-control" placeholder="Message" name='message' onChange={handleInputs} id="floatingTextarea" style={{height:'110px'}}></textarea>
   <label for="floatingTextarea">Message</label>
 </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn  fw-semibold btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn fw-semibold " style={{backgroundColor:'#fe5722',color:'#fff'}}>Submit</button>
+        <button type="submit" class="btn fw-semibold " style={{backgroundColor:'#fe5722',color:'#fff'}}>Submit</button>
       </div>
     </div>
   </div>
