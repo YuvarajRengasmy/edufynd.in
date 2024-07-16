@@ -1,0 +1,66 @@
+/* Navbar Dropdown */
+ .dropdown:hover .dropdown-menu {
+  background: #fff;
+  color: #0f2239;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transition: all 4s  linear;
+  top: 100%;
+  
+}
+
+
+.dropdown {
+ 
+  position: relative;
+  
+ 
+  z-index: 1;
+  transform: perspective(1000px);
+   
+}
+
+.dropdown-menu {
+  background: #fff;
+  color: #0f2239;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Navbar and Fixed Top Styles */
+.fixed-top {
+  transition: top 0.3s;
+}
+
+.bg-initial {
+  background-color: #fe5722;
+}
+
+.bg-scrolled {
+  background-color: #fe5722;
+}
+
+.bg-initial-nav {
+  background-color: #fff;
+}
+
+.bg-scrolled-nav {
+  background-color: #fff;
+}
+
+.scrolling-navbar {
+  top: -60px; /* Adjust as per your design */
+}
+/* Navbar.css */
+
+.active-link {
+  color: #fe5722; /* Define your active link text color */
+  font-weight: bold; /* Optionally, make the text bold or apply other styles */
+  /* Add any other styles you want to apply to active links */
+}
+
