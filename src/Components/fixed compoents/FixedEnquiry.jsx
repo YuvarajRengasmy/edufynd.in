@@ -60,11 +60,6 @@ export const FixedEnquiry = () => {
       setErrors(newError)
     }
   }
-
-
-
-
-
   const handleErrors = (obj) => {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
