@@ -12,6 +12,8 @@ import geo_alt from '../assets/bootstrap icons/geo-alt.svg'
 import telephone from '../assets/bootstrap icons/telephone.svg'
 import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
+import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
+import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
 export const Contact = () => {
 
   const initialState = {
@@ -218,70 +220,9 @@ export const Contact = () => {
         />
       </Helmet>
       <Navbar />
-      <div className="container">
-    <div className="row">
-        <div className="col">
-          <a href="https://api.whatsapp.com/send/?phone=919840591820&text&type=phone_number&app_absent=0" className="">
-          <div className="whatsapp-bottom" style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000' }}>
-                <div className="logo">
-                    <span className='rounded-circle badge p-3 fs-3 text-white' style={{backgroundColor:'rgb(37, 211, 102)',color:'#fff'}}><FaWhatsapp /></span>
-                </div>
-            </div>
-          </a>
-           
-        </div>
-    </div>
-</div>
-<div className="container">
-    <div className="row">
-        <div className="col">
-            <button class="btn rounded-0 fixed-button " type='button'  data-bs-toggle="modal" data-bs-target="#exampleModa2" >
-                E <br /> n  <br /> q  <br />u  <br />i  <br />r  <br />y
-            </button>
-            <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe2" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Enquiry Form</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="" className="" onSubmit={handleSubmit}>
-        <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name.."/>
-  <label for="floatingInput">Enter Your Name..</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingPassword" placeholder="Enter Your Email.."/>
-  <label for="floatingPassword">Enter Your Email..</label>
-</div>
-<div class="input-group mb-3">
-  <button class="btn dropdown-toggle" style={{backgroundColor:'#fe5722',color:'#fff'}} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">+91</a></li>
-    <li><a class="dropdown-item" href="#">+91</a></li>
-    <li><a class="dropdown-item" href="#">+91</a></li>
-   
-   
-  </ul>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder='Enter Your Phone..' />
-</div>
-<div class="form-floating mb-3">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{height:" 100px"}}></textarea>
-  <label for="floatingTextarea2">Type Message</label>
-</div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Send</button>
-        <button type="button" class="btn btn-danger">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-        </div>
-    </div>
-</div>
+     
+      <FixedEnquiry/>
+      <FixedWhatsapp/>
       <div
         className="container-fluid position-relative my-5 contact_us"
         style={{
