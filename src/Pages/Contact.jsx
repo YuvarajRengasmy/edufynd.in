@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { isValidEmail, isValidPhone } from '../Utils/validataion';
+import { toast } from 'react-toastify';
+import { useNavigate, Link } from 'react-router-dom';
+
+import {saveGeneralEnquiry} from '../api/generalEnquiry';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import { FaArrowRight } from "react-icons/fa6";
@@ -8,6 +13,100 @@ import telephone from '../assets/bootstrap icons/telephone.svg'
 import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 export const Contact = () => {
+
+  const initialState = {
+    name: "",
+    mobileNumber: "",  
+    email: "",
+    message: "",
+    typeOfUser: "",
+  }
+  const initialStateErrors = {
+    name: { required: false },
+    mobileNumber: { required: false },   
+    typeOfUser:{ required: false },
+    email:{ required: false },
+    message:{ required: false },
+  }
+  const [open, setOpen] = useState(false);
+  const [forex, setForex] = useState(initialState)
+  const [errors, setErrors] = useState(initialStateErrors)
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate()
+
+  const handleValidation = (data) => {
+    let error = initialStateErrors;
+    if (!data.name) {
+      error.name.required = true;
+    }
+    if (!data.typeOfUser) {
+      error.typeOfUser.required = true;
+    }
+
+
+    if (!data.mobileNumber) {
+      error.mobileNumber.required = true;
+    }
+  
+    if (!data.email) {
+      error.email.required = true;
+    }
+    if (!isValidEmail(data.email)) {
+      error.email.valid = true;
+    }
+    if (!isValidPhone(data.mobileNumber)) {
+      error.mobileNumber.valid = true;
+    }
+   
+    return error
+  }
+
+  const handleInputs = (event) => {
+    const { name, value } = event.target
+    setForex({ ...forex, [event?.target?.name]: event?.target?.value })
+    if (submitted) {
+      const newError = handleValidation({ ...forex, [event.target.name]: event.target.value })
+      setErrors(newError)
+    }
+  }
+
+
+
+
+
+  const handleErrors = (obj) => {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const prop = obj[key];
+        if (prop.required === true || prop.valid === true) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  const closeModal = () => {
+    setOpen(false);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newError = handleValidation(forex);
+    setErrors(newError);
+    setSubmitted(true);
+    if (handleErrors(newError)) {
+      saveGeneralEnquiry(forex)
+        .then((res) => {
+          toast.success(res?.data?.message);
+          closeModal();
+          navigate("/Contact");
+
+        })
+        .catch((err) => {
+          toast.error(err?.response?.data?.message);
+        });
+    }
+  };
   return (
     <div>
         <Helmet>
@@ -147,7 +246,7 @@ export const Contact = () => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" className="">
+        <form action="" className="" onSubmit={handleSubmit}>
         <div class="form-floating mb-3">
   <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name.."/>
   <label for="floatingInput">Enter Your Name..</label>
@@ -284,53 +383,44 @@ export const Contact = () => {
                 <h5 className="card-text fw-bold">Connect with Experts for Guidance!</h5>
                 <h1 className="card-title">Get in Touch</h1>
                 <hr className=" w-25 " style={{height:'3px',borderWidth:'0',color:'#fe5722',backgroundColor:'#fe5722'}} />
-                <form className="p-3">
-                  <div className="row g-2 mb-3">
-                    <div className="col-md">
-                      <div className="form-floating">
-                        <input type="text" className="form-control" id="floatingInputGrid" placeholder="User Name" />
-                        <label htmlFor="floatingInputGrid">User Name</label>
+                <form onSubmit={handleSubmit}>
+                      <div className="form-floating mb-3">
+                        <input type="text" className="form-control" name="name" placeholder="Enter Your Name.." onChange={handleInputs} />
+                        <label htmlFor="floatingInput">Enter Your Name..</label>
+                        {errors.name.required && <span className="text-danger">Name is required</span>}
                       </div>
-                    </div>
-                    <div className="col-md">
-                      <div className="form-floating">
-                        <input type="email" className="form-control" id="floatingInputGrid" placeholder="name@example.com" />
-                        <label htmlFor="floatingInputGrid">Email address</label>
+                      <div className="form-floating mb-3">
+                        <input type="email" className="form-control" name="email" placeholder="Enter Your Email.." onChange={handleInputs} />
+                        <label htmlFor="floatingPassword">Enter Your Email..</label>
+                        {errors.email.required && <span className="text-danger">Email is required</span>}
+                        {errors.email.valid && <span className="text-danger">Invalid email</span>}
                       </div>
-                    </div>
-                  </div>
-                  <div className="row g-2 mb-3">
-                    <div className="col-md">
-                      <div className="input-group">
-                        <select className="form-select form-select-lg" id="floatingSelectGrid">
-                          <option defaultValue>Select</option>
-                          <option value="1">Student</option>
-                          <option value="2">Partner</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-md">
                       <div className="input-group mb-3">
-                        <button className="btn  dropdown-toggle" type="button" style={{backgroundColor:'#fe5722',color:'#fff'}} data-bs-toggle="dropdown" aria-expanded="false">+91</button>
+                        <button className="btn dropdown-toggle" style={{ backgroundColor: '#fe5722', color: '#fff' }} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
                         <ul className="dropdown-menu">
-                          <li><a className="dropdown-item" href="#">+91 India</a></li>
-                          <li><a className="dropdown-item" href="#">+91 India</a></li>
-                          <li><a className="dropdown-item" href="#">+91 India</a></li>
+                          <li><a className="dropdown-item" href="#">+91</a></li>
                         </ul>
-                        <input type="text" className="form-control form-control-lg" aria-label="Text input with dropdown button" />
+                        <input type="text" className="form-control" name="mobileNumber" placeholder="Enter Your Phone.." onChange={handleInputs} />
+                        {errors.mobileNumber.required && <span className="text-danger">Mobile number is required</span>}
+                        {errors.mobileNumber.valid && <span className="text-danger">Invalid mobile number</span>}
                       </div>
-                    </div>
-                  </div>
-                  <div className="row g-2 mb-3">
-                    <div className="mb-3">
-                      <label htmlFor="exampleFormControlTextarea1" className="form-label">Message</label>
-                      <textarea className="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                    </div>
-                  </div>
-                  <div className="row g-2 mb-3">
-                    <a href="#" className="btn fw-bold text-uppercase text-white p-3 rounded-2 border-0" style={{ backgroundColor: '#fe5722' }}>Submit</a>
-                  </div>
-                </form>
+                      <div className="form-floating mb-3">
+                        <textarea className="form-control" name="message" placeholder="Leave a comment here" style={{ height: "100px" }} onChange={handleInputs}></textarea>
+                        <label htmlFor="floatingTextarea2">Type Message</label>
+                      
+                      </div>
+                      <div className="form-floating mb-3">
+                        <select className="form-select" name="typeOfUser" onChange={handleInputs}>
+                          <option value="">Select Type of User</option>
+                          <option value="Student">Student</option>
+                          <option value="Partner">Partner</option>
+                        </select>
+                        <label htmlFor="typeOfUser">Type of User</label>
+                        {errors.typeOfUser.required && <span className="text-danger">Type of user is required</span>}
+                      </div>
+                      <button type="submit" className="btn btn-success">Send</button>
+                      <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </form>
               </div>
             </div>
           </div>

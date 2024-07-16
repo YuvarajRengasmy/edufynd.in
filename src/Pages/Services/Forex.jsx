@@ -27,7 +27,7 @@ export const Forex = () => {
     email:{ required: false },
     message:{ required: false },
   }
-
+  const [open, setOpen] = useState(false);
   const [forex, setForex] = useState(initialState)
   const [errors, setErrors] = useState(initialStateErrors)
   const [submitted, setSubmitted] = useState(false);
@@ -91,6 +91,9 @@ export const Forex = () => {
     return true;
   }
 
+  const closeModal = () => {
+    setOpen(false);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const newError = handleValidation(forex);
@@ -100,7 +103,9 @@ export const Forex = () => {
       saveForexEnquiry(forex)
         .then((res) => {
           toast.success("Enquiry Submitted Successfully");
+          closeModal();
           navigate("/Forex");
+
         })
         .catch((err) => {
           toast.error(err?.response?.data?.message);
@@ -324,8 +329,9 @@ export const Forex = () => {
         <h1 class="modal-title fs-5" id="exampleModalLabel">Enquriy Form</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'16px'}} onSubmit={handleSubmit}>
+
       <div class="modal-body">
-        <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'16px'}} onSubmit={handleSubmit}>
           <div className="row g-3 mb-3">
             <div className="col">
               <div className="form-floating">
@@ -394,8 +400,18 @@ export const Forex = () => {
             </div>
             <div className="col">
               <div className="form-floating">
-              <input type="text" onChange={handleInputs} name='contact'  className='form-control' placeholder='Contact' id="floatingInputGrid" />
+              <input type="text" onChange={handleInputs} name='primaryNumber'  className='form-control' placeholder='Contact' id="floatingInputGrid" />
               <label for='floatingInputGrid'>Contact</label>
+              {errors.primaryNumber.required ? (
+                        <div className="text-danger form-text">
+                          This field is required.
+                        </div>
+                      ) : errors.primaryNumber.valid ? (
+                        <div className="text-danger form-text">
+                          Enter valid Contact Number.
+                        </div>
+                      ) : null}
+           
               </div>
              
             </div>
@@ -404,12 +420,13 @@ export const Forex = () => {
   <textarea class="form-control" placeholder="Message" name='message' onChange={handleInputs} id="floatingTextarea" style={{height:'110px'}}></textarea>
   <label for="floatingTextarea">Message</label>
 </div>
-        </form>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn  fw-semibold btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn fw-semibold " style={{backgroundColor:'#fe5722',color:'#fff'}}>Submit</button>
+        <button type="submit" class="btn fw-semibold "data-bs-dismiss="modal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Submit</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
