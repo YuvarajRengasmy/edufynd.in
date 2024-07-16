@@ -7,14 +7,12 @@ import { FaFlag, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube, FaTwitter } 
 import './Navbar.css';
 
 const Navbar = () => {
-  const [isNavVisible, setIsNavVisible] = useState(false);
-  const [isTop, setIsTop] = useState(true);
+  const [isNavVisible, setIsNavVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsNavVisible(scrollPosition > 100);
-      setIsTop(scrollPosition <= 0);
+      setIsNavVisible(scrollPosition <= 0);
     };
 
     document.addEventListener('scroll', handleScroll);
@@ -24,8 +22,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`fixed-top ${isNavVisible ? 'scrolling-navbar' : ''}`} style={{ fontSize: '14px' }}>
-      <div className={`container-fluid text-white p-0 ${isTop ? 'bg-initial' : 'bg-scrolled'}`}>
+    <div className={`fixed-top ${isNavVisible ? '' : 'scrolling-navbar'}`} style={{ fontSize: '14px' }}>
+      <div className={`container-fluid text-white p-0 ${isNavVisible ? 'bg-initial' : 'bg-scrolled'}`}>
         <div className="container-fluid text-center">
           <div className="container">
             <div className="row align-items-center justify-content-center">
@@ -62,7 +60,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <nav className={`navbar navbar-expand-lg ${isTop ? 'bg-initial-nav' : 'bg-scrolled-nav'}`}>
+        <nav className= 'navbar navbar-expand-lg bg-scrolled-nav'>
           <div className="container-fluid p-2">
             <Link className="navbar-brand mx-lg-3  px-lg-5" to="/">
               <img
