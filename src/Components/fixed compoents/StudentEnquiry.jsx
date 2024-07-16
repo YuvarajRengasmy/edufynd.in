@@ -1,45 +1,153 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { isValidEmail, isValidPhone } from '../../Utils/validataion';
+import { toast } from 'react-toastify';
+import { useNavigate, Link } from 'react-router-dom';
+import { saveStudnetEnquiry } from '../../api/studentEnquiry';
 
 export const StudentEnquiry = () => {
-  return (
-    <div className=" card  my-3 bg-light" >
-              <h5 className="card-title text-center fw-bold p-2" style={{color:'#fe5722'}}>ENQUIRY WITH US!</h5>
-              <img src="https://harnesstechniques.com/img/enquiry.jpg" alt="" className="card-img-top rounded-0 h-100 p-2 rounded-0" />
-              <form action="" className="p-2">
-                
-          
-              <div class="form-floating mb-3">
-                        <input class="form-control " id="floatingInput" type="email" placeholder="Your Name"/>
-                        <label for="floatingInput">Your Name</label>
-                      </div>
-              <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" type="email" placeholder="Email Address"/>
-                        <label for="floatingInput">Email Address</label>
-                      </div>
-                      <div class="input-group mb-3">
-  <button class="btn dropdown-toggle" style={{backgroundColor:'#fe5722',color:'#fff'}} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">+91 India</a></li>
-    <li><a class="dropdown-item" href="#">+91 India</a></li>
-    <li><a class="dropdown-item" href="#">+91 India</a></li>
-   
-    
-  </ul>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
-</div>
+  const initialState = {
+    name: "",
+    primaryNumber: "",  
+    email: "",
+    message: "", 
+  };
 
-<div class="form-floating mb-3">
-                        <textarea class="form-control" id="floatingTextarea2" placeholder="Leave a comment here" style={{height:" 100px"}}></textarea>
-                        <label for="floatingTextarea2">Message</label>
-                      </div>
-                 <div className=" text-center mb-3">
-                  <a href="" className="btn text-uppercase text-white fw-bold" style={{backgroundColor:'#fe5722'}}>send message</a>
-                  </div>  
-                    
-                    
-                    
-              </form>
-            </div>
-  )
-}
-export default StudentEnquiry
+  const initialStateErrors = {
+    name: { required: false },
+    primaryNumber: { required: false, valid: false },   
+    email: { required: false, valid: false },
+    message: { required: false },
+  };
+
+  const [forex, setForex] = useState(initialState);
+  const [errors, setErrors] = useState(initialStateErrors);
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+
+  const handleValidation = (data) => {
+    let error = { ...initialStateErrors };
+    if (!data.name) {
+      error.name.required = true;
+    }
+    if (!data.primaryNumber) {
+      error.primaryNumber.required = true;
+    } else if (!isValidPhone(data.primaryNumber)) {
+      error.primaryNumber.valid = true;
+    }
+    if (!data.email) {
+      error.email.required = true;
+    } else if (!isValidEmail(data.email)) {
+      error.email.valid = true;
+    }
+    return error;
+  };
+
+  const handleInputs = (event) => {
+    const { name, value } = event.target;
+    setForex({ ...forex, [name]: value });
+    if (submitted) {
+      const newError = handleValidation({ ...forex, [name]: value });
+      setErrors(newError);
+    }
+  };
+
+  const handleErrors = (obj) => {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const prop = obj[key];
+        if (prop.required || prop.valid) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newError = handleValidation(forex);
+    setErrors(newError);
+    setSubmitted(true);
+    if (handleErrors(newError)) {
+      saveStudnetEnquiry(forex)
+        .then((res) => {
+          toast.success("Study Enquiry Submitted Successfully");
+          navigate("/StudyDestination");
+        })
+        .catch((err) => {
+          toast.error(err?.response?.data?.message);
+        });
+    }
+  };
+
+  return (
+    <div className="card my-3 bg-light">
+      <h5 className="card-title text-center fw-bold p-2" style={{ color: '#fe5722' }}>ENQUIRY WITH US!</h5>
+      <img src="https://harnesstechniques.com/img/enquiry.jpg" alt="" className="card-img-top rounded-0 h-100 p-2 rounded-0" />
+      <form className="p-2" onSubmit={handleSubmit}>
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control"
+            name="name"
+            placeholder="Enter Your Name.."
+            onChange={handleInputs}
+          />
+          <label htmlFor="floatingInput">Enter Your Name..</label>
+          {errors.name.required && <span className="text-danger">Name is required</span>}
+        </div>
+        <div className="form-floating mb-3">
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            placeholder="Enter Your Email.."
+            onChange={handleInputs}
+          />
+          <label htmlFor="floatingPassword">Enter Your Email..</label>
+          {errors.email.required && <span className="text-danger">Email is required</span>}
+          {errors.email.valid && <span className="text-danger">Invalid email</span>}
+        </div>
+        <div className="input-group mb-3">
+          <button
+            className="btn dropdown-toggle"
+            style={{ backgroundColor: '#fe5722', color: '#fff' }}
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            +91
+          </button>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="#">+91</a></li>
+          </ul>
+          <input
+            type="text"
+            className="form-control"
+            name="primaryNumber"
+            placeholder="Enter Your Phone.."
+            onChange={handleInputs}
+          />
+          {errors.primaryNumber.required && <span className="text-danger">Mobile number is required</span>}
+          {errors.primaryNumber.valid && <span className="text-danger">Invalid mobile number</span>}
+        </div>
+        <div className="form-floating mb-3">
+          <textarea
+            className="form-control"
+            name="message"
+            placeholder="Leave a comment here"
+            style={{ height: "100px" }}
+            onChange={handleInputs}
+          ></textarea>
+          <label htmlFor="floatingTextarea2">Type Message</label>
+        </div>
+        <div className="modal-footer">
+          <button type="submit" className="btn btn-success">Send</button>
+          <button type="button" className="btn btn-danger">Close</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default StudentEnquiry;
