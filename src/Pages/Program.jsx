@@ -4,7 +4,7 @@ import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
 import Footer from '../Components/Footer/Footer'
 import { FaArrowRight } from "react-icons/fa6";
-
+import { FaFilter } from "react-icons/fa";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
@@ -135,207 +135,135 @@ const Program = () => {
 <FixedEnquiry/>
 <FixedWhatsapp/>
 
-
-      <div className="container-fluid " style={{
-
+<div className="container-fluid position-relative my-5" style={{
+        
         backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
         backgroundSize: 'cover', // Ensure the image covers the container
         backgroundPosition: 'center', // Center the background image
         height: '300px', // Set a height to see the background image
-        backgroundColor: 'rgba(0,0,0,0.7)',
-        backgroundBlendMode: 'multiply',
-        marginTop:'100px'
+        backgroundColor:'rgba(0,0,0,0.5)',
+        backgroundBlendMode:'multiply'
       }}>
-        <div className="row">
-          <div className="col-lg-12">
-
-
-            <div className="position-absolute top-0 start-50 translate-middle">
-              <div className="text-uppercase text-white text-center fs-2 fw-bold">Program</div>
-              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <div>
-                  <a href="/" className="text-decoration-none text-white fs-6">
-                    Home
-                  </a>
-                </div>
-                <div className="text-white">
-                  <FaArrowRight />
-                </div>
-
-                <div className="text-white fs-6">Program</div>
-              </div>
+  <div className="row">
+    <div className="col-lg-12">
+     
+ 
+        <div className="position-absolute top-50 start-50 translate-middle">
+          <div className="text-uppercase text-white text-center fs-2 fw-bold">Program</div>
+          <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+            <div>
+              <a href="/" className="text-decoration-none text-white fs-5">
+                Home
+              </a>
             </div>
-
+           
+         
+            <div className="text-white">
+              <FaArrowRight />
+            </div>
+            <div className="text-white fs-5">Program</div>
           </div>
         </div>
-      </div>
+   
+    </div>
+  </div>
+</div>
+
 
 
       <div className="container  position-relative " data-aos="zoom-in-up" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
         <div className="row">
 
-          <div className="col"  >
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-          Filter
-</button>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div className="col">
+        <button class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}> <span className="me-2"><FaFilter /></span> Filter</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filter Program</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-  <div className="mb-3">
-              <div className="accordion mt-5" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingOne">
-                    <button className="accordion-button fw-semibold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Filter
-                    </button>
-                  </h2>
-                  <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">
-                      <div className="">
-                        <div className="mb-3">
-                          <label className="form-label fw-semibold " htmlFor="exampleFormControlInput" style={{ fontSize: '14px' }}>Search by Program Title </label>
-                          <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" style={{ fontSize: '14px' }} />
-                        </div>
-                      </div>
-                      <div className="">
-
-                        <div className="d-flex flex-row gap-3">
-                          <div className="form-check">
-                            <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
-                            <label className="form-check-label" htmlFor="flexRadioDefault1" style={{ fontSize: '14px' }}>Public</label>
-                          </div>
-                          <div className="form-check">
-                            <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" />
-                            <label className="form-check-label" htmlFor="flexRadioDefault2" style={{ fontSize: '14px' }}>Private</label>
-                          </div>
-                        </div>
-                        <div className="form-check">
-                          <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" />
-                          <label className="form-check-label" htmlFor="flexCheckDefault" style={{ fontSize: '14px' }}>Scholarship</label>
-                        </div>
-                      </div>
-                      <div className="py-1">
-                        <div className='fw-bold py-1' style={{ fontSize: '14px' }}>Level of Interest</div>
-                        <select className="form-select" aria-label="Default select example" style={{ fontSize: '14px' }}>
-                          <option defaultValue>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                      <div className="py-1">
-                        <div className='fw-bold py-1' style={{ fontSize: '14px' }}>Area of Specialisation</div>
-                        <select className="form-select" aria-label="Default select example" style={{ fontSize: '14px' }}>
-                          <option defaultValue>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+  <div className="accordion" id="accordionExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingOne">
+            <button className="accordion-button fw-semibold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Filter
+            </button>
+          </h2>
+          <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div className="accordion-body">
+              <div className="mb-3">
+                <label className="form-label fw-semibold" htmlFor="exampleFormControlInput">Search by Program Title</label>
+                <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" />
+              </div>
+              <div className="d-flex flex-row gap-3">
+                <div className="form-check">
+                  <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
+                  <label className="form-check-label" htmlFor="flexRadioDefault1">Public</label>
+                </div>
+                <div className="form-check">
+                  <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" />
+                  <label className="form-check-label" htmlFor="flexRadioDefault2">Private</label>
                 </div>
               </div>
-            </div>
-            <div className="row ">
-              <div className="accordion mb-3" id="accordionExample2">
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingTwo">
-                    <button
-                      className="accordion-button fw-semibold text-dark"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="true"
-                      aria-controls="collapseTwo"
-                      style={{ fontSize: '14px' }}
-                    >
-                      Country
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse "
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample2"
-                  >
-                    <div className="accordion-body">
-                      <form>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="option1"
-                            name="option1"
-                          />
-                          <label htmlFor="option1" className="form-check-label px-2 fw-bold" style={{ fontSize: '14px' }}>
-                            USA
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="option2"
-                            name="option2"
-                          />
-                          <label htmlFor="option2" className="form-check-label px-2 fw-bold" style={{ fontSize: '14px' }}>
-                            UK
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="option3"
-                            name="option3"
-                          />
-                          <label htmlFor="option3" className="form-check-label px-2 fw-bold" style={{ fontSize: '14px' }}>
-                            Europe
-                          </label>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
+              <div className="form-check">
+                <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" />
+                <label className="form-check-label" htmlFor="flexCheckDefault">Scholarship</label>
+              </div>
+              <div className="py-1">
+                <div className='fw-bold py-1'>Level of Interest</div>
+                <select className="form-select" aria-label="Default select example">
+                  <option defaultValue>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div className="py-1">
+                <div className='fw-bold py-1'>Area of Specialisation</div>
+                <select className="form-select" aria-label="Default select example">
+                  <option defaultValue>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
               </div>
             </div>
-            <div className="row ">
-              <div className="d-flex flex-row align-items-center justify-content-evenly mt-4">
+          </div>
+        </div>
+      </div>
 
+     
 
-                <div className="">
-                  <button type="button" className="btn btn-danger">Apply</button>
-                </div>
-                <div className="">
-                  <button type="button" className="btn btn-dark">Reset</button>
-                </div>
-              </div>
-            </div>
-   
+      <div className="row mt-3">
+        <div className="d-flex flex-row align-items-center justify-content-end gap-3">
+          <div>
+            <button type="button" className="btn btn-danger text-white px-4 py-2 text-uppercase fw-semibold " style={{fontSize:'12px'}}>Apply</button>
+          </div>
+          <div>
+            <button type="reset" className="btn btn-dark  text-white px-4 py-2 text-uppercase fw-semibold" style={{fontSize:'12px'}}>Reset</button>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
-           
+  
+</div>
 
 
-
-          </div>
 
 
           <div className="col-xl-12 justify-content-end align-items-center" data-aos="zoom-in">
             <div className="row">
               <div className="col">
-                <div className="dropdown float-end">
-                  <button className="btn text-dark btn-light text-capitalize fw-normal dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div className="dropdown border-0  program-dropdown float-end">
+                  <button className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{fontSize:'13px'}} >
                     Sort By
                   </button>
-                  <ul className="dropdown-menu">
-                    <ul class="nav fs-9" id="myTab" role="tablist">
-                      <li class="nav-item"><a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
-                      <li class="nav-item"><a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
+                  <ul className="dropdown-menu border-0 shadow-sm">
+                    <ul class="nav " id="myTab" role="tablist"  style={{fontSize:'11px',color:'#231f20'}}>
+                      <li class="nav-item"><a class="nav-link text-dark active" id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
+                      <li class="nav-item"><a class="nav-link text-dark" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
 
                     </ul>
                   </ul>
@@ -354,7 +282,7 @@ const Program = () => {
                         <div class="row g-0">
                           <div class="col-md-1">
                             <div className=" ">
-                              <img src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/05/11161532/Chicago-University-Logo.png" class="img-fluid rounded-pill " alt="..." />
+                              <img src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/05/11161532/Chicago-University-Logo.png" class="img-fluid rounded-pill mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
                             </div>
 
                           </div>
