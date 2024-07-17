@@ -1,20 +1,62 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from 'react';
+import { getFilterUniversity } from "../api/university";
+import { Link , useNavigate} from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
-import { Link } from "react-router-dom";
-
-import Footer from '../Components/Footer/Footer'
+import Footer from '../Components/Footer/Footer';
 import { FaArrowRight } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
+import { Dialog, DialogContent, DialogTitle, IconButton, Pagination, radioClasses, } from "@mui/material";
 import 'animate.css';
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 import { FaFilter } from "react-icons/fa";
 export const University = () => {
+  const [university, setUniversity] = useState([]);
+  const pageSize = 8;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
+  const navigate = useNavigate();
+
+ 
+
+
+  useEffect(() => {
+    getAllUniversityDetails();
+  }, [pagination.from, pagination.to]);
+
+  const getAllUniversityDetails = () => {
+    const data = {
+      limit: 8,
+      page: pagination.from,
+    };
+    getFilterUniversity(data)
+    .then((res) => {
+      console.log(res?.data?.result?.universityList);
+      setUniversity(res?.data?.result?.universityList);
+      setPagination({
+        ...pagination,
+        count: res?.data?.result?.programCount,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
+
+
+ 
   useEffect(() => {
     AOS.init({
         duration: 1000, // Control animation duration
@@ -275,26 +317,26 @@ export const University = () => {
               <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
 
                 <div className="row " >
-                  {[...Array(4)].map((_, i) => (
-                    <div className="col-xl-12 " data-aos="fade-up" key={i}>
+                {university.map((data,index) => (
+                    <div className="col-xl-12 " data-aos="fade-up"key={index}>
                       <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
                         <div class="row g-0">
                           <div class="col-md-1">
                             <div className="text-center ">
-                              <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                            <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
                             </div>
 
                           </div>
                           <div class="col-md-11">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
-                                <h6 className="">University Name</h6>
-                                <p className=" pt-2 ">Course Fee : $99999</p>
-                                <p className="  pt-2 ">Course : React</p>
-                                <p className="  pt-2  ">Country : USA</p>
-                                <p className="  pt-2 ">Intake : Summer</p>
+                                <h6 className="">{data.universityName}</h6>
+                                <p className=" pt-2 ">Course Fee :{data?.averageFees}</p>
+                                <p className="  pt-2 ">Course : {data?.courseType.join(", ") }</p>
+                                <p className="  pt-2  ">Country :{data?.country}</p>
+                                <p className="  pt-2 ">Intake : {data?.inTake.join(", ")}</p>
 
-                                <Link to="/ViewUniversity" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+                                <Link  to={{ pathname: "/View-University", search: `?id=${data?._id}`, }} className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
                               </div>
 
@@ -305,27 +347,36 @@ export const University = () => {
                       </div>
                     </div>
                   ))}
+                   <div className="float-end my-2">
+                  <Pagination
+                    count={Math.ceil(pagination.count / pageSize)}
+                    onChange={handlePageChange}
+                    variant="outlined"
+                    shape="rounded"
+                    color="primary"
+                  />
+                </div>
                 </div>
               </div>
               <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
   <div className="row g-4">
-    {[...Array(8)].map((_, i) => (
-      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={i} data-aos="fade-up">
+  {university.map((data,index) => (
+      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={index} data-aos="fade-up">
         <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
           <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
-            <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid" alt="img" />
-            <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
+            <img src={data?.banner?data?.banner:"https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg"} className="card-img-top img-fluid" alt="img" />
+            <img src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
           </div>
           <div className="card-body">
-            <h6 className="text-center">University Name</h6>
+            <h6 className="text-center">{data?.universityName}</h6>
             <div className="d-flex flex-row justify-content-between">
               <div className="d-flex flex-column">
-                <p className="">Course Fee: <b>$99999</b></p>
-                <p className="">Course: <b>React</b></p>
+                <p className="">Course Fee: <b>{data?.averageFees}</b></p>
+                <p className="">Course: <b>{data?.courseType.join(", ") }</b></p>
               </div>
               <div className="d-flex flex-column">
-                <p className="">Country: <b>New York</b></p>
-                <p className="">Intake: <b>Summer</b></p>
+                <p className="">Country: <b>{data?.country}</b></p>
+                <p className="">Intake: <b>{data?.inTake.join(", ") }</b></p>
               </div>
             </div>
             <div className="text-center">

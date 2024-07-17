@@ -1,6 +1,6 @@
 import Navbar from "../Components/Navbar/Navbar";
 import React, { useEffect, useState } from 'react';
-import { getAllProgramForWeb,getallProgram,getFilterProgram } from "../api/program";
+import {getFilterProgram } from "../api/program";
 import { Link , useNavigate} from "react-router-dom";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
@@ -331,10 +331,12 @@ const Program = () => {
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
                                 <h6 className="">{data.universityName}</h6>
-                                <p className=" pt-2 ">Course Fee : {data.courseFees}</p>
+                                <p className=" pt-2 ">Course Fee :{data?.campuses?.length > 0 ? data?.campuses[1]?.courseFees : "Not Available"}
+                                </p>
                                 <p className="  pt-2 ">Course : {data.programTitle}</p>
                                 <p className="  pt-2  ">Country : {data.country}</p>
-                                <p className="  pt-2 ">Intake : {data?.inTake}</p>
+                                <p className="  pt-2 ">Intake :{data?.campuses?.length > 0 ? data?.campuses[1]?.inTake : "Not Available"}
+                                </p>
 
                                 <Link  to={{ pathname: "/View-Program", search: `?id=${data?._id}`, }} target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 

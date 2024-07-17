@@ -45,16 +45,8 @@ const ViewProgram = () => {
                       <div className="card-header rounded-0 border-0   img-1 ">
                         <div className="row g-3 mt-2">
                           <div className="col-lg-4 ">
-                            <img
-                              src={
-                                program?.universityLogo
-                                  ? program?.universityLogo
-                                  : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
-                              }
-                              className="img-fluid rounded-circle img-thumbnail mx-auto d-block"
-                              style={{ width: "7rem", height: "7rem" }}
-                              alt="Berry College Campus"
-                            />
+                          <img  src={program?.universityLogo?program?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'7rem',height:'7rem'}} />
+
                           </div>
                           <div className="col-lg-8">
                             <div className="d-flex flex-row justify-content-between align-items-start">
@@ -179,7 +171,7 @@ const ViewProgram = () => {
                                   {program?.academicRequirement}
                                 </p>
                                 <div className="text-end">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link></div>
+                                 <Link to="https://crm.edufynd.in/" target="_blank"  className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link></div>
                                
                               </div>
                               <div
@@ -201,19 +193,8 @@ const ViewProgram = () => {
                                                 height: "9rem",
                                               }}
                                             >
-                                              <img
-                                                src={
-                                                  program?.universityLogo
-                                                    ? program?.universityLogo
-                                                    : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
-                                                }
-                                                className="card-img-top img-fluid rounded-circle mx-auto d-block img-thumbnail"
-                                                style={{
-                                                  width: "5rem",
-                                                  height: "5rem",
-                                                }}
-                                                alt="img"
-                                              />
+                                            <img  src={program?.universityLogo?program?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+
                                               <div className="card-body">
                                                 <p className="card-text text-center">
                                                   {campus.campus}
@@ -235,7 +216,7 @@ const ViewProgram = () => {
                                    
                                 </div>
                                 <div className="text-end mt-5">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 <Link to="https://crm.edufynd.in/"   className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                               </div>
                               <div
@@ -266,7 +247,7 @@ const ViewProgram = () => {
                                      
                                   </div>
                                     <div className="text-end mt-5">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 <Link to="https://crm.edufynd.in/" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
                               </div>
@@ -296,7 +277,7 @@ const ViewProgram = () => {
                                     
                                   </div>
                                     <div className="text-end mt-5">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 <Link to="https://crm.edufynd.in/" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
                               </div>
