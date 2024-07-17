@@ -2,7 +2,7 @@ import { RiCoinsFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-import {getSingleProgram} from "../api/program";
+import { getSingleProgram } from "../api/program";
 import Flags from "react-world-flags";
 import Navbar from "../Components/Navbar/Navbar";
 import { RiMiniProgramFill } from "react-icons/ri";
@@ -29,12 +29,10 @@ const ViewProgram = () => {
 
   return (
     <>
-     <Navbar />
+      <Navbar />
       <div style={{ fontFamily: "Plus Jakarta Sans", fontSize: "14px" }}>
         <div className="container-fluid mt-5">
-          <div className="navbar navbar-vertical navbar-expand-lg">
-           
-          </div>
+
           <div
             className="content-wrapper"
             style={{ fontFamily: "Plus Jakarta Sans", fontSize: "13px" }}
@@ -50,7 +48,7 @@ const ViewProgram = () => {
                             <img
                               src={
                                 program?.universityLogo
-                                  ?program?.universityLogo
+                                  ? program?.universityLogo
                                   : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
                               }
                               className="img-fluid rounded-circle img-thumbnail mx-auto d-block"
@@ -61,7 +59,7 @@ const ViewProgram = () => {
                           <div className="col-lg-8">
                             <div className="d-flex flex-row justify-content-between align-items-start">
                               <div className="d-flex flex-column">
-                              <p className="text-black mb-1 fw-bold">
+                                <p className="text-black mb-1 fw-bold">
                                   <span
                                     className="me-2 text-uppercase"
                                     style={{ color: "#fe5722" }}
@@ -89,9 +87,9 @@ const ViewProgram = () => {
                                   {program?.country}
                                 </p>
                               </div>
-                             
+
                             </div>
-                           
+
                           </div>
                         </div>
                       </div>
@@ -180,6 +178,9 @@ const ViewProgram = () => {
                                 >
                                   {program?.academicRequirement}
                                 </p>
+                                <div className="text-end">
+                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link></div>
+                               
                               </div>
                               <div
                                 class="tab-pane fade"
@@ -190,8 +191,8 @@ const ViewProgram = () => {
                                 <div className="row">
                                   <div className=" border-0 pt-3 px-4">
                                     <div className="row">
-                                    {Array.isArray(program?.campuses) &&
-        program.campuses.map((campus, index) => (
+                                      {Array.isArray(program?.campuses) &&
+                                        program.campuses.map((campus, index) => (
                                           <div key={index} className="col-sm-4">
                                             <div
                                               className="card border-0 rounded-3 shadow"
@@ -215,15 +216,25 @@ const ViewProgram = () => {
                                               />
                                               <div className="card-body">
                                                 <p className="card-text text-center">
-                                                {campus.campus}
+                                                  {campus.campus}
                                                 </p>
-                                               
+
                                               </div>
+
+                               
+                             
+
                                             </div>
+                                                                                          
+
                                           </div>
                                         ))}
                                     </div>
+                                   
                                   </div>
+                                    <div className="text-end">
+                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 </div>
                                 </div>
                               </div>
                               <div
@@ -235,20 +246,27 @@ const ViewProgram = () => {
                                 <div className="row">
                                   <div className=" border-0 pt-3 px-4">
                                     <div className="row">
-                                    {Array.isArray(program?.campuses) &&
-        program.campuses.map((campus, index) => (
-                                            <div
-                                              key={index}
-                                              className="card card-body shadow border-0 rounded  mb-2 "
-                                            >
-                                              <span className="text-dark fw-bolder d-flex align-items-center justify-content-center gap-2 text-uppercase">
+                                      {Array.isArray(program?.campuses) &&
+                                        program.campuses.map((campus, index) => (
+                                          <div
+                                            key={index}
+                                            className="card card-body shadow border-0 rounded  mb-2 "
+                                          >
+                                            <span className="text-dark fw-bolder d-flex align-items-center justify-content-center gap-2 text-uppercase">
                                               {campus?.inTake}
-                                              </span>
-                                            </div>
-                                          )
+                                            </span>
+                                          </div>
+                                         
+                               
+                              
+                                        )
                                         )}
                                     </div>
+                                     
                                   </div>
+                                    <div className="text-end mt-3">
+                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 </div>
                                 </div>
                               </div>
                               <div
@@ -274,7 +292,11 @@ const ViewProgram = () => {
                                           )
                                         )}
                                     </div>
+                                    
                                   </div>
+                                    <div className="text-end mt-3">
+                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 </div>
                                 </div>
                               </div>
                             </div>
@@ -293,10 +315,10 @@ const ViewProgram = () => {
                                 <div className="row gy-3 py-2">
                                   <div className="col-sm-6 visually-hidden">
                                     <div className=" fw-light text-lead text-capitalize">
-                                    CourseType
+                                      CourseType
                                     </div>
                                     <div className="fw-semibold text-capitalize">
-                                    {program?.courseType}
+                                      {program?.courseType}
                                     </div>
                                   </div>
                                   <div className="col-sm-6 visually-hidden">
@@ -314,9 +336,9 @@ const ViewProgram = () => {
                                   </div>
                                 </div>
                                 <div className="row gy-3 py-2">
-                                <div className="col-sm-6">
+                                  <div className="col-sm-6">
                                     <div className=" fw-light text-lead text-capitalize">
-                                    Application Fee
+                                      Application Fee
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
                                     {program?.finalValue?program?.finalValue:program?.applicationFee?program?.applicationFee:"Not Available"}
@@ -324,32 +346,32 @@ const ViewProgram = () => {
                                   </div>
                                   <div className="col-sm-6">
                                     <div className=" fw-light text-lead text-capitalize">
-                                    Estimated Annual Course Fee
+                                      Estimated Annual Course Fee
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                    {program?.campuses?.length > 0 ? program?.campuses[1]?.courseFees : "Not Available"}                                 
+                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.courseFees : "Not Available"}
                                     </div>
                                   </div>
                                 </div>
                                 <div className="row gy-3 py-2">
                                   <div className="col-sm-6  ">
                                     <div className=" fw-light text-lead text-capitalize">
-                                    Duration
+                                      Duration
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                    {program?.campuses?.length > 0 ? program?.campuses[1]?.duration : "Not Available"}
+                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.duration : "Not Available"}
                                     </div>
                                   </div>
                                   <div className="col-sm-6">
                                     <div className=" fw-light text-lead text-capitalize">
-                                    Discounted Value
+                                      Discounted Value
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
                                     {program?.discountedValue}
                                     </div>
                                   </div>
                                 </div>
-                                
+
                               </div>
                             </div>
                           </div>
