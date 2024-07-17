@@ -31,7 +31,7 @@ const ViewProgram = () => {
     <>
       <Navbar />
       <div style={{ fontFamily: "Plus Jakarta Sans", fontSize: "14px" }}>
-        <div className="container-fluid mt-5">
+        <div className="container-fluid mt-5 pt-5">
 
           <div
             className="content-wrapper"
