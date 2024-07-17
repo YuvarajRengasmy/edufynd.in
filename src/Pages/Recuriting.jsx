@@ -8,6 +8,8 @@ import cta_4_shape2 from '../assets/img/normal/cta_4_shape2.png'
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
+import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
+import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
 export const Recuriting = () => {
   return (
     <div>
@@ -44,20 +46,9 @@ export const Recuriting = () => {
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
   </Helmet>
       <Navbar/>
-      <div className="container">
-    <div className="row">
-        <div className="col">
-          <a href="https://api.whatsapp.com/send/?phone=919840591820&text&type=phone_number&app_absent=0" className="">
-          <div className="whatsapp-bottom" style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000' }}>
-                <div className="logo">
-                    <span className='rounded-circle badge p-3 fs-3 text-white' style={{backgroundColor:'rgb(37, 211, 102)',color:'#fff'}}><FaWhatsapp /></span>
-                </div>
-            </div>
-          </a>
-           
-        </div>
-    </div>
-</div>
+     
+      <FixedEnquiry/>
+      <FixedWhatsapp/>
 <div className="container">
     <div className="row">
         <div className="col">

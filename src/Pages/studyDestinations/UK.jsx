@@ -5,6 +5,10 @@ import { FaArrowRight } from "react-icons/fa6";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
+import  FixedEnquiry from '../../Components/fixed compoents/FixedEnquiry'
+import FixedWhatsapp from '../../Components/fixed compoents/FixedWhatsapp'
+import StudentEnquiry from '../../Components/fixed compoents/StudentEnquiry'
+import { Link } from 'react-router-dom';
 export const UK = () => {
   return (
     <div>
@@ -117,6 +121,8 @@ export const UK = () => {
         />
       </Helmet>
     <Navbar/>
+    <FixedEnquiry/>
+    <FixedWhatsapp/>
    <div className="container-fluid position-relative my-5" style={{
           
           backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
@@ -134,17 +140,17 @@ export const UK = () => {
             <div className="text-uppercase text-white text-center fs-2 fw-bold">STUDY IN UK</div>
             <div className="d-flex flex-row align-items-center justify-content-center gap-3">
               <div>
-                <a href="/" className="text-decoration-none text-white fs-5">
+                <Link href="/" className="text-decoration-none text-white fs-5">
                   Home
-                </a>
+                </Link>
               </div>
               <div className="text-white">
                 <FaArrowRight />
               </div>
               <div>
-                <a href="/StudyDestination" className="text-decoration-none text-white fs-5">
+                <Link href="/StudyDestination" className="text-decoration-none text-white fs-5">
                   Study Destinations
-                </a>
+                </Link>
               </div>
               <div className="text-white">
                 <FaArrowRight />
@@ -172,10 +178,10 @@ export const UK = () => {
           </div>
           <div className="border my-4">
             <ul class="nav nav-pills rounded-0 fs-9"  id="myTab" role="tablist">
-              <li class="nav-item px-1" role="presentation"  ><a class="nav-link text-uppercase active fw-bold p-3 rounded-0" style={{color:'#fe5722'}} id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="false" tabindex="-1"> <span><FaBookmark /></span > why choose  uk</a></li>
-              <li class="nav-item  px-1" role="presentation"><a class="nav-link text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false" tabindex="-1"><span><FaBookmark /></span >benefits of uk</a></li>
-              <li class="nav-item  px-1" role="presentation"><a class="nav-link text-uppercase  fw-bold p-3 rounded-0"  style={{color:'#fe5722'}}  id="contact-tab" data-bs-toggle="tab" href="#tab-contact" role="tab" aria-controls="tab-contact" aria-selected="true"><span><FaBookmark /></span >Top courses in uk</a></li>
-              <li class="nav-item  px-1" role="presentation"><a class="nav-link  text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="about-tab" data-bs-toggle="tab" href="#about-contact" role="tab" aria-controls="about-contact" aria-selected="true"><span><FaBookmark /></span >cost of living</a></li>
+              <li class="nav-item px-1" role="presentation"  ><Link class="nav-link text-uppercase active fw-bold p-3 rounded-0" style={{color:'#fe5722'}} id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="false" tabindex="-1"> <span><FaBookmark /></span > why choose  uk</Link></li>
+              <li class="nav-item  px-1" role="presentation"><Link class="nav-link text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false" tabindex="-1"><span><FaBookmark /></span >benefits of uk</Link></li>
+              <li class="nav-item  px-1" role="presentation"><Link class="nav-link text-uppercase  fw-bold p-3 rounded-0"  style={{color:'#fe5722'}}  id="contact-tab" data-bs-toggle="tab" href="#tab-contact" role="tab" aria-controls="tab-contact" aria-selected="true"><span><FaBookmark /></span >Top courses in uk</Link></li>
+              <li class="nav-item  px-1" role="presentation"><Link class="nav-link  text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="about-tab" data-bs-toggle="tab" href="#about-contact" role="tab" aria-controls="about-contact" aria-selected="true"><span><FaBookmark /></span >cost of living</Link></li>
             </ul>
             <div class="tab-content mt-3" id="myTabContent">
               <div class="tab-pane fade show active p-4" id="tab-home" role="tabpanel" aria-labelledby="home-tab">
@@ -327,248 +333,211 @@ export const UK = () => {
         </div>
         <div className="col-md-3">
 
-          <ul class="list-group list-group-flush border rounded-2 p-4">
-            <h4 className='text-center py-2'>Countries</h4>
-            <li class="list-group-item py-3" ><a href="" className="text-decoration-none "  style={{ color: '#fe5722' }}>Study in USA</a></li>
-            <li class="list-group-item  active border-0 py-3" style={{ backgroundColor: '#fe5722' }}><a href="" className="text-decoration-none text-white" style={{ color: '#fe5722' }}>Study in UK</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Canada</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Australia</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Ireland</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in New Zealand</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Europe</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in France</a></li>
-            <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Singapore</a></li>
+        <ul class="list-group list-group-flush border rounded-2 p-4">
+              <h4 className='text-center py-2'>Countries</h4>
+              <li class="list-group-item py-3" ><Link to="/Study-In-USA" className="text-decoration-none "  style={{ color: '#fe5722' }}>Study in USA</Link></li>
+              <li class="list-group-item  active border-0 py-3" style={{ backgroundColor: '#fe5722' }}><Link to="/Study-In-UK" className="text-decoration-none text-white" style={{ backgroundColor: '#fe5722' }}>Study in UK</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Canada" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Canada</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Australia" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Australia</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Ireland" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Ireland</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-New-Zealand" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in New Zealand</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Europe" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Europe</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-France" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in France</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Signapore" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Singapore</Link></li>
 
-          </ul>
-          <div className=" card  my-3 bg-light" >
-            <h5 className="card-title text-center fw-bold p-2" style={{color:'#fe5722'}}>ENQUIRY WITH US!</h5>
-            <img src="https://harnesstechniques.com/img/enquiry.jpg" alt="" className="card-img-top rounded-0 h-100 p-2 rounded-0" />
-            <form action="" className="p-2">
-              
-        
-            <div class="form-floating mb-3">
-                      <input class="form-control " id="floatingInput" type="email" placeholder="Your Name"/>
-                      <label for="floatingInput">Your Name</label>
-                    </div>
-            <div class="form-floating mb-3">
-                      <input class="form-control" id="floatingInput" type="email" placeholder="Email Address"/>
-                      <label for="floatingInput">Email Address</label>
-                    </div>
-                    <div class="input-group mb-3">
-<button class="btn dropdown-toggle" style={{backgroundColor:'#fe5722',color:'#fff'}} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-<ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="#">+91 India</a></li>
-  <li><a class="dropdown-item" href="#">+91 India</a></li>
-  <li><a class="dropdown-item" href="#">+91 India</a></li>
- 
-  
-</ul>
-<input type="text" class="form-control" aria-label="Text input with dropdown button"/>
-</div>
-
-<div class="form-floating mb-3">
-                      <textarea class="form-control" id="floatingTextarea2" placeholder="Leave a comment here" style={{height:" 100px"}}></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-               <div className=" text-center mb-3">
-                <a href="" className="btn text-uppercase text-white fw-bold" style={{backgroundColor:'#fe5722'}}>send message</a>
-                </div>  
-                  
-                  
-                  
-            </form>
-          </div>
+            </ul>
+          <StudentEnquiry/>
 
         </div>
       </div>
     </div>
     <div className="container my-5">
-      <div className="row">
-        <h4 className="text-center fw-bold text-uppercase" style={{color:'#fe5722'}}>RELATED COUNTRIES</h4>
-        <h2 className="text-center fw-bold "  style={{color:'#0f2239'}}> <span style={{fontWeight:'bolder'}}>O</span>ther  <span style={{fontWeight:'bolder'}}>S</span>tudy  <span style={{fontWeight:'bolder'}}>B</span>road  <span style={{fontWeight:'bolder'}}>D</span>estination</h2>
-     
-        <section class="slide-option my-5">
-  <div id="infinite" class="highway-slider">
-      <div class="container highway-barrier">
-          <ul class="highway-lane">
-              <li class="highway-car">
-                  <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in UK</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Canada</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Australia</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Ireland</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in New Zealand</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Singapore</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in France</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Europe</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              
-              
-              
-              
-          </ul>
-          <ul class="highway-lane">
-              <li class="highway-car">
-                  <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in UK</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Canada</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Australia</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Ireland</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in New Zealand</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Singapore</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in France</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              <li class="highway-car">
-                  <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
-                      <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
-                      <div class="card-body">
-                          <h5 class="card-title">Study in Europe</h5>
-                          <hr />
-                          <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
-                      </div>
-                  </div>
-              </li>
-              
-              
-              
-              
-          </ul>
-      </div>
-  </div>
+        <div className="row">
+          <h4 className="text-center fw-bold text-uppercase" style={{color:'#fe5722'}}>RELATED COUNTRIES</h4>
+          <h2 className="text-center fw-bold "  style={{color:'#0f2239'}}> <span style={{fontWeight:'bolder'}}>O</span>ther  <span style={{fontWeight:'bolder'}}>S</span>tudy  <span style={{fontWeight:'bolder'}}>B</span>road  <span style={{fontWeight:'bolder'}}>D</span>estination</h2>
+       
+          <section class="slide-option my-5">
+    <div id="infinite" class="highway-slider">
+        <div class="container highway-barrier">
+            <ul class="highway-lane">
+                <li class="highway-car">
+                    <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in UK</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Canada</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Australia</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Ireland</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in New Zealand</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Singapore</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in France</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Europe</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                
+                
+                
+                
+            </ul>
+            <ul class="highway-lane">
+                <li class="highway-car">
+                    <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in UK</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Canada</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Australia</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Ireland</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in New Zealand</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Singapore</h5>
+                          
+                            <Link to="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in France</h5>
+                          
+                            <Link to="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                <li class="highway-car">
+                    <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
+                        <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Study in Europe</h5>
+                          
+                            <Link to='#'  class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
+                        </div>
+                    </div>
+                </li>
+                
+                
+                
+                
+            </ul>
+        </div>
+    </div>
 </section>
 
 
+        </div>
       </div>
-    </div>
     <Footer />
   </div>
   )

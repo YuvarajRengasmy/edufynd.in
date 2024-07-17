@@ -5,6 +5,8 @@ import { FaArrowRight } from "react-icons/fa6";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Helmet } from 'react-helmet';
+import  FixedEnquiry from '../../Components/fixed compoents/FixedEnquiry'
+import FixedWhatsapp from '../../Components/fixed compoents/FixedWhatsapp'
 export const Admission = () => {
   return (
     <div>
@@ -117,6 +119,8 @@ export const Admission = () => {
         />
       </Helmet>
         <Navbar/>
+        <FixedEnquiry/>
+        <FixedWhatsapp/>
         <div className="container-fluid position-relative my-5" style={{
             
             backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,

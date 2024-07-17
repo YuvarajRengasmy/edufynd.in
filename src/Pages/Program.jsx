@@ -174,45 +174,41 @@ const Program = () => {
       <div className="container  position-relative " data-aos="zoom-in-up" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
         <div className="row">
 
-        <div className="col">
+        <div className="col ">
         <button class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}> <span className="me-2"><FaFilter /></span> Filter</button>
 
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas offcanvas-start border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filter Program</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-  <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button className="accordion-button fw-semibold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Filter
-            </button>
-          </h2>
-          <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div className="accordion-body">
+  <div class="offcanvas-body ">
+ 
+       
+         
+         
+            
               <div className="mb-3">
                 <label className="form-label fw-semibold" htmlFor="exampleFormControlInput">Search by Program Title</label>
-                <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" />
+                <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
               </div>
               <div className="d-flex flex-row gap-3">
                 <div className="form-check">
-                  <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
+                  <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
                   <label className="form-check-label" htmlFor="flexRadioDefault1">Public</label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" />
+                  <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault"  style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
                   <label className="form-check-label" htmlFor="flexRadioDefault2">Private</label>
                 </div>
               </div>
               <div className="form-check">
-                <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" />
+                <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
                 <label className="form-check-label" htmlFor="flexCheckDefault">Scholarship</label>
               </div>
               <div className="py-1">
                 <div className='fw-bold py-1'>Level of Interest</div>
-                <select className="form-select" aria-label="Default select example">
+                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
                   <option defaultValue>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -221,17 +217,17 @@ const Program = () => {
               </div>
               <div className="py-1">
                 <div className='fw-bold py-1'>Area of Specialisation</div>
-                <select className="form-select" aria-label="Default select example">
+                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
                   <option defaultValue>Open this select menu</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
                   <option value="3">Three</option>
                 </select>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            
+          
+       
+      
 
      
 
@@ -257,13 +253,13 @@ const Program = () => {
             <div className="row">
               <div className="col">
                 <div className="dropdown border-0  program-dropdown float-end">
-                  <button className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{fontSize:'13px'}} >
+                  <button className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle" type="button"  aria-expanded="false" style={{fontSize:'13px',backgroundColor:'#231f20',color:'#fff'}} >
                     Sort By
                   </button>
                   <ul className="dropdown-menu border-0 shadow-sm">
                     <ul class="nav " id="myTab" role="tablist"  style={{fontSize:'11px',color:'#231f20'}}>
-                      <li class="nav-item"><a class="nav-link text-dark active" id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
-                      <li class="nav-item"><a class="nav-link text-dark" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
+                      <li class="nav-item"><a class="nav-link text-dark " id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
+                      <li class="nav-item"><a class="nav-link text-dark active" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
 
                     </ul>
                   </ul>
@@ -273,29 +269,29 @@ const Program = () => {
 
 
             <div class="tab-content mt-3" id="myTabContent">
-              <div class="tab-pane fade show active" id="tab-home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
 
-                <div className="row gx-5 gy-4 overflow-hidden" >
+                <div className="row " >
                   {[...Array(4)].map((_, i) => (
-                    <div className="col-xl-12 " data-aos="fade-left" key={i}>
-                      <div class="card mb-3 border-0 shadow p-3" style={{ height: '6rem' }}>
+                    <div className="col-xl-12 " data-aos="fade-up" key={i}>
+                      <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
                         <div class="row g-0">
                           <div class="col-md-1">
-                            <div className=" ">
-                              <img src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/05/11161532/Chicago-University-Logo.png" class="img-fluid rounded-pill mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                            <div className="text-center ">
+                              <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
                             </div>
 
                           </div>
                           <div class="col-md-11">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
-                                <h6 className="card-text">University Name</h6>
-                                <p className="card-text pt-2 ">Course Fee : $99999</p>
-                                <p className="card-text  pt-2 ">Course : React</p>
-                                <p className="card-text  pt-2  ">Country : USA</p>
-                                <p className="card-text  pt-2 ">Intake : Summer</p>
+                                <h6 className="">University Name</h6>
+                                <p className=" pt-2 ">Course Fee : $99999</p>
+                                <p className="  pt-2 ">Course : React</p>
+                                <p className="  pt-2  ">Country : USA</p>
+                                <p className="  pt-2 ">Intake : Summer</p>
 
-                                <button className="btn btn-sm text-white fw-semibold text-uppercase text-center border-0" style={{ backgroundColor: '#fe5722' }}>Apply</button>
+                                <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
 
                               </div>
 
@@ -308,30 +304,37 @@ const Program = () => {
                   ))}
                 </div>
               </div>
-              <div class="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div className="row gx-5 gy-4">
-                  {[...Array(4)].map((_, i) => (
-                    <div className="col-xl-3 col-md-6 col-sm-12" key={i}>
-                      <div className="card border-0 position-relative shadow" style={{}}>
-
-                        <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid  " alt="img" />
-                        <img src="https://t3.ftcdn.net/jpg/04/91/76/62/360_F_491766294_h4j7LbW2YgfbNHhq7F8GboIc1XyBSEY5.jpg" style={{ width: '75px', height: '75px', left: '30%', top: '1%' }} alt="no image" className="img-fluid rounded-pill position-absolute " />
-
-                        <div className="card-body">
-                          <h6 className="card-title text-center">University Name</h6>
-                          <p className="card-text text-center">Course Fee : $99999</p>
-                          <p className="card-text text-center">Course : React</p>
-                          <p className="card-text text-center">Country : USA</p>
-                          <p className="card-text text-center">Intake : Summer</p>
-                          <div className="text-center">
-                            <button className="btn text-white fw-semibold text-uppercase text-center border-0" style={{ backgroundColor: '#fe5722' }}>Apply</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
+  <div className="row g-4">
+    {[...Array(8)].map((_, i) => (
+      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={i} data-aos="fade-up">
+        <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
+          <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
+            <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid" alt="img" />
+            <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
+          </div>
+          <div className="card-body">
+            <h6 className="text-center">Program Name</h6>
+            <div className="d-flex flex-row justify-content-between">
+              <div className="d-flex flex-column">
+                <p className="">Course Fee: <b>$99999</b></p>
+                <p className="">Course: <b>React</b></p>
               </div>
+              <div className="d-flex flex-column">
+                <p className="">Country: <b>New York</b></p>
+                <p className="">Intake: <b>Summer</b></p>
+              </div>
+            </div>
+            <div className="text-center">
+              <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
             </div>
 

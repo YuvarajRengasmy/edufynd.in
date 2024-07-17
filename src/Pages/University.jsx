@@ -9,6 +9,9 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
 import 'animate.css';
+import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
+import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
+import { FaFilter } from "react-icons/fa";
 export const University = () => {
   useEffect(() => {
     AOS.init({
@@ -19,7 +22,7 @@ export const University = () => {
 }, []);
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>EduFynd</title>
@@ -127,334 +130,223 @@ export const University = () => {
           rel="stylesheet"
         />
       </Helmet>
-    <Navbar />
-    <div className="container">
+
+      <Navbar />
+    
+<FixedEnquiry/>
+<FixedWhatsapp/>
+
+<div className="container-fluid position-relative my-5" style={{
+        
+        backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
+        backgroundSize: 'cover', // Ensure the image covers the container
+        backgroundPosition: 'center', // Center the background image
+        height: '300px', // Set a height to see the background image
+        backgroundColor:'rgba(0,0,0,0.5)',
+        backgroundBlendMode:'multiply'
+      }}>
   <div className="row">
-      <div className="col">
-        <a href="https://api.whatsapp.com/send/?phone=919840591820&text&type=phone_number&app_absent=0" className="">
-        <div className="whatsapp-bottom" style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000' }}>
-              <div className="logo">
-                  <span className='rounded-circle badge p-3 fs-3 text-white' style={{backgroundColor:'rgb(37, 211, 102)',color:'#fff'}}><FaWhatsapp /></span>
-              </div>
-          </div>
-        </a>
+    <div className="col-lg-12">
+     
+ 
+        <div className="position-absolute top-50 start-50 translate-middle">
+          <div className="text-uppercase text-white text-center fs-2 fw-bold">University</div>
+          <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+            <div>
+              <a href="/" className="text-decoration-none text-white fs-5">
+                Home
+              </a>
+            </div>
+           
          
-      </div>
-  </div>
-</div>
-<div className="container">
-  <div className="row">
-      <div className="col">
-          <button class="btn rounded-0 fixed-button " type='button'  data-bs-toggle="modal" data-bs-target="#exampleModa2" >
-              E <br /> n  <br /> q  <br />u  <br />i  <br />r  <br />y
-          </button>
-          <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe2" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Enquiry Form</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form action="" className="">
-      <div class="form-floating mb-3">
-<input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name.."/>
-<label for="floatingInput">Enter Your Name..</label>
-</div>
-<div class="form-floating mb-3">
-<input type="email" class="form-control" id="floatingPassword" placeholder="Enter Your Email.."/>
-<label for="floatingPassword">Enter Your Email..</label>
-</div>
-<div class="input-group mb-3">
-<button class="btn dropdown-toggle" style={{backgroundColor:'#fe5722',color:'#fff'}} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-<ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="#">+91</a></li>
-  <li><a class="dropdown-item" href="#">+91</a></li>
-  <li><a class="dropdown-item" href="#">+91</a></li>
- 
- 
-</ul>
-<input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder='Enter Your Phone..' />
-</div>
-<div class="form-floating mb-3">
-<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{height:" 100px"}}></textarea>
-<label for="floatingTextarea2">Type Message</label>
-</div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Send</button>
-      <button type="button" class="btn btn-danger">Close</button>
-    </div>
-  </div>
-</div>
-</div>
-      </div>
-  </div>
-</div>
-    <div className="container-fluid  my-5" style={{
-          
-          backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-          backgroundSize: 'cover', // Ensure the image covers the container
-          backgroundPosition: 'center', // Center the background image
-          height: '300px', // Set a height to see the background image
-          backgroundColor:'rgba(0,0,0,0.7)',
-          backgroundBlendMode:'multiply'
-        }}>
-    <div className="row">
-      <div className="col-lg-12">
-      
+            <div className="text-white">
+              <FaArrowRight />
+            </div>
+            <div className="text-white fs-5">University</div>
+          </div>
+        </div>
    
-          <div className="position-absolute top-50 start-50 translate-middle">
-            <div className="text-uppercase text-white text-center fs-2 fw-bold">Program</div>
-            <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-              <div>
-                <a href="/" className="text-decoration-none text-white fs-6">
-                  Home
-                </a>
+    </div>
+  </div>
+</div>
+
+
+
+      <div className="container  position-relative " data-aos="zoom-in-up" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
+        <div className="row">
+
+        <div className="col ">
+        <button class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}> <span className="me-2"><FaFilter /></span> Filter</button>
+
+<div class="offcanvas offcanvas-start border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filter Program</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body ">
+ 
+       
+         
+         
+            
+              <div className="mb-3">
+                <label className="form-label fw-semibold" htmlFor="exampleFormControlInput">Search by University Title</label>
+                <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
               </div>
-              <div className="text-white">
-                <FaArrowRight />
+              <div className="d-flex flex-row gap-3">
+                <div className="form-check">
+                  <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
+                  <label className="form-check-label" htmlFor="flexRadioDefault1">Public</label>
+                </div>
+                <div className="form-check">
+                  <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault"  style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
+                  <label className="form-check-label" htmlFor="flexRadioDefault2">Private</label>
+                </div>
               </div>
-             
-              <div className="text-white fs-6">Program</div>
+              <div className="form-check">
+                <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
+                <label className="form-check-label" htmlFor="flexCheckDefault">Scholarship</label>
+              </div>
+              <div className="py-1">
+                <div className='fw-bold py-1'>Level of Interest</div>
+                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
+                  <option defaultValue>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div className="py-1">
+                <div className='fw-bold py-1'>Area of Specialisation</div>
+                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
+                  <option defaultValue>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            
+          
+       
+      
+
+     
+
+      <div className="row mt-3">
+        <div className="d-flex flex-row align-items-center justify-content-end gap-3">
+          <div>
+            <button type="button" className="btn btn-danger text-white px-4 py-2 text-uppercase fw-semibold " style={{fontSize:'12px'}}>Apply</button>
+          </div>
+          <div>
+            <button type="reset" className="btn btn-dark  text-white px-4 py-2 text-uppercase fw-semibold" style={{fontSize:'12px'}}>Reset</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  
+</div>
+
+
+
+
+          <div className="col-xl-12 justify-content-end align-items-center" data-aos="zoom-in">
+            <div className="row">
+              <div className="col">
+                <div className="dropdown border-0  program-dropdown float-end">
+                  <button className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle" type="button"  aria-expanded="false" style={{fontSize:'13px',backgroundColor:'#231f20',color:'#fff'}} >
+                    Sort By
+                  </button>
+                  <ul className="dropdown-menu border-0 shadow-sm">
+                    <ul class="nav " id="myTab" role="tablist"  style={{fontSize:'11px',color:'#231f20'}}>
+                      <li class="nav-item"><a class="nav-link text-dark " id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
+                      <li class="nav-item"><a class="nav-link text-dark active" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
+
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="tab-content mt-3" id="myTabContent">
+              <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
+
+                <div className="row " >
+                  {[...Array(4)].map((_, i) => (
+                    <div className="col-xl-12 " data-aos="fade-up" key={i}>
+                      <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
+                        <div class="row g-0">
+                          <div class="col-md-1">
+                            <div className="text-center ">
+                              <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                            </div>
+
+                          </div>
+                          <div class="col-md-11">
+                            <div class="card-body">
+                              <div className="d-flex flex-row align-items-center justify-content-between ">
+                                <h6 className="">University Name</h6>
+                                <p className=" pt-2 ">Course Fee : $99999</p>
+                                <p className="  pt-2 ">Course : React</p>
+                                <p className="  pt-2  ">Country : USA</p>
+                                <p className="  pt-2 ">Intake : Summer</p>
+
+                                <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
+
+                              </div>
+
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
+  <div className="row g-4">
+    {[...Array(8)].map((_, i) => (
+      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={i} data-aos="fade-up">
+        <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
+          <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
+            <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid" alt="img" />
+            <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
+          </div>
+          <div className="card-body">
+            <h6 className="text-center">University Name</h6>
+            <div className="d-flex flex-row justify-content-between">
+              <div className="d-flex flex-column">
+                <p className="">Course Fee: <b>$99999</b></p>
+                <p className="">Course: <b>React</b></p>
+              </div>
+              <div className="d-flex flex-column">
+                <p className="">Country: <b>New York</b></p>
+                <p className="">Intake: <b>Summer</b></p>
+              </div>
+            </div>
+            <div className="text-center">
+              <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
             </div>
           </div>
-     
+        </div>
       </div>
+    ))}
+  </div>
+</div>
+
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+      <Footer />
     </div>
-  </div>
-  
-     <div className="container  mb-5  position-relative " data-aos="zoom-in-up"style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px'}}>
-     <div className="row">
-       <div className="col-xl-3      d-none d-lg-block"  >
-       <div className="mb-3">
-         <div className="accordion mt-5" id="accordionExample">
-           <div className="accordion-item">
-             <h2 className="accordion-header" id="headingOne">
-               <button className="accordion-button fw-semibold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                 Filter
-               </button>
-             </h2>
-             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-               <div className="accordion-body">
-                 <div className="">
-                   <div className="mb-3">
-                     <label className="form-label fw-semibold " htmlFor="exampleFormControlInput" style={{fontSize:'14px'}}>Search by Program Title </label>
-                     <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" style={{fontSize:'14px'}} />
-                   </div>
-                 </div>
-                 <div className="">
-                 
-                   <div className="d-flex flex-row gap-3">
-                     <div className="form-check">
-                       <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
-                       <label className="form-check-label" htmlFor="flexRadioDefault1" style={{fontSize:'14px'}}>Public</label>
-                     </div>
-                     <div className="form-check">
-                       <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" />
-                       <label className="form-check-label" htmlFor="flexRadioDefault2" style={{fontSize:'14px'}}>Private</label>
-                     </div>
-                   </div>
-                   <div className="form-check">
-                     <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" />
-                     <label className="form-check-label" htmlFor="flexCheckDefault" style={{fontSize:'14px'}}>Scholarship</label>
-                   </div>
-                 </div>
-                 <div className="py-1">
-                <div className='fw-bold py-1' style={{fontSize:'14px'}}>Level of Interest</div>
-                   <select className="form-select" aria-label="Default select example" style={{fontSize:'14px'}}>
-                     <option defaultValue>Open this select menu</option>
-                     <option value="1">One</option>
-                     <option value="2">Two</option>
-                     <option value="3">Three</option>
-                   </select>
-                 </div>
-                 <div className="py-1">
-              <div className='fw-bold py-1' style={{fontSize:'14px'}}>Area of Specialisation</div>
-                   <select className="form-select" aria-label="Default select example" style={{fontSize:'14px'}}>
-                     <option defaultValue>Open this select menu</option>
-                     <option value="1">One</option>
-                     <option value="2">Two</option>
-                     <option value="3">Three</option>
-                   </select>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div className="row ">
-       <div className="accordion mb-3" id="accordionExample2">
-<div className="accordion-item">
- <h2 className="accordion-header" id="headingTwo">
-   <button
-     className="accordion-button fw-semibold text-dark"
-     type="button"
-     data-bs-toggle="collapse"
-     data-bs-target="#collapseTwo"
-     aria-expanded="true"
-     aria-controls="collapseTwo"
-     style={{fontSize:'14px'}}
-   >
-     Country
-   </button>
- </h2>
- <div
-   id="collapseTwo"
-   className="accordion-collapse collapse "
-   aria-labelledby="headingTwo"
-   data-bs-parent="#accordionExample2"
- >
-   <div className="accordion-body">
-     <form>
-       <div className="form-check">
-         <input
-           className="form-check-input"
-           type="checkbox"
-           id="option1"
-           name="option1"
-         />
-         <label htmlFor="option1" className="form-check-label px-2 fw-bold" style={{fontSize:'14px'}}>
-           USA
-         </label>
-       </div>
-       <div className="form-check">
-         <input
-           className="form-check-input"
-           type="checkbox"
-           id="option2"
-           name="option2"
-         />
-         <label htmlFor="option2" className="form-check-label px-2 fw-bold" style={{fontSize:'14px'}}>
-           UK
-         </label>
-       </div>
-       <div className="form-check">
-         <input
-           className="form-check-input"
-           type="checkbox"
-           id="option3"
-           name="option3"
-         />
-         <label htmlFor="option3" className="form-check-label px-2 fw-bold" style={{fontSize:'14px'}}>
-           Europe
-         </label>
-       </div>
-     </form>
-   </div>
- </div>
-</div>
-</div>
-       </div>
-       <div className="row ">
-       <div className="d-flex flex-row align-items-center justify-content-evenly mt-4">
-  
-
-  <div className="">
-    <button type="button" className="btn btn-danger">Apply</button>
-  </div>
-  <div className="">
-    <button type="button" className="btn btn-dark">Reset</button>
-  </div>
-</div>
-       </div>
-     
-    
-      
-      </div>
-
- 
-<div className="col-xl-9 justify-content-end align-items-center" data-aos="zoom-in">
-<div className="row">
-<div className="col">
-         <div className="dropdown float-end">
-           <button className="btn text-dark btn-light text-capitalize fw-normal dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Sort By
-           </button>
-           <ul className="dropdown-menu">
-           <ul class="nav fs-9" id="myTab" role="tablist">
-<li class="nav-item"><a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
-<li class="nav-item"><a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
-
-</ul>
-           </ul>
-         </div>
-       </div>
-</div>
-
-      
-<div class="tab-content mt-3" id="myTabContent">
-<div class="tab-pane fade show active" id="tab-home" role="tabpanel" aria-labelledby="home-tab">
-
-<div className="row gx-5 gy-4 overflow-hidden" >
-         {[...Array(4)].map((_, i) => (
-           <div className="col-xl-12 " data-aos="fade-left" key={i}>
-               <div class="card mb-3 border-0 shadow p-3" style={{height:'6rem'}}>
-<div class="row g-0">
- <div class="col-md-1">
-   <div className=" ">
-   <img src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/05/11161532/Chicago-University-Logo.png" class="img-fluid rounded-pill " alt="..." />
-   </div>
- 
- </div>
- <div class="col-md-11">
-   <div class="card-body">
-     <div className="d-flex flex-row align-items-center justify-content-between ">
-     <h6 className="card-text">University Name</h6>
-                 <p className="card-text pt-2 ">Course Fee : $99999</p>
-                 <p className="card-text  pt-2 ">Course : React</p>
-                 <p className="card-text  pt-2  ">Country : USA</p>
-                 <p className="card-text  pt-2 ">Intake : Summer</p>
-                 
-                   <button className="btn btn-sm text-white fw-semibold text-uppercase text-center border-0" style={{ backgroundColor: '#fe5722' }}>Apply</button>
-                
-     </div>
- 
-   </div>
- 
- </div>
-</div>
-</div>
-           </div>
-         ))}
-       </div>
-</div>
-<div class="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
-<div className="row gx-5 gy-4">
-         {[...Array(4)].map((_, i) => (
-           <div className="col-xl-3 col-md-6 col-sm-12" key={i}>
-             <div className="card border-0 position-relative shadow" style={{}}>
-              
-               <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid  " alt="img" />
-               <img src="https://t3.ftcdn.net/jpg/04/91/76/62/360_F_491766294_h4j7LbW2YgfbNHhq7F8GboIc1XyBSEY5.jpg" style={{width:'75px',height:'75px',left:'30%',top:'1%' }} alt="no image" className="img-fluid rounded-pill position-absolute " />
-             
-               <div className="card-body">
-                 <h6 className="card-title text-center">University Name</h6>
-                 <p className="card-text text-center">Course Fee : $99999</p>
-                 <p className="card-text text-center">Course : React</p>
-                 <p className="card-text text-center">Country : USA</p>
-                 <p className="card-text text-center">Intake : Summer</p>
-                 <div className="text-center">
-                   <button className="btn text-white fw-semibold text-uppercase text-center border-0" style={{ backgroundColor: '#fe5722' }}>Apply</button>
-                 </div>
-               </div>
-             </div>
-           </div>
-         ))}
-       </div>
-</div>
-
-</div>
-
-</div>
-
-
-    
-     </div>
-   </div>
-   <Footer/>
- </div>
   )
 }
 export default University

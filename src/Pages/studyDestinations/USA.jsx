@@ -6,6 +6,9 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 import StudentEnquiry from '../../Components/fixed compoents/StudentEnquiry';
+import  FixedEnquiry from '../../Components/fixed compoents/FixedEnquiry'
+import FixedWhatsapp from '../../Components/fixed compoents/FixedWhatsapp'
+import { Link } from 'react-router-dom';
 export const USA = () => {
   return (
     <div>
@@ -118,6 +121,8 @@ export const USA = () => {
         />
       </Helmet>
       <Navbar/>
+      <FixedEnquiry/>
+      <FixedWhatsapp/>
      <div className="container-fluid position-relative my-5" style={{
             
             backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
@@ -135,17 +140,17 @@ export const USA = () => {
               <div className="text-uppercase text-white text-center fs-2 fw-bold">STUDY IN USA</div>
               <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                 <div>
-                  <a href="/" className="text-decoration-none text-white fs-5">
+                  <Link to="" href="/" className="text-decoration-none text-white fs-5">
                     Home
-                  </a>
+                  </Link>
                 </div>
                 <div className="text-white">
                   <FaArrowRight />
                 </div>
                 <div>
-                  <a href="/StudyDestination" className="text-decoration-none text-white fs-5">
+                  <Link to="" href="/StudyDestination" className="text-decoration-none text-white fs-5">
                     Study Destinations
-                  </a>
+                  </Link>
                 </div>
                 <div className="text-white">
                   <FaArrowRight />
@@ -171,12 +176,12 @@ export const USA = () => {
 
               </div>
             </div>
-            <div className="border my-4">
-              <ul class="nav nav-pills rounded-0 fs-9"  id="myTab" role="tablist">
-                <li class="nav-item px-1" role="presentation"  ><a class="nav-link text-uppercase active fw-bold p-3 rounded-0" style={{color:'#fe5722'}} id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="false" tabindex="-1"> <span><FaBookmark /></span > why choose  usa</a></li>
-                <li class="nav-item  px-1" role="presentation"><a class="nav-link text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false" tabindex="-1"><span><FaBookmark /></span >benefits of usa</a></li>
-                <li class="nav-item  px-1" role="presentation"><a class="nav-link text-uppercase  fw-bold p-3 rounded-0"  style={{color:'#fe5722'}}  id="contact-tab" data-bs-toggle="tab" href="#tab-contact" role="tab" aria-controls="tab-contact" aria-selected="true"><span><FaBookmark /></span >Top courses in usa</a></li>
-                <li class="nav-item  px-1" role="presentation"><a class="nav-link  text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="about-tab" data-bs-toggle="tab" href="#about-contact" role="tab" aria-controls="about-contact" aria-selected="true"><span><FaBookmark /></span >cost of living</a></li>
+            <div className="border-0 shadow-sm my-4">
+              <ul class="nav nav-underline rounded-0 fs-9 justify-content-between"  id="myTab" role="tablist" style={{fontSize:'12px'}}>
+                <li class="nav-item px-1" role="presentation"  ><Link to="" class="nav-link text-uppercase active fw-bold p-3 rounded-0" style={{color:'#fe5722'}} id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="false" tabindex="-1"> <span><FaBookmark /></span > why choose  usa</Link></li>
+                <li class="nav-item  px-1" role="presentation"><Link to="" class="nav-link text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false" tabindex="-1"><span><FaBookmark /></span >benefits of usa</Link></li>
+                <li class="nav-item  px-1" role="presentation"><Link to="" class="nav-link text-uppercase  fw-bold p-3 rounded-0"  style={{color:'#fe5722'}}  id="contact-tab" data-bs-toggle="tab" href="#tab-contact" role="tab" aria-controls="tab-contact" aria-selected="true"><span><FaBookmark /></span >Top courses in usa</Link></li>
+                <li class="nav-item  px-1" role="presentation"><Link to="" class="nav-link  text-uppercase  fw-bold p-3 rounded-0" style={{color:'#fe5722'}}  id="about-tab" data-bs-toggle="tab" href="#about-contact" role="tab" aria-controls="about-contact" aria-selected="true"><span><FaBookmark /></span >cost of living</Link></li>
               </ul>
               <div class="tab-content mt-3" id="myTabContent">
                 <div class="tab-pane fade show active p-4" id="tab-home" role="tabpanel" aria-labelledby="home-tab">
@@ -314,15 +319,15 @@ export const USA = () => {
 
             <ul class="list-group list-group-flush border rounded-2 p-4">
               <h4 className='text-center py-2'>Countries</h4>
-              <li class="list-group-item active border-0 py-3" style={{ backgroundColor: '#fe5722' }}><a href="" className="text-decoration-none text-white" style={{ backgroundColor: '#fe5722' }}>Study in USA</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in UK</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Canada</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Australia</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Ireland</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in New Zealand</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Europe</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in France</a></li>
-              <li class="list-group-item py-3"><a href="" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Singapore</a></li>
+              <li class="list-group-item active border-0 py-3" style={{ backgroundColor: '#fe5722' }}><Link to="/Study-In-USA" className="text-decoration-none text-white" style={{ backgroundColor: '#fe5722' }}>Study in USA</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-UK" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in UK</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Canada" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Canada</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Australia" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Australia</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Ireland" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Ireland</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-New-Zealand" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in New Zealand</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Europe" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Europe</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-France" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in France</Link></li>
+              <li class="list-group-item py-3"><Link to="/Study-In-Signapore" className="text-decoration-none" style={{ color: '#fe5722' }}>Study in Singapore</Link></li>
 
             </ul>
            <StudentEnquiry/>
@@ -343,9 +348,9 @@ export const USA = () => {
                     <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in UK</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in UK</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -353,9 +358,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Canada</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Canada</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -363,9 +368,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Australia</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Australia</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -373,9 +378,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Ireland</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Ireland</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -383,9 +388,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in New Zealand</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in New Zealand</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -393,9 +398,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Singapore</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Singapore</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -403,9 +408,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in France</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in France</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -413,9 +418,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Europe</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Europe</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -429,9 +434,9 @@ export const USA = () => {
                     <div class="card shadow rounded-0" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg" class="card-img-top rounded-0 h-100 " alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in UK</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in UK</h5>
+                          
+                            <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -439,9 +444,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_Canada.jpg?h=f2fcf546&itok=tfGdKLUg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Canada</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Canada</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -449,9 +454,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://media.cnn.com/api/v1/images/stellar/prod/191011110307-02-australia-beautiful-places.jpg?q=w_1110,c_fill" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Australia</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Australia</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -459,9 +464,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://media.timeout.com/images/105230283/750/422/image.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Ireland</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Ireland</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -469,9 +474,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.citigroup.com/rcs/v1/siteIds/citigpa/asset/63895c15d2b14b2b67154008.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in New Zealand</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in New Zealand</h5>
+                          
+                              <Link to="" class="btn mx-auto d-block btn-sm text-uppercase fw-semibold px-4 py-2 " style={{backgroundColor: "#fe5722", color:" #fff",fontSize:'12px'}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -479,9 +484,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://t4.ftcdn.net/jpg/02/94/27/73/360_F_294277354_ev3qw00wjlHAfhqRdEozsrVRpbhixC3S.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Singapore</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Singapore</h5>
+                          
+                            <Link to="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -489,9 +494,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIRg4bzPx84UPDDUW5o9bmWVTKxguqDyD3A&s" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in France</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in France</h5>
+                          
+                            <Link to="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
                         </div>
                     </div>
                 </li>
@@ -499,9 +504,9 @@ export const USA = () => {
                     <div class="card shadow" style={{width:'18rem',height:'20rem'}}>
                         <img src="https://www.visa.co.uk/dam/VCOM/regional/ve/unitedkingdom/in-page-images/visa-in-europe/visa-eu-header-france-1600x900.jpg" class="card-img-top rounded-0 h-100" alt="..."/>
                         <div class="card-body">
-                            <h5 class="card-title">Study in Europe</h5>
-                            <hr />
-                            <a href="#" class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</a>
+                            <h5 class="card-title text-center">Study in Europe</h5>
+                          
+                            <Link to='#'  class="btn" style={{backgroundColor: "#fe5722", color:" #fff"}}>Read more</Link>
                         </div>
                     </div>
                 </li>
