@@ -45,16 +45,8 @@ const ViewProgram = () => {
                       <div className="card-header rounded-0 border-0   img-1 ">
                         <div className="row g-3 mt-2">
                           <div className="col-lg-4 ">
-                            <img
-                              src={
-                                program?.universityLogo
-                                  ? program?.universityLogo
-                                  : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
-                              }
-                              className="img-fluid rounded-circle img-thumbnail mx-auto d-block"
-                              style={{ width: "7rem", height: "7rem" }}
-                              alt="Berry College Campus"
-                            />
+                          <img  src={program?.universityLogo?program?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'7rem',height:'7rem'}} />
+
                           </div>
                           <div className="col-lg-8">
                             <div className="d-flex flex-row justify-content-between align-items-start">
@@ -201,19 +193,8 @@ const ViewProgram = () => {
                                                 height: "11rem",
                                               }}
                                             >
-                                              <img
-                                                src={
-                                                  program?.universityLogo
-                                                    ? program?.universityLogo
-                                                    : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
-                                                }
-                                                className="card-img-top"
-                                                style={{
-                                                  width: "8rem",
-                                                  height: "7rem",
-                                                }}
-                                                alt="img"
-                                              />
+                                            <img  src={program?.universityLogo?program?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+
                                               <div className="card-body">
                                                 <p className="card-text text-center">
                                                   {campus.campus}
