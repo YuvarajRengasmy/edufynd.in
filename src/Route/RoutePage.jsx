@@ -25,6 +25,7 @@ import Sop from '../Pages/Services/Sop';
 import Visa from '../Pages/Services/Visa';
 import Support from '../Pages/Services/Support';
 import Blogdetails from '../Pages/Blogdetails';
+import ViewProgram from '../Pages/viewProgram';
 export const RoutePage = () => {
   return (
     <div>
@@ -56,6 +57,7 @@ export const RoutePage = () => {
         <Route path='/Visa-Support' element={<Visa/>}/>
         <Route path='/Pre-and-Post-Support' element={<Support/>}/>
         <Route path='/Blog-Details' element={<Blogdetails/>}/>
+        <Route path='/View-Program' element={<ViewProgram/>}/>
 
         </Routes>
        

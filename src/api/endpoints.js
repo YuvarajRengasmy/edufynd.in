@@ -4,3 +4,4 @@ export const Forex ="forex";
 export const Accommodation ="accommodation";
 export const Flight ="flight";
 export const Contact ="generalEnquiry";
+export const Program ="program";

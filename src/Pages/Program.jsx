@@ -1,19 +1,62 @@
-import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar/Navbar";
+import React, { useEffect, useState } from 'react';
+import { getAllProgramForWeb,getallProgram,getFilterProgram } from "../api/program";
+import { Link , useNavigate} from "react-router-dom";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
 import Footer from '../Components/Footer/Footer'
-import { Link } from "react-router-dom";
-
 import { FaArrowRight } from "react-icons/fa6";
 import { FaFilter } from "react-icons/fa";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
+import { Dialog, DialogContent, DialogTitle, IconButton, Pagination, radioClasses, } from "@mui/material";
+
 import 'animate.css';
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 const Program = () => {
+
+
+  const [program, setProgram] = useState([]);
+  const pageSize = 8;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
+  const navigate = useNavigate();
+
+ 
+
+
+  useEffect(() => {
+    getAllProgaramDetails();
+  }, [pagination.from, pagination.to]);
+
+  const getAllProgaramDetails = () => {
+    const data = {
+      limit: 8,
+      page: pagination.from,
+    };
+    getFilterProgram(data)
+    .then((res) => {
+      console.log(res?.data?.result?.programList);
+      setProgram(res?.data?.result?.programList);
+      setPagination({
+        ...pagination,
+        count: res?.data?.result?.programCount,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
   useEffect(() => {
     AOS.init({
       duration: 1000, // Control animation duration
@@ -272,28 +315,28 @@ const Program = () => {
 
             <div class="tab-content mt-3" id="myTabContent">
               <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
-
-                <div className="row " >
-                  {[...Array(4)].map((_, i) => (
-                    <div className="col-xl-12 " data-aos="fade-up" key={i}>
+              {program.map((data,index) => (
+                <div key={index} className="row " >
+               
+                    <div  className="col-xl-12 " data-aos="fade-up" >
                       <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
                         <div class="row g-0">
                           <div class="col-md-1">
                             <div className="text-center ">
-                              <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                              <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
                             </div>
 
                           </div>
                           <div class="col-md-11">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
-                                <h6 className="">University Name</h6>
-                                <p className=" pt-2 ">Course Fee : $99999</p>
-                                <p className="  pt-2 ">Course : React</p>
-                                <p className="  pt-2  ">Country : USA</p>
-                                <p className="  pt-2 ">Intake : Summer</p>
+                                <h6 className="">{data.universityName}</h6>
+                                <p className=" pt-2 ">Course Fee : {data.courseFees}</p>
+                                <p className="  pt-2 ">Course : {data.programTitle}</p>
+                                <p className="  pt-2  ">Country : {data.country}</p>
+                                <p className="  pt-2 ">Intake : {data?.inTake}</p>
 
-                                <Link  to="https://crm.edufynd.in/" target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+                                <Link  to={{ pathname: "/View-Program", search: `?id=${data?._id}`, }} target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
                               </div>
 
@@ -303,38 +346,62 @@ const Program = () => {
                         </div>
                       </div>
                     </div>
+              
+                </div>
                   ))}
+                <div className="float-end my-2">
+                  <Pagination
+                    count={Math.ceil(pagination.count / pageSize)}
+                    onChange={handlePageChange}
+                    variant="outlined"
+                    shape="rounded"
+                    color="primary"
+                  />
                 </div>
               </div>
+             
               <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
-  <div className="row g-4">
-    {[...Array(8)].map((_, i) => (
-      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={i} data-aos="fade-up">
+           
+  <div  className="row g-3" data-aos="fade-up">
+  {program.map((data,index) => (
+    
+      <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-12"  data-aos="fade-up">
         <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
           <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
-            <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid" alt="img" />
-            <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
+          <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+            <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
           </div>
           <div className="card-body">
-            <h6 className="text-center">Program Name</h6>
-            <div className="d-flex flex-row justify-content-between">
-              <div className="d-flex flex-column">
-                <p className="">Course Fee: <b>$99999</b></p>
-                <p className="">Course: <b>React</b></p>
+            <h6 className="text-center">{data.universityName}</h6>
+            <div className="d-flex flex-column justify-content-between">
+              <div className="d-flex flex-row mb-3">
+            
+                <p className="card-text">Course: <b> {data.programTitle}</b></p>
               </div>
-              <div className="d-flex flex-column">
-                <p className="">Country: <b>New York</b></p>
-                <p className="">Intake: <b>Summer</b></p>
+              <div className="d-flex flex-row">
+              <p className="">Course Fee: <b>{data.courseFees}</b></p>
+                <p className="">Country: <b>{data.country}</b></p>
+                <p className="">Intake: <b>{data?.inTake}</b></p>
               </div>
             </div>
             <div className="text-center">
-              <Link  to="https://crm.edufynd.in/" target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+              <Link  to={{ pathname: "/View-Program", search: `?id=${data?._id}`, }} target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
             </div>
           </div>
         </div>
       </div>
-    ))}
+  ))}  
   </div>
+  <div className="float-end my-2">
+                  <Pagination
+                    count={Math.ceil(pagination.count / pageSize)}
+                    onChange={handlePageChange}
+                    variant="outlined"
+                    shape="rounded"
+                    color="primary"
+                  />
+                </div>
+
 </div>
 
 
