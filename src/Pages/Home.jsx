@@ -502,41 +502,59 @@ export const Home = () => {
               <div className="fs-6 pe-5 my-3 t" style={{ color: '#CECDE8' }}>
                 Your journey to international education starts with EduFynd. Connect with our expert counselors today for personalized guidance and swift answers to all your queries.
               </div>
+              <form>
               <div className="row mb-3">
                 <div className="col-md-6 mb-3 mb-md-0 pe-md-3">
-                  <input type="text" placeholder="Name*" className="form-control form-control-lg  text-white" />
+                  <input type="text" placeholder="Name*" className="form-control form-control-lg   text-white" style={{fontSize:'14px'}} />
                 </div>
                 <div className="col-md-6">
-                  <input type="text" placeholder="Email Address*" className="form-control form-control-lg  text-white" />
+                  <input type="email" placeholder="Email Address*" className="form-control form-control-lg  text-white"  style={{fontSize:'14px'}}/>
                 </div>
               </div>
               <div className="row mb-3">
                 <div className="col-md-6 mb-3 mb-md-0 pe-md-3">
                   <div class="input-group mb-3">
-                    <button class="btn dropdown-toggle" style={{ backgroundColor: '#fe5722', color: '#fff' }} type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-                    <ul class="dropdown-menu">
+                    <button class="btn dropdown-toggle" style={{ backgroundColor: '#fe5722', color: '#fff',fontSize:'14px' }} type="button" data-bs-toggle="dropdown" aria-expanded="false" >+91</button>
+                    <ul class="dropdown-menu" style={{fontSize:'14px'}}>
                       <li><Link class="dropdown-item" to="#">+91</Link></li>
                       <li><Link class="dropdown-item" to="#">+91</Link></li>
                       <li><Link class="dropdown-item" to="#">+91</Link></li>
 
 
                     </ul>
-                    <input type="text" class="form-control form-control-lg" aria-label="Text input with dropdown button" placeholder='Enter Your Phone..' />
+                    <input type="text" class="form-control form-control-lg " aria-label="Text input with dropdown button" placeholder='Enter Your Phone..' style={{fontSize:'14px'}} />
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <input type="date" className="form-control form-control-lg  " />
+                  <input type="date" className="form-control form-control-lg  "  style={{fontSize:'14px'}} />
                 </div>
               </div>
               <div className="row mb-3">
+              <div className="col-md-12 mb-3 mb-md-0 pe-md-3">  
+                <select class="form-select form-select-lg  mb-3" aria-label="Large select example" style={{fontSize:'14px'}}>
+  <option selected>Type of Enquiry</option>
+  <option value="Student Enquiry">Student Enquiry</option>
+  <option value="Accommodation Enquiry">Accommodation Enquiry</option>
+  <option value="Forex Enquiry">Forex Enquiry</option>
+  <option value="Flight Ticket Enquiry">Flight Ticket Enquiry</option>
+  <option value="Loan Enquiry">Loan Enquiry</option>
+  <option value="Business Enquiry">Business Enquiry</option>
+  <option value="Genaral Enquiry">Genaral Enquiry</option>
+</select>
+</div>
+</div>
+            
+              <div className="row mb-3">
                 <div className="form-floating pe-md-3">
-                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: '140px' }}></textarea>
+                  <textarea className="form-control form-control-lg" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: '120px',fontSize:'14px' }}></textarea>
                   <label htmlFor="floatingTextarea2">Message</label>
                 </div>
               </div>
               <div className="float-start mb-3">
                 <Link className="btn one text-uppercase shadow-lg px-4 py-3 btn7">Submit</Link>
               </div>
+              </form>
+              
             </div>
           </div>
         </div>

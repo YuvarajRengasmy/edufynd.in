@@ -359,8 +359,11 @@ export const Contact = () => {
                         <label htmlFor="typeOfUser">Type of User</label>
                         {errors.typeOfUser.required && <span className="text-danger">Type of user is required</span>}
                       </div>
-                      <button type="submit" className="btn btn-success">Send</button>
-                      <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                      <div className="col-sm-12 mb-3">
+<Link to="" className="btn  text-uppercase d-block fw-bold shadow" style={{backgroundColor:'#fe5722',color:'white'}}>submit </Link>
+</div>
+
+                     
                     </form>
               </div>
             </div>

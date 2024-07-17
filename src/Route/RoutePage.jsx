@@ -26,6 +26,7 @@ import Visa from '../Pages/Services/Visa';
 import Support from '../Pages/Services/Support';
 import Blogdetails from '../Pages/Blogdetails';
 import ViewProgram from '../Pages/viewProgram';
+import ViewUniversity from '../Pages/ViewUniversity';
 export const RoutePage = () => {
   return (
     <div>
@@ -58,6 +59,7 @@ export const RoutePage = () => {
         <Route path='/Pre-and-Post-Support' element={<Support/>}/>
         <Route path='/Blog-Details' element={<Blogdetails/>}/>
         <Route path='/View-Program' element={<ViewProgram/>}/>
+        <Route path='/ViewUniversity' element={<ViewUniversity/>}/>
 
         </Routes>
        

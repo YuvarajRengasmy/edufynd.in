@@ -294,7 +294,7 @@ export const University = () => {
                                 <p className="  pt-2  ">Country : USA</p>
                                 <p className="  pt-2 ">Intake : Summer</p>
 
-                                <Link to="https://crm.edufynd.in/" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+                                <Link to="/ViewUniversity" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
                               </div>
 
@@ -329,7 +329,7 @@ export const University = () => {
               </div>
             </div>
             <div className="text-center">
-            <Link to="https://crm.edufynd.in/" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+            <Link to="/ViewUniversity" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
             </div>
           </div>

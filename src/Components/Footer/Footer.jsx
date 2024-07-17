@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa";
-
+import Footer_Logo from '../../assets/file.png'
 export const Footer = () => {
   return (
     <div>
@@ -17,9 +17,9 @@ export const Footer = () => {
             <div className="col-md-3">
               <div className="mt-5 text-white">
                 <img
-                  src="https://www.edufynd.com/assets/images/edufynd-logo.svg"
+                  src={Footer_Logo}
                   alt="no img"
-                  className=""
+                  className="bg-transparent"
                   style={{ width: "200px" }}
                 />
               </div>
