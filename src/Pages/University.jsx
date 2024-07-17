@@ -1,12 +1,11 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from 'react';
+import { getFilterUniversity } from "../api/university";
+import { Link , useNavigate} from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
-import { Link } from "react-router-dom";
-
-import Footer from '../Components/Footer/Footer'
+import Footer from '../Components/Footer/Footer';
 import { FaArrowRight } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
@@ -15,6 +14,48 @@ import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 import { FaFilter } from "react-icons/fa";
 export const University = () => {
+  const [university, setUniversity] = useState([]);
+  const pageSize = 8;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
+  const navigate = useNavigate();
+
+ 
+
+
+  useEffect(() => {
+    getAllUniversityDetails();
+  }, [pagination.from, pagination.to]);
+
+  const getAllUniversityDetails = () => {
+    const data = {
+      limit: 8,
+      page: pagination.from,
+    };
+    getFilterUniversity(data)
+    .then((res) => {
+      console.log(res?.data?.result?.universityList);
+      setUniversity(res?.data?.result?.universityList);
+      setPagination({
+        ...pagination,
+        count: res?.data?.result?.programCount,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
+
+
+ 
   useEffect(() => {
     AOS.init({
         duration: 1000, // Control animation duration
@@ -275,22 +316,22 @@ export const University = () => {
               <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
 
                 <div className="row " >
-                  {[...Array(4)].map((_, i) => (
-                    <div className="col-xl-12 " data-aos="fade-up" key={i}>
+                {university.map((data,index) => (
+                    <div className="col-xl-12 " data-aos="fade-up"key={index}>
                       <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
                         <div class="row g-0">
                           <div class="col-md-1">
                             <div className="text-center ">
-                              <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                            <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
                             </div>
 
                           </div>
                           <div class="col-md-11">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
-                                <h6 className="">University Name</h6>
-                                <p className=" pt-2 ">Course Fee : $99999</p>
-                                <p className="  pt-2 ">Course : React</p>
+                                <h6 className="">{data.universityName}</h6>
+                                <p className=" pt-2 ">Course Fee :{data?.averageFees}</p>
+                                <p className="  pt-2 ">Course : {data?.courseType.join(", ") }</p>
                                 <p className="  pt-2  ">Country : USA</p>
                                 <p className="  pt-2 ">Intake : Summer</p>
 
