@@ -8,6 +8,7 @@ import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa";
 import Footer_Logo from '../../assets/EduFynd.png'
+import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <div>
@@ -43,7 +44,7 @@ export const Footer = () => {
                 <span className="two">
                   <FaLocationDot />
                 </span>{" "}
-                17/3A2, Gandhi St, Alwartirunagar, Chennai - 600087, Tamil Nadu,
+                17/3A2, Gandhi St,<br/> Alwartirunagar, Chennai - 600087, Tamil Nadu,
                 India.
               </div>
               <div className="text-white mt-4">
@@ -64,7 +65,7 @@ export const Footer = () => {
                 <span className="two">
                   <FaLocationDot />
                 </span>{" "}
-                712 H Street NE, Suite 1110, Washington, DC - 20002, United
+                712 H Street NE, Suite 1110, Washington, DC - 20002,<br/> United
                 States of America.
               </div>
               <div className="text-white mt-4">
@@ -85,9 +86,9 @@ export const Footer = () => {
                 <span className="two">
                   <FaLocationDot />
                 </span>{" "}
-                17 King Edwards Road,
-Ruislip, London,
-United Kingdom, HA4 7AE.
+                17 King Edwards Road,<br/>
+Ruislip, London,HA4-7AE,<br/>
+United Kingdom.
               </div>
               <div className="text-white mt-4">
                 <span className="two">
@@ -106,11 +107,11 @@ United Kingdom, HA4 7AE.
              <div className="col-md-4 ">
               <div className="container">
               <div className="d-flex align-items-center justify-content-evenly">
-            <div className="mb-3 mt-2"><a href=""><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaFacebook /></span></a></div> 
-             <div className="mb-3 mt-2"><a href=""><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaLinkedinIn /></span></a></div>
-             <div className="mb-3 mt-2"><a href=""><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaInstagram /></span></a></div>
-             <div className="mb-3 mt-2"><a href=""><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaYoutube /></span></a></div>
-             <div className="mb-3 mt-2"><a href=""><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaTwitter /></span></a></div>
+            <div className="mb-3 mt-2"><Link to="#"><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaFacebook /></span></Link></div> 
+             <div className="mb-3 mt-2"><Link to="#"><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaLinkedinIn /></span></Link></div>
+             <div className="mb-3 mt-2"><Link to="#"><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaInstagram /></span></Link></div>
+             <div className="mb-3 mt-2"><Link to="#"><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaYoutube /></span></Link></div>
+             <div className="mb-3 mt-2"><Link to="#"><span className="one text-white rounded-circle ps-2 pb-2 pt-1 pe-2 fs-6"><FaTwitter /></span></Link></div>
             </div>
               </div>
             

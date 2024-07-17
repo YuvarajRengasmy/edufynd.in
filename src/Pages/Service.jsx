@@ -15,6 +15,7 @@ import AOS from 'aos';
 import { FaWhatsapp } from "react-icons/fa";
 import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
 import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
+
 const Service = () => {
 
   useEffect(() => {
@@ -110,7 +111,7 @@ const Service = () => {
        
            
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Admission-Support" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Admission-Support" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
         <div className="card d-flex position-relative flex-column services-card1">
           <div className='imgContainer1'>
@@ -121,7 +122,7 @@ const Service = () => {
             <p style={{ textAlign: 'justify', fontSize: '13px' }}>At EduFynd, we recognize the significance of your Statement of Purpose (SOP) in conveying your unique story to educational institutions. Our expert team collaborates closely with you to create a personalized narrative that highlights your ambitions, experiences, and objectives in a compelling manner.</p>
             
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/SOP-Crafting" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/SOP-Crafting" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
         <div className="card d-flex position-relative flex-column services-card1">
           <div className='imgContainer1'>
@@ -132,7 +133,7 @@ const Service = () => {
             <p style={{ textAlign: 'justify', fontSize: '13px' }}>At EduFynd, we understand that navigating visa procedures can be complex, and that's why we're here to simplify the process for you. Our comprehensive visa assistance services encompass a range of crucial elements, ensuring a smooth and confident journey towards securing your student visa.</p>
             
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Visa-Support" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Visa-Support" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
         <div className="card d-flex position-relative flex-column services-card1">
           <div className='imgContainer1'>
@@ -143,7 +144,7 @@ const Service = () => {
             <p style={{ textAlign: 'justify', fontSize: '13px' }}>At EduFynd, we recognize that financing your education is a critical aspect of your study abroad journey. That's why we offer expert guidance to help you discover suitable loan options, navigate interest rates, and determine your eligibility.</p>
             
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Financial-Aid" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Financial-Aid" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
         <div className="card d-flex position-relative flex-column services-card1">
           <div className='imgContainer1'>
@@ -154,7 +155,7 @@ const Service = () => {
             <p style={{ textAlign: 'justify', fontSize: '13px' }}>At EduFynd, your well-being is our priority. We're with you every step of the way, ensuring your study abroad experience is not only enriching academically but also smooth, supported, and memorable.</p>
             
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Pre-and-Post-Support" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Pre-and-Post-Support" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
         <div className="card d-flex position-relative flex-column services-card1">
           <div className='imgContainer1'>
@@ -165,12 +166,12 @@ const Service = () => {
             <p style={{ textAlign: 'justify', fontSize: '13px' }}>At EduFynd, we understand that managing finances is a crucial aspect of your study abroad journey. Our commitment to your financial well-being is reflected in our comprehensive suite of services designed to ensure a smooth and cost-effective global experience.</p>
             
           </div>
-          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Forex" className="btn btn-sm text-uppercase fw-bold text-white " style={{ backgroundColor: '#fe5722' }}>view More</Link></div>
+          <div className=" position-absolute top-100 start-50 translate-middle"> <Link to="/Forex" className="btn btn-sm text-uppercase fw-semibold text-uppercase px-4 py-2 text-white " style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>view More</Link></div>
         </div>
       </div>
 
       <div className="text-center my-4">
-        <Link to="/Contact" className="btn text-uppercase fw-bold text-white" style={{ backgroundColor: '#fe5722' }}>Reach Us</Link>
+        <Link to="/Contact" className="btn text-uppercase fw-bold text-white" style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>Reach Us</Link>
       </div>
 
       <Footer />

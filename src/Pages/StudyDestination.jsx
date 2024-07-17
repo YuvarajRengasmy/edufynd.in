@@ -9,6 +9,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
 import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
+import { Link } from 'react-router-dom';
 export const StudyDestination = () => {
   useEffect(() => {
     AOS.init({
@@ -68,13 +69,13 @@ export const StudyDestination = () => {
         <div className="col-lg-12">
        
      
-            <div className="position-absolute top-50 start-50 translate-middle">
+            <div className="position-absolute top-50 start-50 translate-middle px-4 py-2">
               <div className="text-uppercase text-white text-center fs-2 fw-bold">OUR STUDY DESTINATION</div>
               <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                 <div>
-                  <a href="/" className="text-decoration-none text-white fs-6">
+                  <Link to="/"  className="text-decoration-none text-white fs-6">
                     Home
-                  </a>
+                  </Link>
                 </div>
                 <div className="text-white">
                   <FaArrowRight />
@@ -96,13 +97,13 @@ export const StudyDestination = () => {
             <div className="row g-5 justify-content-center" data-aos='slide-right'>
             <div className="col-md-4">
            
-            <div class="card  rounded-2 border-0 shadow  position-relative" >
-              <a href="" className=""> <img src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg" class="  img-fluid rounded-circle p-1  mx-auto d-block " style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative" >
+              <Link to="/Study-In-USA"  className=""> <img src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg" class=" img-fluid img-thumbnail rounded-circle  mx-auto d-block " style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
  
   <div class="card-body">
     <h5 className="card-title text-center">Study In USA</h5>
     <div className=" ">
-    <a href="/Study-In-USA" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-USA" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle  px-4 py-2 " style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -110,13 +111,13 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/800px-Flag_of_the_United_Kingdom_%281-2%29.svg.png" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-UK"  className=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/800px-Flag_of_the_United_Kingdom_%281-2%29.svg.png" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
   
               <div class="card-body">
     <h5 className="card-title text-center">Study In UK</h5>
     <div className=" ">
-    <a href="/Study-In-UK" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-UK"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -124,13 +125,13 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-Canada"  className=""><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
   
               <div class="card-body">
     <h5 className="card-title text-center">Study In Canada</h5>
     <div className=" ">
-    <a href="/Study-In-Canada" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-Canada"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -140,15 +141,15 @@ export const StudyDestination = () => {
             </div>
             <div className="row g-5 " data-aos='slide-right'> 
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className="">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/>
-              </a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-Australia"  className="">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/>
+              </Link>
   
               <div class="card-body">
     <h5 className="card-title text-center">Study In Australia</h5>
     <div className=" ">
-    <a href="/Study-In-Australia" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-Australia"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -156,13 +157,13 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-Ireland"  className=""><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
   
               <div class="card-body">
     <h5 className="card-title text-center">Study In Ireland</h5>
     <div className=" ">
-    <a href="/Study-In-Ireland" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-Ireland"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -170,13 +171,13 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-New-Zealand"  className=""> <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
  
               <div class="card-body">
     <h5 className="card-title text-center">Study In New Zealand</h5>
     <div className=" ">
-    <a href="/Study-In-New-Zealand" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-New-Zealand"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -186,13 +187,13 @@ export const StudyDestination = () => {
             </div>
             <div className="row g-5" data-aos='slide-right'>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""> <img src="https://img.freepik.com/free-photo/flag-singapore_1401-220.jpg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-Signapore"  className=""> <img src="https://img.freepik.com/free-photo/flag-singapore_1401-220.jpg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
  
               <div class="card-body">
     <h5 className="card-title text-center">Study In Singapore</h5>
     <div className=" ">
-    <a href="/Study-In-Signapore" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-Signapore"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -200,13 +201,13 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-              <a href="" className=""> <img src="https://t3.ftcdn.net/jpg/00/17/53/68/360_F_17536806_VTROYDmML98aIvVxL6RqzppcyaT4kB06.jpg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+              <Link to="/Study-In-Europe"  className=""> <img src="https://t3.ftcdn.net/jpg/00/17/53/68/360_F_17536806_VTROYDmML98aIvVxL6RqzppcyaT4kB06.jpg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
  
               <div class="card-body">
     <h5 className="card-title text-center">Study In Europe</h5>
     <div className=" ">
-    <a href="/Study-In-Europe" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-Europe"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
@@ -214,12 +215,12 @@ export const StudyDestination = () => {
 </div>
             </div>
             <div className="col-md-4">
-            <div class="card  rounded-2 border-0 shadow  position-relative">
-  <a href="" className=""><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg" class="  img-fluid rounded-circle p-1  mx-auto d-block "style={{width:'150px',height:'150px'}} alt="..."/></a>
+            <div class="card  rounded-2  shadow-sm  position-relative">
+  <Link to="/Study-In-France"  className=""><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg" class="  img-fluid img-thumbnail rounded-circle  mx-auto d-block "style={{width:'7rem',height:'7rem'}} alt="..."/></Link>
   <div class="card-body">
     <h5 className="card-title text-center">Study In France</h5>
     <div className=" ">
-    <a href="/Study-In-France" className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle" style={{backgroundColor:'#fe5722',color:'#fff'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></a>
+    <Link to="/Study-In-France"  className="btn btn-sm fw-semibold rounded-1 position-absolute top-100 start-50 translate-middle px-4 py-2" style={{backgroundColor:'#fe5722',color:'#fff',fontSize:'12px'}}>READ MORE <span className=' '> <FaArrowRightLong /></span></Link>
     </div>
    
     
