@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa";
-import Footer_Logo from '../../assets/file.png'
+import Footer_Logo from '../../assets/EduFynd.png'
 export const Footer = () => {
   return (
     <div>
