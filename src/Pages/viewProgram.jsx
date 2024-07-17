@@ -190,15 +190,15 @@ const ViewProgram = () => {
                               >
                                 <div className="row">
                                   <div className=" border-0 pt-3 px-4">
-                                    <div className="row">
+                                    <div className="row g-3">
                                       {Array.isArray(program?.campuses) &&
                                         program.campuses.map((campus, index) => (
-                                          <div key={index} className="col-sm-4">
+                                          <div key={index} className="col-sm-3">
                                             <div
                                               className="card border-0 rounded-3 shadow"
                                               style={{
                                                 width: "8rem",
-                                                height: "11rem",
+                                                height: "9rem",
                                               }}
                                             >
                                               <img
@@ -207,10 +207,10 @@ const ViewProgram = () => {
                                                     ? program?.universityLogo
                                                     : "https://s3.ap-south-1.amazonaws.com/pixalive.me/empty_profile.png"
                                                 }
-                                                className="card-img-top"
+                                                className="card-img-top img-fluid rounded-circle mx-auto d-block img-thumbnail"
                                                 style={{
-                                                  width: "8rem",
-                                                  height: "7rem",
+                                                  width: "5rem",
+                                                  height: "5rem",
                                                 }}
                                                 alt="img"
                                               />
@@ -232,10 +232,11 @@ const ViewProgram = () => {
                                     </div>
                                    
                                   </div>
-                                    <div className="text-end">
+                                   
+                                </div>
+                                <div className="text-end mt-5">
                                  <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
-                                </div>
                               </div>
                               <div
                                 class="tab-pane fade"
@@ -264,7 +265,7 @@ const ViewProgram = () => {
                                     </div>
                                      
                                   </div>
-                                    <div className="text-end mt-3">
+                                    <div className="text-end mt-5">
                                  <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
@@ -294,7 +295,7 @@ const ViewProgram = () => {
                                     </div>
                                     
                                   </div>
-                                    <div className="text-end mt-3">
+                                    <div className="text-end mt-5">
                                  <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
