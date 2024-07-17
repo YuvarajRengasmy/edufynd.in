@@ -171,7 +171,7 @@ const ViewProgram = () => {
                                   {program?.academicRequirement}
                                 </p>
                                 <div className="text-end">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link></div>
+                                 <Link to="https://crm.edufynd.in/" target="_blank"  className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link></div>
                                
                               </div>
                               <div
@@ -182,15 +182,15 @@ const ViewProgram = () => {
                               >
                                 <div className="row">
                                   <div className=" border-0 pt-3 px-4">
-                                    <div className="row">
+                                    <div className="row g-3">
                                       {Array.isArray(program?.campuses) &&
                                         program.campuses.map((campus, index) => (
-                                          <div key={index} className="col-sm-4">
+                                          <div key={index} className="col-sm-3">
                                             <div
                                               className="card border-0 rounded-3 shadow"
                                               style={{
                                                 width: "8rem",
-                                                height: "11rem",
+                                                height: "9rem",
                                               }}
                                             >
                                             <img  src={program?.universityLogo?program?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
@@ -213,10 +213,11 @@ const ViewProgram = () => {
                                     </div>
                                    
                                   </div>
-                                    <div className="text-end">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
-                                 </div>
+                                   
                                 </div>
+                                <div className="text-end mt-5">
+                                 <Link to="https://crm.edufynd.in/"   className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                 </div>
                               </div>
                               <div
                                 class="tab-pane fade"
@@ -245,8 +246,8 @@ const ViewProgram = () => {
                                     </div>
                                      
                                   </div>
-                                    <div className="text-end mt-3">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                    <div className="text-end mt-5">
+                                 <Link to="https://crm.edufynd.in/" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
                               </div>
@@ -275,8 +276,8 @@ const ViewProgram = () => {
                                     </div>
                                     
                                   </div>
-                                    <div className="text-end mt-3">
-                                 <Link to="" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
+                                    <div className="text-end mt-5">
+                                 <Link to="https://crm.edufynd.in/" className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end" style={{backgroundColor:'#231f20',color:'#fff'}}>Apply Now</Link>
                                  </div>
                                 </div>
                               </div>
