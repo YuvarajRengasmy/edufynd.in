@@ -9,6 +9,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
+import { Dialog, DialogContent, DialogTitle, IconButton, Pagination, radioClasses, } from "@mui/material";
 import 'animate.css';
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
@@ -332,10 +333,10 @@ export const University = () => {
                                 <h6 className="">{data.universityName}</h6>
                                 <p className=" pt-2 ">Course Fee :{data?.averageFees}</p>
                                 <p className="  pt-2 ">Course : {data?.courseType.join(", ") }</p>
-                                <p className="  pt-2  ">Country : USA</p>
-                                <p className="  pt-2 ">Intake : Summer</p>
+                                <p className="  pt-2  ">Country :{data?.country}</p>
+                                <p className="  pt-2 ">Intake : {data?.inTake.join(", ")}</p>
 
-                                <Link to="https://crm.edufynd.in/" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+                                <Link  to={{ pathname: "/View-University", search: `?id=${data?._id}`, }} className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
                               </div>
 
@@ -346,27 +347,36 @@ export const University = () => {
                       </div>
                     </div>
                   ))}
+                   <div className="float-end my-2">
+                  <Pagination
+                    count={Math.ceil(pagination.count / pageSize)}
+                    onChange={handlePageChange}
+                    variant="outlined"
+                    shape="rounded"
+                    color="primary"
+                  />
+                </div>
                 </div>
               </div>
               <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
   <div className="row g-4">
-    {[...Array(8)].map((_, i) => (
-      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={i} data-aos="fade-up">
+  {university.map((data,index) => (
+      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={index} data-aos="fade-up">
         <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
           <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
-            <img src="https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg" className="card-img-top img-fluid" alt="img" />
-            <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
+            <img src={data?.banner?data?.banner:"https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg"} className="card-img-top img-fluid" alt="img" />
+            <img src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
           </div>
           <div className="card-body">
-            <h6 className="text-center">University Name</h6>
+            <h6 className="text-center">{data?.universityName}</h6>
             <div className="d-flex flex-row justify-content-between">
               <div className="d-flex flex-column">
-                <p className="">Course Fee: <b>$99999</b></p>
-                <p className="">Course: <b>React</b></p>
+                <p className="">Course Fee: <b>{data?.averageFees}</b></p>
+                <p className="">Course: <b>{data?.courseType.join(", ") }</b></p>
               </div>
               <div className="d-flex flex-column">
-                <p className="">Country: <b>New York</b></p>
-                <p className="">Intake: <b>Summer</b></p>
+                <p className="">Country: <b>{data?.country}</b></p>
+                <p className="">Intake: <b>{data?.inTake.join(", ") }</b></p>
               </div>
             </div>
             <div className="text-center">
