@@ -2,6 +2,8 @@ import React,{useEffect} from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
+import { Link } from "react-router-dom";
+
 import Footer from '../Components/Footer/Footer'
 import { FaArrowRight } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -292,7 +294,7 @@ export const University = () => {
                                 <p className="  pt-2  ">Country : USA</p>
                                 <p className="  pt-2 ">Intake : Summer</p>
 
-                                <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
+                                <Link to="https://crm.edufynd.in/" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
 
                               </div>
 
@@ -327,7 +329,8 @@ export const University = () => {
               </div>
             </div>
             <div className="text-center">
-              <button className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></button>
+            <Link to="https://crm.edufynd.in/" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
+
             </div>
           </div>
         </div>
