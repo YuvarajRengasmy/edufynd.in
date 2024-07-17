@@ -341,7 +341,7 @@ const ViewProgram = () => {
                                       Application Fee
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                      {program?.applicationFee}
+                                    {program?.finalValue?program?.finalValue:program?.applicationFee?program?.applicationFee:"Not Available"}
                                     </div>
                                   </div>
                                   <div className="col-sm-6">
@@ -367,7 +367,7 @@ const ViewProgram = () => {
                                       Discounted Value
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                      {program?.discoubtedValue}
+                                    {program?.discountedValue}
                                     </div>
                                   </div>
                                 </div>
