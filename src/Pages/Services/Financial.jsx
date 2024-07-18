@@ -300,7 +300,7 @@ export const Financial = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Loan Options</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Our team specializes in identifying a range of loan options tailored to meet your specific financial needs, ensuring you have access to the resources necessary for your education.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal4" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -312,7 +312,7 @@ export const Financial = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Interest Rates</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>We provide insights into interest rates, helping you make informed decisions that align with your long-term financial goals.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal4" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -324,9 +324,9 @@ export const Financial = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Eligibility Assessment</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Our experts conduct thorough eligibility assessments, guiding you toward loan solutions that match your financial situation.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal4" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">

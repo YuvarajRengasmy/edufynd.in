@@ -293,7 +293,7 @@ export const Visa = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Document Compilation</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Our team assists you in compiling all necessary documents meticulously. From financial statements to letters of admission, we ensure that your application is thorough and meets all visa requirements.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -305,7 +305,7 @@ export const Visa = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Interview Preparation</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Facing a visa interview can be daunting, but our experts are here to prepare you thoroughly. We provide tailored guidance on what to expect, common questions, and effective communication strategies.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -319,9 +319,9 @@ export const Visa = () => {
 
 </p>
 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -329,9 +329,10 @@ export const Visa = () => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'16px'}} onSubmit={handleSubmit}>
+      <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'12px'}} onSubmit={handleSubmit}>
 
 <div class="modal-body">
+  <div className="row"></div>
     <div className="row g-3 mb-3">
       <div className="col">
         <div className="form-floating">
@@ -415,7 +416,30 @@ export const Visa = () => {
         </div>
        
       </div>
+
     </div>
+    <div className="row g-3 mb-3  ">
+          <div className="col">
+            <select
+              class="form-select   "
+              aria-label="Large select example"
+              
+            >
+              <option selected>Type of Enquiry</option>
+              <option value="Student Enquiry">Student Enquiry</option>
+              <option value="Accommodation Enquiry">
+                Accommodation Enquiry
+              </option>
+              <option value="Forex Enquiry">Forex Enquiry</option>
+              <option value="Flight Ticket Enquiry">
+                Flight Ticket Enquiry
+              </option>
+              <option value="Loan Enquiry">Loan Enquiry</option>
+              <option value="Business Enquiry">Business Enquiry</option>
+              <option value="Genaral Enquiry">Genaral Enquiry</option>
+            </select>
+          </div>
+        </div>
     <div class="form-floating">
 <textarea class="form-control" placeholder="Message" name='message' onChange={handleInputs} id="floatingTextarea" style={{height:'110px'}}></textarea>
 <label for="floatingTextarea">Message</label>
