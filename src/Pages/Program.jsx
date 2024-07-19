@@ -11,7 +11,6 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { Helmet } from 'react-helmet';
 import { Dialog, DialogContent, DialogTitle, IconButton, Pagination, radioClasses, } from "@mui/material";
-
 import 'animate.css';
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
@@ -197,9 +196,9 @@ const Program = () => {
           <div className="text-uppercase text-white text-center fs-2 fw-bold">Program</div>
           <div className="d-flex flex-row align-items-center justify-content-center gap-3">
             <div>
-              <a href="/" className="text-decoration-none text-white fs-5">
+              <Link to="/"  className="text-decoration-none text-white fs-5">
                 Home
-              </a>
+              </Link>
             </div>
            
          
@@ -303,8 +302,8 @@ const Program = () => {
                   </button>
                   <ul className="dropdown-menu border-0 shadow-sm">
                     <ul class="nav " id="myTab" role="tablist"  style={{fontSize:'11px',color:'#231f20'}}>
-                      <li class="nav-item"><a class="nav-link text-dark " id="home-tab" data-bs-toggle="tab" href="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</a></li>
-                      <li class="nav-item"><a class="nav-link text-dark active" id="profile-tab" data-bs-toggle="tab" href="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</a></li>
+                      <li class="nav-item"><Link class="nav-link text-dark " id="home-tab" data-bs-toggle="tab" to="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</Link></li>
+                      <li class="nav-item"><Link class="nav-link text-dark active" id="profile-tab" data-bs-toggle="tab" to="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</Link></li>
 
                     </ul>
                   </ul>

@@ -292,9 +292,9 @@ export const Support = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Pre-Departure Guidance</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Before you embark on your study abroad journey, our comprehensive pre-departure guidance equips you for success. We provide essential information, resources, and support to ensure you are well-prepared, confident, and ready to embrace your new academic adventure.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal1" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -389,6 +389,28 @@ export const Support = () => {
        
       </div>
     </div>
+    <div className="row g-3 mb-3  ">
+          <div className="col">
+            <select
+              class="form-select   "
+              aria-label="Large select example"
+              
+            >
+              <option selected>Type of Enquiry</option>
+              <option value="Student Enquiry">Student Enquiry</option>
+              <option value="Accommodation Enquiry">
+                Accommodation Enquiry
+              </option>
+              <option value="Forex Enquiry">Forex Enquiry</option>
+              <option value="Flight Ticket Enquiry">
+                Flight Ticket Enquiry
+              </option>
+              <option value="Loan Enquiry">Loan Enquiry</option>
+              <option value="Business Enquiry">Business Enquiry</option>
+              <option value="Genaral Enquiry">Genaral Enquiry</option>
+            </select>
+          </div>
+        </div>
     <div class="form-floating">
 <textarea class="form-control" placeholder="Message" name='message' onChange={handleInputs} id="floatingTextarea" style={{height:'110px'}}></textarea>
 <label for="floatingTextarea">Message</label>
@@ -415,7 +437,7 @@ export const Support = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Post-Landing Support</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Upon your arrival, our commitment doesn't end. Our post-landing support is designed to facilitate a seamless transition into your new environment. From navigating cultural adjustments to understanding academic expectations, we're here to ensure your comfort and confidence as you begin this exciting chapter.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal1" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -427,7 +449,7 @@ export const Support = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Stress-Free Housing Solutions</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>We understand the importance of a comfortable living space. Our team goes the extra mile to help you find suitable housing that aligns with your preferences and budget, making sure your journey is stress-free right from the start.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal1" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
 import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
+import { Link } from 'react-router-dom';
 export const Blog = () => {
   return (
     <div>
@@ -143,9 +144,9 @@ export const Blog = () => {
               <div className="text-uppercase text-white text-center fs-2 fw-bold">Our Blogs</div>
               <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                 <div>
-                  <a href="/" className="text-decoration-none text-white fs-6">
+                  <Link to="" href="/" className="text-decoration-none text-white fs-6">
                     Home
-                  </a>
+                  </Link>
                 </div>
                 <div className="text-white">
                   <FaArrowRight />
@@ -160,7 +161,7 @@ export const Blog = () => {
         <div className="row">
           <div className="col-md-4 mb-4">
             <div className="card rounded-3 position-relative  shadow-sm ">
-              <div  id='flag' className='position-absolute top-0 start-0 translate-middle rounded-3'></div>
+              <div  id='flag' className='position-absolute top-0 start-0 translate-middle  rounded-3'></div>
                 
                
              <div className="card-body p-3">
@@ -173,9 +174,9 @@ export const Blog = () => {
                 <img src={about_1_shape1} alt="" className='img-fluid p-2 vert-move' style={{width:'150px',height:'150px'}} />
               </div>
               <div className="d-inline text-start ms-3">
-                <a href="Blog-Details" className="btn text-uppercase text-white fw-bold rounded-1 px-3 py-2" style={{ backgroundColor: '#fe5722' }}>
-                  View Blog <FaArrowRight />
-                </a>
+                <Link to="/Blog-Details" className="btn text-uppercase text-white fw-bold border-0 rounded-1 px-4 py-2" style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>
+                  View Blog &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                </Link>
               </div>
              </div>
                 

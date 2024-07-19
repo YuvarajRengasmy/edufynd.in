@@ -58,7 +58,7 @@
 }
 /* Navbar.css */
 
-.active-link {
+.nav-link:active {
   color: #fe5722; /* Define your active link text color */
   font-weight: bold; /* Optionally, make the text bold or apply other styles */
   /* Add any other styles you want to apply to active links */

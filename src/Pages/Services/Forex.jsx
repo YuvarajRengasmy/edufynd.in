@@ -310,7 +310,7 @@ export const Forex = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Competitive Rates for Comprehensive Expenses</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>We offer competitive rates for tuition, living, and travel expenses, providing you with a transparent and cost-effective financial framework tailored to your needs.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal5" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -322,11 +322,11 @@ export const Forex = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>International Student Bank Account Setup</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Our expert assistance in setting up an international student bank account ensures seamless financial transactions and accessibility, allowing you to manage your funds efficiently throughout your academic journey.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal5" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -444,7 +444,7 @@ export const Forex = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Prepaid Forex Cards</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Experience convenience and security with our prepaid forex cards, offering a hassle-free alternative for managing your expenses while studying abroad. Enjoy flexibility and peace of mind with our reliable financial solutions.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal5" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -456,7 +456,7 @@ export const Forex = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Remittance Support</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Navigating international transactions can be complex, but with our remittance support, we simplify the process, ensuring that your funds are transferred securely and efficiently across borders.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal5" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>
@@ -468,7 +468,7 @@ export const Forex = () => {
                 <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Forex Advisory</h5>
                 <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Benefit from our forex advisory services, providing valuable insights and guidance on managing currency exchange rates. Stay informed and make informed financial decisions with the expertise of our advisory team.</p>
                 <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
+            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal5" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
             </div>
             </div>
         </div>

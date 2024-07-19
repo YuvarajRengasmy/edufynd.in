@@ -15,6 +15,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
 import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
+import { Link } from 'react-router-dom';
 export const About = () => {
       
   useEffect(() => {
@@ -70,9 +71,9 @@ export const About = () => {
             <div className="text-uppercase text-white text-center fs-2 fw-bold" style={{marginTop:'150px'}}>About Us</div>
             <div className="d-flex flex-row align-items-center justify-content-center gap-3 ">
               <div>
-                <a href="/" className="text-decoration-none text-white fs-6">
+                <Link to="/" className="text-decoration-none text-white fs-6">
                   Home
-                </a>
+                </Link>
               </div>
               <div className="text-white">
                 <FaArrowRight />
@@ -160,7 +161,7 @@ export const About = () => {
         <div className="container my-3" data-aos='zoom-in'>
             <div className="row g-3">
                 <div className="col-sm-12">
-                    <a href="#" className='btn text-uppercase d-block fw-bold' style={{backgroundColor:'#fe5722',color:'white'}}> read more <FaArrowRight /> </a>
+                    <Link to='/'  className='btn text-uppercase d-block fw-bold' style={{backgroundColor:'#fe5722',color:'white'}}> read more <FaArrowRight /> </Link>
                 </div>
             </div>
         </div>
@@ -215,9 +216,9 @@ export const About = () => {
                 </div>
                 <div className="col-md-2">
                     <div className="align-items-center justify-content-center text-center">
-                        <a href="#" className="btn btn-sm btn-transparent btn-outline-light px-2 py-2 text-capitalize">
+                        <Link to="/Service" className="btn btn-sm btn-transparent btn-outline-light px-2 py-2 text-capitalize">
                             Get Started
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
