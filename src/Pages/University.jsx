@@ -613,7 +613,7 @@ export const University = () => {
                           </div>
                           <div className="text-center">
                             <Link
-                              to="/ViewUniversity"
+                              to={{ pathname: "/ViewUniversity", search: `?id=${data?._id}`, }}
                               className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
                               style={{
                                 backgroundColor: "#fe5722",
