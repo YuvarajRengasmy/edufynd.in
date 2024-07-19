@@ -221,7 +221,7 @@ const Program = () => {
         <div className="col ">
         <button class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}> <span className="me-2"><FaFilter /></span> Filter</button>
 
-<div class="offcanvas offcanvas-start border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas offcanvas-start  border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filter Program</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -288,6 +288,25 @@ const Program = () => {
   </div>
 </div>
   
+</div>
+<div className="col">
+<div class="input-group mb-3">
+  <input type="text" class="form-control " placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+  <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
+</div>
+</div>
+<div className="col">
+<div class="dropdown ">
+  <a class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}>
+   Country
+  </a>
+
+  <ul class="dropdown-menu border-0 shadow">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
 </div>
 
 
@@ -367,19 +386,22 @@ const Program = () => {
   {program.map((data,index) => (
     
       <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-12"  data-aos="fade-up">
-        <div className="card rounded-0 border-0 shadow-sm" style={{ fontSize: '12px',width:'15rem' }}>
-          <div className="position-relative" style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}>
-          <img src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg" class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
-            <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }} alt="no image" className="img-fluid rounded-pill img-thumbnail position-absolute" />
-          </div>
+        <div className="card rounded-0 border-0 shadow-sm " >
+        <div class="card rounded-0 border-0  " style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+        <img src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg" class="img-fluid rounded-0   " alt="program_bg" style={{height:'8rem', mixBlendMode: 'multiply'}} />
+  <div class="card-img-overlay align-self-center">
+  <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem' }} alt="program_logo" className="img-fluid rounded-pill mx-auto d-block img-thumbnail " />
+  </div>
+</div>
+        
           <div className="card-body">
             <h6 className="text-center">{data.universityName}</h6>
             <div className="d-flex flex-column justify-content-between">
-              <div className="d-flex flex-row mb-3">
+              <div className="d-flex flex-row mb-3 justify-content-evenly">
             
                 <p className="card-text">Course: <b> {data.programTitle}</b></p>
               </div>
-              <div className="d-flex flex-row">
+              <div className="d-flex flex-row justify-content-evenly">
               <p className="">Course Fee: <b>{data.courseFees}</b></p>
                 <p className="">Country: <b>{data.country}</b></p>
                 <p className="">Intake: <b>{data?.inTake}</b></p>

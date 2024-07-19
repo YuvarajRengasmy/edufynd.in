@@ -39,12 +39,15 @@ const ViewProgram = () => {
             <div className="container-fluid mt-5">
               <div className="row">
                 <div className="col-xl-12">
-                  <div className="  border-0 rounded-0 bg-transparent p-3 ">
+                  <div className="border-0 rounded-0 bg-transparent p-3 ">
                     <div className="card border-0 rounded-0  ">
-                      <div className="card-header rounded-0 border-0   img-1 ">
-                        <div className="row g-3 mt-2">
-                          <div className="col-lg-4 ">
-                            <img
+                    <div class="card rounded-0 border-0 "  style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+  <img src="https://cdn.pixabay.com/photo/2023/09/17/19/10/building-8259184_1280.jpg" class="card-img img-fluid border-0 rounded-0 p-0 object-fit-fill " alt="programbg2" style={{height:'10rem', mixBlendMode: 'multiply'}}/>
+  <div class="card-img-overlay">
+  <div class="rounded-0 border-0 mb-3 align-items-center" >
+  <div class="row g-0">
+    <div class="col-md-3 ">
+    <img
                               src={
                                 program?.universityLogo
                                   ? program?.universityLogo
@@ -54,11 +57,12 @@ const ViewProgram = () => {
                               alt="..."
                               style={{ width: "7rem", height: "7rem" }}
                             />
-                          </div>
-                          <div className="col-lg-8">
-                            <div className="d-flex flex-row justify-content-between align-items-start">
+    </div>
+    <div class="col-md-9">
+      <div class="card-body text-white">
+      <div className="d-flex flex-row justify-content-between align-items-start">
                               <div className="d-flex flex-column">
-                                <p className="text-black mb-1 fw-bold">
+                                <p className=" mb-1 fw-bold">
                                   <span
                                     className="me-2 text-uppercase"
                                     style={{ color: "#fe5722" }}
@@ -67,7 +71,7 @@ const ViewProgram = () => {
                                   </span>{" "}
                                   {program?.programTitle}
                                 </p>
-                                <p className="text-black mb-1 fw-bold">
+                                <p className=" mb-1 fw-bold">
                                   <span
                                     className="me-2 text-uppercase"
                                     style={{ color: "#fe5722" }}
@@ -76,7 +80,7 @@ const ViewProgram = () => {
                                   </span>{" "}
                                   {program?.universityName}
                                 </p>
-                                <p className="text-black mb-1">
+                                <p className=" mb-1">
                                   <span
                                     className="me-2"
                                     style={{ color: "#fe5722" }}
@@ -87,11 +91,16 @@ const ViewProgram = () => {
                                 </p>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  </div>
+</div>
+                     
                       <div className="card-body bg-white rounded-bottom px-4">
-                        <div className="row mt-2 g-4">
+                        <div className="row">
                           <div className="col-md-7">
                             <ul
                               class="nav nav-underline fs-9"
@@ -175,19 +184,7 @@ const ViewProgram = () => {
                                 >
                                   {program?.academicRequirement}
                                 </p>
-                                <div className="text-end">
-                                  <Link
-                                    to="https://crm.edufynd.in/"
-                                    target="_blank"
-                                    className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end"
-                                    style={{
-                                      backgroundColor: "#231f20",
-                                      color: "#fff",
-                                    }}
-                                  >
-                                    Apply Now
-                                  </Link>
-                                </div>
+                                
                               </div>
                               <div
                                 class="tab-pane fade"
@@ -238,18 +235,7 @@ const ViewProgram = () => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="text-end mt-5">
-                                  <Link
-                                    to="https://crm.edufynd.in/"
-                                    className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end"
-                                    style={{
-                                      backgroundColor: "#231f20",
-                                      color: "#fff",
-                                    }}
-                                  >
-                                    Apply Now
-                                  </Link>
-                                </div>
+                             
                               </div>
                               <div
                                 class="tab-pane fade"
@@ -275,18 +261,7 @@ const ViewProgram = () => {
                                         )}
                                     </div>
                                   </div>
-                                  <div className="text-end mt-5">
-                                    <Link
-                                      to="https://crm.edufynd.in/"
-                                      className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end"
-                                      style={{
-                                        backgroundColor: "#231f20",
-                                        color: "#fff",
-                                      }}
-                                    >
-                                      Apply Now
-                                    </Link>
-                                  </div>
+                                 
                                 </div>
                               </div>
                               <div
@@ -313,18 +288,7 @@ const ViewProgram = () => {
                                         )}
                                     </div>
                                   </div>
-                                  <div className="text-end mt-5">
-                                    <Link
-                                      to="https://crm.edufynd.in/"
-                                      className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end"
-                                      style={{
-                                        backgroundColor: "#231f20",
-                                        color: "#fff",
-                                      }}
-                                    >
-                                      Apply Now
-                                    </Link>
-                                  </div>
+                               
                                 </div>
                               </div>
                             </div>
@@ -372,8 +336,8 @@ const ViewProgram = () => {
                                       {program?.finalValue
                                         ? program?.finalValue
                                         : program?.applicationFee
-                                        ? program?.applicationFee
-                                        : "Not Available"}
+                                          ? program?.applicationFee
+                                          : "Not Available"}
                                     </div>
                                   </div>
                                   <div className="col-sm-6">
@@ -393,7 +357,7 @@ const ViewProgram = () => {
                                       Duration
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.duration :"Not Available"}
+                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.duration : "Not Available"}
                                     </div>
                                   </div>
                                   <div className="col-sm-6">
@@ -407,9 +371,24 @@ const ViewProgram = () => {
                                 </div>
                               </div>
                             </div>
+                            <div className="text-end mt-3 ">
+                                    <Link
+                                      to="https://crm.edufynd.in/"
+                                      className="text-decoration-none text-uppercase fw-semibold px-4 py-2 rounded-pill text-end"
+                                      style={{
+                                        backgroundColor: "#231f20",
+                                        color: "#fff",
+                                      }}
+                                    >
+                                      Apply Now
+                                    </Link>
+                                  </div>
                           </div>
+                        
                         </div>
+                      
                       </div>
+                  
                     </div>
                   </div>
                 </div>
