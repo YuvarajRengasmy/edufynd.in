@@ -341,7 +341,7 @@ const ViewProgram = () => {
                                       Duration
                                     </div>
                                     <div className=" fw-semibold text-capitalize">
-                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.duration : "Not Available"}
+                                      {program?.campuses?.length > 0 ? program?.campuses[1]?.duration :"Not Available"}
                                     </div>
                                   </div>
                                   <div className="col-sm-6">

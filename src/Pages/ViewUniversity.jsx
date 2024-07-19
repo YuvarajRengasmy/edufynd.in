@@ -2,7 +2,7 @@ import { RiCoinsFill } from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-import { getSingleProgram } from "../api/program";
+import { getSingleUniversity } from "../api/university";
 import Flags from "react-world-flags";
 import Navbar from "../Components/Navbar/Navbar";
 import { RiMiniProgramFill } from "react-icons/ri";
@@ -10,6 +10,29 @@ import { FaUniversity } from "react-icons/fa";
 import { FaGlobeAmericas } from "react-icons/fa";
 
 export const ViewUniversity = () => {
+
+  const location = useLocation();
+  const id = new URLSearchParams(location.search).get("id");
+  const [university, setUniversity] = useState([]);
+  const pageSize = 5;
+
+  useEffect(() => {
+    getUniversityDetails();
+  }, []);
+  const getUniversityDetails = () => {
+    getSingleUniversity(id)
+      .then((res) => {
+        setUniversity(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+
+
+
  
   return (
     <>
@@ -30,7 +53,7 @@ export const ViewUniversity = () => {
               style={{ backgroundColor: 'rgba(0,0,0,0.7)', mixBlendMode: 'multiply' }}
             >
               <img
-                src="https://cdn.britannica.com/85/13085-050-C2E88389/Corpus-Christi-College-University-of-Cambridge-England.jpg"
+                src={university?.banner?university?.banner:"https://cdn.britannica.com/85/13085-050-C2E88389/Corpus-Christi-College-University-of-Cambridge-England.jpg"}
                 className="card-img img-fluid"
                 alt="img"
                 style={{ height: '9rem', mixBlendMode: 'multiply' }}
@@ -40,7 +63,7 @@ export const ViewUniversity = () => {
                   <div className="row g-0">
                     <div className="col-md-2">
                       <img
-                        src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+                        src={university?.universityLogo?university?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}
                         style={{ width: '5rem', height: '5rem' }}
                         alt="no image"
                         className="img-fluid rounded-pill img-thumbnail mx-auto d-block"
@@ -48,8 +71,8 @@ export const ViewUniversity = () => {
                     </div>
                     <div className="col-md-10">
                       <div className="card-body">
-                        <h5 className="card-title">University Name</h5>
-                        <p className="card-text">Country</p>
+                        <h5 className="card-title">{university?.universityName}</h5>
+                        <p className="card-text">{university?.country}</p>
                       </div>
                     </div>
                   </div>
@@ -67,7 +90,7 @@ export const ViewUniversity = () => {
               <div className="card-body">
                 <h5 className="card-title text-uppercase">Overview</h5>
                 <p className="card-text" style={{ textAlign: 'justify' }}>
-                  {/* Content for Overview */}
+                 {university?.about}
                 </p>
             
               </div>
@@ -80,24 +103,29 @@ export const ViewUniversity = () => {
                 <div className="row">
                   <div className="border-0 pt-3 px-4">
                     <div className="row g-3">
+                    {Array.isArray(university?.state) &&
+                                university.state.map((state, index) => (
                       <div className="col-sm-12">
                         <div
                           className="card border-0 rounded-2 shadow-sm bg-white"
                           style={{ width: '4rem', height: '4rem' }}
                         >
                           <img
-                            src="https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+                            src={university?.universityLogo?university?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}
                             className="img-fluid rounded-pill img-thumbnail mx-auto d-block"
                             alt="..."
                             style={{ width: '3rem', height: '3rem' }}
                           />
                           <div className="card-body">
                             <p className="card-text text-center">
-                              {/* Campus content */}
+                            {university?.lga?.[index]?.length > 0
+                                            ? university.lga[index]
+                                            : state}
                             </p>
                           </div>
                         </div>
                       </div>
+                                ))}
                     </div>
                   </div>
                 </div>
@@ -120,13 +148,17 @@ export const ViewUniversity = () => {
                 <h5 className="card-title text-uppercase">Categories</h5>
                 <div className="row">
                   <div className="border-0 pt-3 px-4">
-                    <div className="row">
+                  {Array.isArray(university?.popularCategories) &&
+                                university.popularCategories.map(
+                                  (popularCategories, index) => (
+                    <div key={index} className="row">
                       <div className="  border-0 rounded mb-2">
                         <span className="text-dark fw-bolder d-flex align-items-center justify-content-center gap-2 text-uppercase">
-                          {/* Categories content */}
+                        {popularCategories}
                         </span>
                       </div>
                     </div>
+                                  ))}
                   </div>
                 </div>
            
@@ -139,13 +171,18 @@ export const ViewUniversity = () => {
                 <h5 className="card-title text-uppercase">Course</h5>
                 <div className="row">
                   <div className="border-0 pt-3 px-4">
+                  {Array.isArray(university?.courseType) &&
+                                university.courseType.map(
+                                  (courseType, index) => (
                     <div className="row">
                       <div className="border-0 rounded mb-2">
                         <span className="text-dark fw-bolder d-flex align-items-center justify-content-center gap-2 text-uppercase">
-                          {/* Course content */}
+                        {courseType}
                         </span>
                       </div>
                     </div>
+
+                                  ))}
                   </div>
                 </div>
            
@@ -176,11 +213,11 @@ export const ViewUniversity = () => {
                <div className="row gy-3 py-2">
                  <div className="col-sm-6">
                    <div className="fw-light text-lead text-capitalize">Application Fee</div>
-                   <div className="fw-semibold text-capitalize"></div>
+                   <div className="fw-semibold text-capitalize">{university?.applicationFees}</div>
                  </div>
                  <div className="col-sm-6">
-                   <div className="fw-light text-lead text-capitalize">Estimated Annual Course Fee</div>
-                   <div className="fw-semibold text-capitalize"></div>
+                   <div className="fw-light text-lead text-capitalize">AverageFees</div>
+                   <div className="fw-semibold text-capitalize">{university?.averageFees}</div>
                  </div>
                </div>
                <div className="row gy-3 py-2">
@@ -190,7 +227,7 @@ export const ViewUniversity = () => {
                  </div>
                  <div className="col-sm-6">
                    <div className="fw-light text-lead text-capitalize">Discounted Value</div>
-                   <div className="fw-semibold text-capitalize"></div>
+                   <div className="fw-semibold text-capitalize">{university?.discountedValue}</div>
                  </div>
                </div>
              </div>
