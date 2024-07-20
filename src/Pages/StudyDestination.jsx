@@ -56,38 +56,42 @@ export const StudyDestination = () => {
      
       <FixedEnquiry/>
       <FixedWhatsapp/>
-      <div className="container-fluid position-relative my-5" style={{
-            
-            backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-            backgroundSize: 'cover', // Ensure the image covers the container
-            backgroundPosition: 'center', // Center the background image
-            height: '300px', // Set a height to see the background image
-            backgroundColor:'rgba(0,0,0,0.7)',
-            backgroundBlendMode:'multiply'
-          }}>
-      <div className="row">
-        <div className="col-lg-12">
-       
-     
-            <div className="position-absolute top-50 start-50 translate-middle px-4 py-2">
-              <div className="text-uppercase text-white text-center fs-2 fw-bold">OUR STUDY DESTINATION</div>
-              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <div>
-                  <Link to="/"  className="text-decoration-none text-white fs-6">
-                    Home
-                  </Link>
-                </div>
-                <div className="text-white">
-                  <FaArrowRight />
-                </div>
+      <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+      Study Destinations
+            </div>
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
                
-                <div className="text-white fs-6">Study Destinations</div>
+                 
+                  <div className="text-white fs-5"> Study Destinations</div>
+                </div>
               </div>
             </div>
-       
+          </div>
         </div>
       </div>
-    </div>
         <div className="container my-4" data-aos='zoom-in'>
           <div className="row justify-content-center">
             <div className="contet-header">

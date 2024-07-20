@@ -223,30 +223,37 @@ export const Contact = () => {
      
       <FixedEnquiry/>
       <FixedWhatsapp/>
-      <div
-        className="container-fluid position-relative my-5 contact_us"
-        style={{
-          
-        
-         
-          
-        }}
-      >
-        <div className="row">
-          <div className="col-lg-12">
-          
-            <div className="position-absolute top-50 start-50 translate-middle">
-              <div className="text-uppercase text-white text-center fs-2 fw-bold">Contact Us</div>
-              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <div>
-                  <a href="/" className="text-decoration-none text-white fs-6">
-                    Home
-                  </a>
+      <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+           Contact Us
+            </div>
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+               
+                 
+                  <div className="text-white fs-5">Contact Us</div>
                 </div>
-                <div className="text-white">
-                  <FaArrowRight />
-                </div>
-                <div className="text-white fs-6">Contact</div>
               </div>
             </div>
           </div>

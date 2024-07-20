@@ -126,37 +126,43 @@ export const Blog = () => {
 
       <FixedEnquiry/>
       <FixedWhatsapp/>
-      <div
-        className="container-fluid position-relative my-5"
-        style={{
-          backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center', 
-          height: '300px', 
-          backgroundColor: 'rgba(0,0,0,0.7)',
-          backgroundBlendMode: 'multiply'
-        }}
-      >
-        <div className="row">
-          <div className="col-lg-12">
-           
-            <div className="position-absolute top-50 start-50 translate-middle">
-              <div className="text-uppercase text-white text-center fs-2 fw-bold">Our Blogs</div>
-              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <div>
-                  <Link to="" href="/" className="text-decoration-none text-white fs-6">
-                    Home
-                  </Link>
+      <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+                Our Blogs
                 </div>
-                <div className="text-white">
-                  <FaArrowRight />
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+               
+                 
+                  <div className="text-white fs-5">Blog</div>
                 </div>
-                <div className="text-white fs-6">Blog</div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    
       <div className="container my-5">
         <div className="row">
           <div className="col-md-4 mb-4">

@@ -123,45 +123,54 @@ export const UK = () => {
     <Navbar/>
     <FixedEnquiry/>
     <FixedWhatsapp/>
-   <div className="container-fluid position-relative my-5" style={{
-          
-          backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-          backgroundSize: 'cover', // Ensure the image covers the container
-          backgroundPosition: 'center', // Center the background image
-          height: '300px', // Set a height to see the background image
-          backgroundColor:'rgba(0,0,0,0.5)',
-          backgroundBlendMode:'multiply'
-        }}>
-    <div className="row">
-      <div className="col-lg-12">
-        
-   
-          <div className="position-absolute top-50 start-50 translate-middle">
-            <div className="text-uppercase text-white text-center fs-2 fw-bold">STUDY IN UK</div>
-            <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-              <div>
-                <Link href="/" className="text-decoration-none text-white fs-5">
-                  Home
-                </Link>
+    <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+              Study In UK
+                </div>
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+                  <div>
+                    <Link
+                      to=""
+                      href="/StudyDestination"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Study Destinations
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+               
+                 
+                  <div className="text-white fs-5"> Study In UK</div>
+                </div>
               </div>
-              <div className="text-white">
-                <FaArrowRight />
-              </div>
-              <div>
-                <Link href="/StudyDestination" className="text-decoration-none text-white fs-5">
-                  Study Destinations
-                </Link>
-              </div>
-              <div className="text-white">
-                <FaArrowRight />
-              </div>
-              <div className="text-white fs-5">UK</div>
             </div>
           </div>
-     
+        </div>
       </div>
-    </div>
-  </div>
     <div className="container my-5">
       <div className="row">
         <div className="col-md-9 ">

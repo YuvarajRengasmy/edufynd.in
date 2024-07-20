@@ -63,27 +63,43 @@ export const About = () => {
 
         <FixedEnquiry/>
         <FixedWhatsapp/>
-        <div className="container-fluid text-center about_banner py-5 mt-5"  data-aos="zoom-in">
-      <div className="row ">
-        <div className="col-lg-12">
-        
-          <div className=" align-self-center justify-content-center">
-            <div className="text-uppercase text-white text-center fs-2 fw-bold" style={{marginTop:'150px'}}>About Us</div>
-            <div className="d-flex flex-row align-items-center justify-content-center gap-3 ">
-              <div>
-                <Link to="/" className="text-decoration-none text-white fs-6">
-                  Home
-                </Link>
+        <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+                About Us
+                </div>
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+               
+                 
+                  <div className="text-white fs-5">About</div>
+                </div>
               </div>
-              <div className="text-white">
-                <FaArrowRight />
-              </div>
-              <div className="text-white fs-6">About</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+       
     <div className="container my-5 py-5"  data-aos="fade">
       <div className="row g-5">
         <div className="col-lg-6 align-self-center"  data-aos="flip-up">

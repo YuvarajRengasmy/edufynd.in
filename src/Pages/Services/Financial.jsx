@@ -212,22 +212,21 @@ export const Financial = () => {
       <Navbar />
       <FixedEnquiry />
       <FixedWhatsapp />
+
+
       <div className="container-fluid p-0 overflow-hidden">
         <div className="row ">
           <div className="col-12">
-            <div
-              class="card rounded-0 "
-              style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
-            >
+            <div class="card text-bg-dark rounded-0 ">
               <img
                 src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
-                class="card-img img-fluid object-fit-cover"
-                style={{ maxHeight: "20rem", mixBlendMode: "multiply" }}
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
                 alt="admission_image"
               />
               <div class="card-img-overlay align-self-end">
                 <div className="text-uppercase text-white text-center fs-2 fw-bold">
-                  FINANCIAL AID
+                 Financial Aid
                 </div>
                 <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                   <div>
@@ -254,7 +253,7 @@ export const Financial = () => {
                   <div className="text-white">
                     <FaArrowRight />
                   </div>
-                  <div className="text-white fs-5">FINANCIAL AID</div>
+                  <div className="text-white fs-5">  Financial Aid</div>
                 </div>
               </div>
             </div>

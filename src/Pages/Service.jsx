@@ -62,29 +62,39 @@ const Service = () => {
       <Navbar />
       <FixedEnquiry/>
       <FixedWhatsapp/>
-      <div className="container-fluid position-relative my-3" style={{
-        backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '300px',
-        backgroundColor: 'rgba(0,0,0,0.7)',
-        backgroundBlendMode: 'multiply'
-      }}>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="position-absolute bottom-0 end-0">
-              <img src="https://media.tenor.com/kKmvIr30vQYAAAAj/stars-changing-colors.gif" alt="" className='img-fluid' style={{ height: '100px' }} />
+
+
+       <div className="container-fluid p-0 overflow-hidden">
+        <div className="row ">
+          <div className="col-12">
+            <div class="card text-bg-dark rounded-0 ">
+              <img
+                src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
+                alt="admission_image"
+              />
+              <div class="card-img-overlay align-self-end">
+                <div className="text-uppercase text-white text-center fs-2 fw-bold">
+      Services
             </div>
-            <div className="position-absolute top-50 start-50 translate-middle">
-              <div className="text-uppercase text-white text-center fs-2 fw-bold">About Us</div>
-              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-                <div>
-                  <Link to="/" className="text-decoration-none text-white fs-6">Home</Link>
+                <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                  <div>
+                    <Link
+                      to=""
+                      href="/"
+                      className="text-decoration-none text-white fs-5"
+                    >
+                      Home
+                    </Link>
+                  </div>
+                  <div className="text-white">
+                    <FaArrowRight />
+                  </div>
+               
+                 
+                  <div className="text-white fs-5">  Services</div>
                 </div>
-                <div className="text-white">
-                  <FaArrowRight />
-                </div>
-                <div className="text-white fs-6">Services</div>
               </div>
             </div>
           </div>

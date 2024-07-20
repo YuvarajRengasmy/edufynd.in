@@ -122,8 +122,8 @@ export const Admission = () => {
             <div class="card text-bg-dark rounded-0 ">
               <img
                 src="https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg"
-                class="card-img img-fluid object-contain-cover"
-                style={{ maxHeight: "20rem", mixBlendMode: "multiply" }}
+                class="card-img img-fluid "
+                style={{ maxHeight: "23rem", mixBlendMode: "multiply" }}
                 alt="admission_image"
               />
               <div class="card-img-overlay align-self-end">
