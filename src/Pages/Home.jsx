@@ -36,6 +36,7 @@ import FixedEnquiry from '../Components/fixed compoents/FixedEnquiry'
 import FixedWhatsapp from '../Components/fixed compoents/FixedWhatsapp'
 import { Link } from 'react-router-dom';
 import TypesofEnquiry from '../Components/fixed compoents/TypesofEnquiry';
+import success from '../assets/images/home/success.jpg'
 export const Home = () => {
 
   useEffect(() => {
@@ -322,36 +323,57 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <div className="container-fluid bgimg position-relative my-4 p-0 overflow-hidden" data-aos="slide-right">
-          <div className="row">
-            <div className="col">
-              <img src={bg_overlay_1} alt="" style={{ maxHeight: 'fit-content', maxWidth: 'fit-content' }} className='img-fluid p-0' />
-              <div className="position-absolute top-50 start-50 translate-middle text-center  text-white mt-3">
-                <div className='fs-2 fw-bold '>
-                  Your Success <span className='fw-normal' style={{ color: '#fe5722' }}>Our Sole Mission!</span>
-                </div>
-                <div className=' mt-3'>
-                  Empowering students worldwide with comprehensive overseas education solutions.
-                </div>
-                <div className='' >
-                  Achieving your academic dreams together, every step of the way.
-                </div>
-                <div className='d-flex justify-content-center my-5 gap-3'>
-                  <div>
-                    <Link to="/Service"  className="btn btn-sm text-uppercase text-white fw-semibold btn-outline-light p-3" style={{ backgroundColor: '#fe5722',fontSize:'12px' }}>
-                      Our Services <span className="ms-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                    </Link>
-                  </div>
-                  <div>
-                    <Link to='/Contact' className="btn btn-sm btn-transparent btn-outline-light text-uppercase fw-semibold p-3"  style={{ fontSize:'12px' }}>
-                      Contact Us <span className="ms-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+        
+        <div className="container-fluid position-relative my-4 p-0 overflow-hidden" data-aos="slide-right">
+  <div className="row">
+    <div className="col">
+      <div className="card rounded-0 border-0">
+        <img
+          src={success}
+          className="card-img img-fluid rounded-0 border-0 h-100 object-fit-cover"
+          alt="Success"
+         
+        />
+        <div className="card-img-overlay p-0">
+          <img
+            src={bg_overlay_1}
+            className="card-img img-fluid rounded-0 border-0 p-0 h-100 object-fit-cover"
+            alt="Overlay"
+            style={{ mixBlendMode: 'multiply' }}
+          />
+          <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center h-100 text-center text-white">
+            <div className="display-6 fw-normal">
+              Your Success <span className="fw-bold" style={{ color: '#fe5722' }}>Our Sole Mission!</span>
+            </div>
+            <div className="mt-3">
+              Empowering students worldwide with comprehensive overseas education solutions.
+            </div>
+            <div>
+              Achieving your academic dreams together, every step of the way.
+            </div>
+            <div className="d-flex justify-content-center my-5 gap-3">
+              <Link
+                to="/Service"
+                className="btn btn-sm text-uppercase text-white fw-semibold btn-outline-light p-3"
+                style={{ backgroundColor: '#fe5722', fontSize: '12px' }}
+              >
+                Our Services <span className="ms-1"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+              </Link>
+              <Link
+                to="/Contact"
+                className="btn btn-sm btn-transparent btn-outline-light text-uppercase fw-semibold p-3"
+                style={{ fontSize: '12px' }}
+              >
+                Contact Us <span className="ms-1"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+              </Link>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <div className="container-fluid my-5 py-4  about-home-img position-relative">
           <div className="container">
