@@ -1,22 +1,27 @@
 import Navbar from "../Components/Navbar/Navbar";
-import React, { useEffect, useState } from 'react';
-import {getFilterProgram } from "../api/program";
-import { Link , useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getFilterProgram } from "../api/program";
+import { Link, useNavigate } from "react-router-dom";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
-import Footer from '../Components/Footer/Footer'
+import Footer from "../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaFilter } from "react-icons/fa";
-import 'aos/dist/aos.css';
-import AOS from 'aos';
-import { Helmet } from 'react-helmet';
-import { Dialog, DialogContent, DialogTitle, IconButton, Pagination, radioClasses, } from "@mui/material";
-import 'animate.css';
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { Helmet } from "react-helmet";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Pagination,
+  radioClasses,
+} from "@mui/material";
+import "animate.css";
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 const Program = () => {
-
-
   const [program, setProgram] = useState([]);
   const pageSize = 8;
   const [pagination, setPagination] = useState({
@@ -25,9 +30,6 @@ const Program = () => {
     to: pageSize,
   });
   const navigate = useNavigate();
-
- 
-
 
   useEffect(() => {
     getAllProgaramDetails();
@@ -39,17 +41,17 @@ const Program = () => {
       page: pagination.from,
     };
     getFilterProgram(data)
-    .then((res) => {
-      console.log(res?.data?.result?.programList);
-      setProgram(res?.data?.result?.programList);
-      setPagination({
-        ...pagination,
-        count: res?.data?.result?.programCount,
+      .then((res) => {
+        console.log(res?.data?.result?.programList);
+        setProgram(res?.data?.result?.programList);
+        setPagination({
+          ...pagination,
+          count: res?.data?.result?.programCount,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   };
   const handlePageChange = (event, page) => {
     const from = (page - 1) * pageSize;
@@ -60,7 +62,7 @@ const Program = () => {
     AOS.init({
       duration: 1000, // Control animation duration
       once: true, // Whether animation should only happen once
-      mirror: false // Whether elements should animate out while scrolling past them
+      mirror: false, // Whether elements should animate out while scrolling past them
     });
   }, []);
   return (
@@ -159,15 +161,8 @@ const Program = () => {
           content="assets/img/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com/"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com/"
-          crossorigin
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&amp;family=Jost:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700&amp;display=swap"
           rel="stylesheet"
@@ -175,200 +170,351 @@ const Program = () => {
       </Helmet>
 
       <Navbar />
-    
-<FixedEnquiry/>
-<FixedWhatsapp/>
 
-<div className="container-fluid position-relative my-5" style={{
-        
-        backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
-        backgroundSize: 'cover', // Ensure the image covers the container
-        backgroundPosition: 'center', // Center the background image
-        height: '300px', // Set a height to see the background image
-        backgroundColor:'rgba(0,0,0,0.5)',
-        backgroundBlendMode:'multiply'
-      }}>
-  <div className="row">
-    <div className="col-lg-12">
-     
- 
-        <div className="position-absolute top-50 start-50 translate-middle">
-          <div className="text-uppercase text-white text-center fs-2 fw-bold">Program</div>
-          <div className="d-flex flex-row align-items-center justify-content-center gap-3">
-            <div>
-              <Link to="/"  className="text-decoration-none text-white fs-5">
-                Home
-              </Link>
-            </div>
-           
-         
-            <div className="text-white">
-              <FaArrowRight />
-            </div>
-            <div className="text-white fs-5">Program</div>
-          </div>
-        </div>
-   
-    </div>
-  </div>
-</div>
+      <FixedEnquiry />
+      <FixedWhatsapp />
 
-
-
-      <div className="container  position-relative " data-aos="zoom-in-up" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
+      <div
+        className="container-fluid position-relative my-5"
+        style={{
+          backgroundImage: `url('https://www.eduthrive.org/wp-content/uploads/2023/07/desktop-wallpaper-study-abroad-abroad.jpg')`,
+          backgroundSize: "cover", // Ensure the image covers the container
+          backgroundPosition: "center", // Center the background image
+          height: "300px", // Set a height to see the background image
+          backgroundColor: "rgba(0,0,0,0.5)",
+          backgroundBlendMode: "multiply",
+        }}
+      >
         <div className="row">
-
-        <div className="col ">
-        <button class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}> <span className="me-2"><FaFilter /></span> Filter</button>
-
-<div class="offcanvas offcanvas-start  border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filter Program</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body ">
- 
-       
-         
-         
-            
-              <div className="mb-3">
-                <label className="form-label fw-semibold" htmlFor="exampleFormControlInput">Search by Program Title</label>
-                <input className="form-control" id="exampleFormControlInput" type="email" placeholder="Search by Program Title" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
+          <div className="col-lg-12">
+            <div className="position-absolute top-50 start-50 translate-middle">
+              <div className="text-uppercase text-white text-center fs-2 fw-bold">
+                Program
               </div>
-              <div className="d-flex flex-row gap-3">
-                <div className="form-check">
-                  <input className="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
-                  <label className="form-check-label" htmlFor="flexRadioDefault1">Public</label>
+              <div className="d-flex flex-row align-items-center justify-content-center gap-3">
+                <div>
+                  <Link to="/" className="text-decoration-none text-white fs-5">
+                    Home
+                  </Link>
                 </div>
-                <div className="form-check">
-                  <input className="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault"  style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}/>
-                  <label className="form-check-label" htmlFor="flexRadioDefault2">Private</label>
+
+                <div className="text-white">
+                  <FaArrowRight />
                 </div>
+                <div className="text-white fs-5">Program</div>
               </div>
-              <div className="form-check">
-                <input className="form-check-input" id="flexCheckDefault" type="checkbox" value="" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }} />
-                <label className="form-check-label" htmlFor="flexCheckDefault">Scholarship</label>
-              </div>
-              <div className="py-1">
-                <div className='fw-bold py-1'>Level of Interest</div>
-                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
-                  <option defaultValue>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div className="py-1">
-                <div className='fw-bold py-1'>Area of Specialisation</div>
-                <select className="form-select" aria-label="Default select example" style={{ backgroundColor: '#fff', fontFamily: 'Plus Jakarta Sans', fontSize: '12px' }}>
-                  <option defaultValue>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-            
-          
-       
-      
-
-     
-
-      <div className="row mt-3">
-        <div className="d-flex flex-row align-items-center justify-content-end gap-3">
-          <div>
-            <button type="button" className="btn btn-danger text-white px-4 py-2 text-uppercase fw-semibold " style={{fontSize:'12px'}}>Apply</button>
-          </div>
-          <div>
-            <button type="reset" className="btn btn-dark  text-white px-4 py-2 text-uppercase fw-semibold" style={{fontSize:'12px'}}>Reset</button>
+            </div>
           </div>
         </div>
       </div>
-  </div>
-</div>
-  
-</div>
-<div className="col">
-<div class="input-group mb-3">
-  <input type="text" class="form-control " placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-  <span class="input-group-text" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></span>
-</div>
-</div>
-<div className="col">
-<div class="dropdown ">
-  <a class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style={{fontSize:'13px',backgroundColor:'#fe5722',color:'#fff'}}>
-   Country
-  </a>
 
-  <ul class="dropdown-menu border-0 shadow">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-</div>
+      <div
+        className="container  position-relative "
+        style={{
+          backgroundColor: "#fff",
+          fontFamily: "Plus Jakarta Sans",
+          fontSize: "12px",
+        }}
+      >
+        <div className="row">
+          <div className="col-md-5">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control "
+                placeholder="Search..."
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <span
+                class="input-group-text  bg-transparent border-start-0"
+                id="basic-addon2"
+              >
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
 
+          <div className="col-md-7">
+            <div className="row">
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Country
+                  </a>
 
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Course Type
+                  </a>
 
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Categories
+                  </a>
 
-          <div className="col-xl-12 justify-content-end align-items-center" data-aos="zoom-in">
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Fee Range
+                  </a>
+
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-xl-12 justify-content-end align-items-center">
             <div className="row">
               <div className="col">
                 <div className="dropdown border-0  program-dropdown float-end">
-                  <button className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle" type="button"  aria-expanded="false" style={{fontSize:'13px',backgroundColor:'#231f20',color:'#fff'}} >
+                  <button
+                    className="btn btn-sm text-uppercase  fw-semibold px-4 py-2 dropdown-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "13px",
+                      backgroundColor: "#231f20",
+                      color: "#fff",
+                    }}
+                  >
                     Sort By
                   </button>
                   <ul className="dropdown-menu border-0 shadow-sm">
-                    <ul class="nav " id="myTab" role="tablist"  style={{fontSize:'11px',color:'#231f20'}}>
-                      <li class="nav-item"><Link class="nav-link text-dark " id="home-tab" data-bs-toggle="tab" to="#tab-home" role="tab" aria-controls="tab-home" aria-selected="true" ><FaListCheck /> List View</Link></li>
-                      <li class="nav-item"><Link class="nav-link text-dark active" id="profile-tab" data-bs-toggle="tab" to="#tab-profile" role="tab" aria-controls="tab-profile" aria-selected="false"> <IoMdGrid /> Grid View</Link></li>
-
+                    <ul
+                      class="nav "
+                      id="myTab"
+                      role="tablist"
+                      style={{ fontSize: "11px", color: "#231f20" }}
+                    >
+                      <li class="nav-item">
+                        <Link
+                          class="nav-link text-dark "
+                          id="home-tab"
+                          data-bs-toggle="tab"
+                          to="#tab-home"
+                          role="tab"
+                          aria-controls="tab-home"
+                          aria-selected="true"
+                        >
+                          <FaListCheck /> List View
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link
+                          class="nav-link text-dark active"
+                          id="profile-tab"
+                          data-bs-toggle="tab"
+                          to="#tab-profile"
+                          role="tab"
+                          aria-controls="tab-profile"
+                          aria-selected="false"
+                        >
+                          {" "}
+                          <IoMdGrid /> Grid View
+                        </Link>
+                      </li>
                     </ul>
                   </ul>
                 </div>
               </div>
             </div>
 
-
             <div class="tab-content mt-3" id="myTabContent">
-              <div class="tab-pane fade " id="tab-home" role="tabpanel" aria-labelledby="home-tab">
-              {program.map((data,index) => (
-                <div key={index} className="row " >
-               
-                    <div  className="col-xl-12 " data-aos="fade-up" >
-                      <div class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block" style={{ height: '6rem' }}>
+              <div
+                class="tab-pane fade "
+                id="tab-home"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                {program.map((data, index) => (
+                  <div key={index} className="row ">
+                    <div className="col-xl-12 " data-aos="fade-up">
+                      <div
+                        class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block"
+                        style={{ height: "6rem" }}
+                      >
                         <div class="row g-0">
                           <div class="col-md-1">
                             <div className="text-center ">
-                              <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"}  class="img-fluid rounded-pill  img-thumbnail mx-auto d-block " alt="..." style={{width:'4rem',height:'4rem'}} />
+                              <img
+                                src={
+                                  data?.universityLogo
+                                    ? data?.universityLogo
+                                    : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+                                }
+                                class="img-fluid rounded-pill  img-thumbnail mx-auto d-block "
+                                alt="..."
+                                style={{ width: "4rem", height: "4rem" }}
+                              />
                             </div>
-
                           </div>
                           <div class="col-md-11">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
                                 <h6 className="">{data.universityName}</h6>
-                                <p className=" pt-2 ">Course Fee :{data?.campuses?.length > 0 ? data?.campuses[1]?.courseFees : "Not Available"}
+                                <p className=" pt-2 ">
+                                  Course Fee :
+                                  {data?.campuses?.length > 0
+                                    ? data?.campuses[1]?.courseFees
+                                    : "Not Available"}
                                 </p>
-                                <p className="  pt-2 ">Course : {data.programTitle}</p>
-                                <p className="  pt-2  ">Country : {data.country}</p>
-                                <p className="  pt-2 ">Intake :{data?.campuses?.length > 0 ? data?.campuses[1]?.inTake : "Not Available"}
+                                <p className="  pt-2 ">
+                                  Course : {data.programTitle}
+                                </p>
+                                <p className="  pt-2  ">
+                                  Country : {data.country}
+                                </p>
+                                <p className="  pt-2 ">
+                                  Intake :
+                                  {data?.campuses?.length > 0
+                                    ? data?.campuses[1]?.inTake
+                                    : "Not Available"}
                                 </p>
 
-                                <Link  to={{ pathname: "/View-Program", search: `?id=${data?._id}`, }} target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
-
+                                <Link
+                                  to={{
+                                    pathname: "/View-Program",
+                                    search: `?id=${data?._id}`,
+                                  }}
+                                  target="_blank"
+                                  className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
+                                  style={{
+                                    backgroundColor: "#fe5722",
+                                    color: "#fff",
+                                    fontSize: "12px",
+                                  }}
+                                >
+                                  View{" "}
+                                  <i
+                                    class="fa fa-eye ms-1"
+                                    aria-hidden="true"
+                                  ></i>
+                                </Link>
                               </div>
-
                             </div>
-
                           </div>
                         </div>
                       </div>
                     </div>
-              
-                </div>
-                  ))}
+                  </div>
+                ))}
                 <div className="float-end my-2">
                   <Pagination
                     count={Math.ceil(pagination.count / pageSize)}
@@ -379,43 +525,89 @@ const Program = () => {
                   />
                 </div>
               </div>
-             
-              <div class="tab-pane fade show active" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
-           
-  <div  className="row g-3" data-aos="fade-up">
-  {program.map((data,index) => (
-    
-      <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-12"  data-aos="fade-up">
-        <div className="card rounded-0 border-0 shadow-sm " >
-        <div class="card rounded-0 border-0  " style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-        <img src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg" class="img-fluid rounded-0   " alt="program_bg" style={{height:'8rem', mixBlendMode: 'multiply'}} />
-  <div class="card-img-overlay align-self-center">
-  <img  src={data?.universityLogo?data?.universityLogo:"https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"} style={{ width: '5rem', height: '5rem' }} alt="program_logo" className="img-fluid rounded-pill mx-auto d-block img-thumbnail " />
-  </div>
-</div>
-        
-          <div className="card-body">
-            <h6 className="text-center">{data.universityName}</h6>
-            <div className="d-flex flex-column justify-content-between">
-              <div className="d-flex flex-row mb-3 justify-content-evenly">
-            
-                <p className="card-text">Course: <b> {data.programTitle}</b></p>
-              </div>
-              <div className="d-flex flex-row justify-content-evenly">
-              <p className="">Course Fee: <b>{data.courseFees}</b></p>
-                <p className="">Country: <b>{data.country}</b></p>
-                <p className="">Intake: <b>{data?.inTake}</b></p>
-              </div>
-            </div>
-            <div className="text-center">
-              <Link  to={{ pathname: "/View-Program", search: `?id=${data?._id}`, }} target="_blank" className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2" style={{ backgroundColor: '#fe5722', color: '#fff', fontSize: '12px' }}>View <i class="fa fa-eye ms-1" aria-hidden="true"></i></Link>
-            </div>
-          </div>
-        </div>
-      </div>
-  ))}  
-  </div>
-  <div className="float-end my-2">
+
+              <div
+                class="tab-pane fade show active"
+                id="tab-profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <div className="row g-3" data-aos="fade-up">
+                  {program.map((data, index) => (
+                    <div
+                      key={index}
+                      className="col-xl-3 col-lg-4 col-md-6 col-sm-12"
+                      data-aos="fade-up"
+                    >
+                      <div className="card rounded-0 border-0 shadow-sm ">
+                        <div
+                          class="card rounded-0 border-0  "
+                          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                        >
+                          <img
+                            src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg"
+                            class="img-fluid rounded-0   "
+                            alt="program_bg"
+                            style={{ height: "8rem", mixBlendMode: "multiply" }}
+                          />
+                          <div class="card-img-overlay align-self-center">
+                            <img
+                              src={
+                                data?.universityLogo
+                                  ? data?.universityLogo
+                                  : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+                              }
+                              style={{ width: "5rem", height: "5rem" }}
+                              alt="program_logo"
+                              className="img-fluid rounded-pill mx-auto d-block img-thumbnail "
+                            />
+                          </div>
+                        </div>
+
+                        <div className="card-body">
+                          <h6 className="text-center">{data.universityName}</h6>
+                          <div className="d-flex flex-column justify-content-between">
+                            <div className="d-flex flex-row mb-3 justify-content-evenly">
+                              <p className="card-text">
+                                Course: <b> {data.programTitle}</b>
+                              </p>
+                            </div>
+                            <div className="d-flex flex-row justify-content-evenly">
+                              <p className="">
+                                Course Fee: <b>{data.courseFees}</b>
+                              </p>
+                              <p className="">
+                                Country: <b>{data.country}</b>
+                              </p>
+                              <p className="">
+                                Intake: <b>{data?.inTake}</b>
+                              </p>
+                            </div>
+                          </div>
+                          <div className="text-center">
+                            <Link
+                              to={{
+                                pathname: "/View-Program",
+                                search: `?id=${data?._id}`,
+                              }}
+                              target="_blank"
+                              className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
+                              style={{
+                                backgroundColor: "#fe5722",
+                                color: "#fff",
+                                fontSize: "12px",
+                              }}
+                            >
+                              View{" "}
+                              <i class="fa fa-eye ms-1" aria-hidden="true"></i>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="float-end my-2">
                   <Pagination
                     count={Math.ceil(pagination.count / pageSize)}
                     onChange={handlePageChange}
@@ -424,16 +616,9 @@ const Program = () => {
                     color="primary"
                   />
                 </div>
-
-</div>
-
-
+              </div>
             </div>
-
           </div>
-
-
-
         </div>
       </div>
       <Footer />

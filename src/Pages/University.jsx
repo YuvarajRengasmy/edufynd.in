@@ -219,180 +219,165 @@ export const University = () => {
         }}
       >
         <div className="row">
-          <div className="col ">
-            <button
-              class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase "
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasScrolling"
-              aria-controls="offcanvasScrolling"
-              style={{
-                fontSize: "13px",
-                backgroundColor: "#fe5722",
-                color: "#fff",
-              }}
-            >
-              {" "}
-              <span className="me-2">
-                <FaFilter />
-              </span>{" "}
-              Filter
-            </button>
+          <div className="col-md-5">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control "
+                placeholder="Search..."
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <span
+                class="input-group-text  bg-transparent border-start-0"
+                id="basic-addon2"
+              >
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
 
-            <div
-              class="offcanvas offcanvas-start border-0 shadow"
-              data-bs-scroll="true"
-              data-bs-backdrop="false"
-              tabindex="-1"
-              id="offcanvasScrolling"
-              aria-labelledby="offcanvasScrollingLabel"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-                  Filter Program
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
+          <div className="col-md-7">
+            <div className="row">
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Country
+                  </a>
+
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="offcanvas-body ">
-                <div className="mb-3">
-                  <label
-                    className="form-label fw-semibold"
-                    htmlFor="exampleFormControlInput"
-                  >
-                    Search by University Title
-                  </label>
-                  <input
-                    className="form-control"
-                    id="exampleFormControlInput"
-                    type="email"
-                    placeholder="Search by Program Title"
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
                     style={{
-                      backgroundColor: "#fff",
-                      fontFamily: "Plus Jakarta Sans",
-                      fontSize: "12px",
-                    }}
-                  />
-                </div>
-                <div className="d-flex flex-row gap-3">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      id="flexRadioDefault1"
-                      type="radio"
-                      name="flexRadioDefault"
-                      style={{
-                        backgroundColor: "#fff",
-                        fontFamily: "Plus Jakarta Sans",
-                        fontSize: "12px",
-                      }}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="flexRadioDefault1"
-                    >
-                      Public
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      id="flexRadioDefault2"
-                      type="radio"
-                      name="flexRadioDefault"
-                      style={{
-                        backgroundColor: "#fff",
-                        fontFamily: "Plus Jakarta Sans",
-                        fontSize: "12px",
-                      }}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="flexRadioDefault2"
-                    >
-                      Private
-                    </label>
-                  </div>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    id="flexCheckDefault"
-                    type="checkbox"
-                    value=""
-                    style={{
-                      backgroundColor: "#fff",
-                      fontFamily: "Plus Jakarta Sans",
-                      fontSize: "12px",
-                    }}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    Scholarship
-                  </label>
-                </div>
-                <div className="py-1">
-                  <div className="fw-bold py-1">Level of Interest</div>
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    style={{
-                      backgroundColor: "#fff",
-                      fontFamily: "Plus Jakarta Sans",
-                      fontSize: "12px",
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
                     }}
                   >
-                    <option defaultValue>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-                <div className="py-1">
-                  <div className="fw-bold py-1">Area of Specialisation</div>
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    style={{
-                      backgroundColor: "#fff",
-                      fontFamily: "Plus Jakarta Sans",
-                      fontSize: "12px",
-                    }}
-                  >
-                    <option defaultValue>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
+                    University
+                  </a>
 
-                <div className="row mt-3">
-                  <div className="d-flex flex-row align-items-center justify-content-end gap-3">
-                    <div>
-                      <button
-                        type="button"
-                        className="btn btn-danger text-white px-4 py-2 text-uppercase fw-semibold "
-                        style={{ fontSize: "12px" }}
-                      >
-                        Apply
-                      </button>
-                    </div>
-                    <div>
-                      <button
-                        type="reset"
-                        className="btn btn-dark  text-white px-4 py-2 text-uppercase fw-semibold"
-                        style={{ fontSize: "12px" }}
-                      >
-                        Reset
-                      </button>
-                    </div>
-                  </div>
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Application Fee
+                  </a>
+
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col">
+                <div class="dropdown ">
+                  <a
+                    class="btn btn-sm text-white px-4 py-2 fw-semibold text-uppercase dropdown-toggle"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    style={{
+                      fontSize: "10px",
+                      backgroundColor: "#fe5722",
+                      color: "#fff",
+                    }}
+                  >
+                    Fee Range
+                  </a>
+
+                  <ul class="dropdown-menu border-0 shadow">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -553,14 +538,13 @@ export const University = () => {
                       data-aos="fade-up"
                     >
                       <div
-                        className="card rounded-0 border-0 shadow-sm"
-                        style={{ fontSize: "12px", width: "15rem" }}
+                        className="card rounded-0 border-0 shadow"
+                        style={{ fontSize: "12px" }}
                       >
                         <div
-                          className="position-relative"
+                          class="card rouded-0 border-0 text-bg-dark"
                           style={{
-                            backgroundColor: "rgba(0,0,0,0.7)",
-                            mixBlendMode: "multiply",
+                            backgroundColor: "rgba(0,0,0,0.3)",
                           }}
                         >
                           <img
@@ -569,26 +553,28 @@ export const University = () => {
                                 ? data?.banner
                                 : "https://hips.hearstapps.com/housebeautiful/assets/17/32/1502296150-royal-roads-university.jpg"
                             }
-                            className="card-img-top img-fluid"
+                            className="card-img img-fluid rounded-0 border-0"
                             alt="img"
+                            style={{ mixBlendMode: "multiply" }}
                           />
-                          <img
-                            src={
-                              data?.universityLogo
-                                ? data?.universityLogo
-                                : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
-                            }
-                            style={{
-                              width: "5rem",
-                              height: "5rem",
-                              left: "50%",
-                              top: "50%",
-                              transform: "translate(-50%,-50%)",
-                            }}
-                            alt="no image"
-                            className="img-fluid rounded-pill img-thumbnail position-absolute"
-                          />
+
+                          <div class="card-img-overlay align-self-center">
+                            <img
+                              src={
+                                data?.universityLogo
+                                  ? data?.universityLogo
+                                  : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+                              }
+                              style={{
+                                width: "5rem",
+                                height: "5rem",
+                              }}
+                              alt="no image"
+                              className="img-fluid rounded-pill img-thumbnail mx-auto d-block "
+                            />
+                          </div>
                         </div>
+
                         <div className="card-body">
                           <h6 className="text-center">
                             {data?.universityName}
@@ -613,7 +599,10 @@ export const University = () => {
                           </div>
                           <div className="text-center">
                             <Link
-                              to={{ pathname: "/ViewUniversity", search: `?id=${data?._id}`, }}
+                              to={{
+                                pathname: "/ViewUniversity",
+                                search: `?id=${data?._id}`,
+                              }}
                               className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
                               style={{
                                 backgroundColor: "#fe5722",
@@ -632,7 +621,6 @@ export const University = () => {
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
