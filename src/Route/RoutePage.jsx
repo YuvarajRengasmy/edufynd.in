@@ -58,7 +58,7 @@ export const RoutePage = () => {
         <Route path='/Visa-Support' element={<Visa/>}/>
         <Route path='/Pre-and-Post-Support' element={<Support/>}/>
         <Route path='/Blog-Details' element={<Blogdetails/>}/>
-        <Route path='/View-Program' element={<ViewProgram/>}/>
+        <Route path='/ViewProgram' element={<ViewProgram/>}/>
         <Route path='/ViewUniversity' element={<ViewUniversity/>}/>
 
         </Routes>
