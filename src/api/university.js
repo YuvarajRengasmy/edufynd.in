@@ -3,13 +3,13 @@ import {University } from "./endpoints"
 
 
 export const getallUniversity = () => {
-    return API.get(`${University}`)
+    return API.get(`${University}/public`)
 }
 export const getFilterUniversity = (data) => {
-  return API.put(`${University}/getFilterUniversity`, data);
+  return API.put(`${University}/publicGetFilterUniversity`, data);
 };
 export const getSingleUniversity = (data) => {
-    return API.get(`${University}/getSingleUniversity`, { params: { _id: data } });
+    return API.get(`${University}/publicGetSingleUniversity`, { params: { _id: data } });
   };
  
 
