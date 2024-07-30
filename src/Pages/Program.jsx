@@ -590,7 +590,7 @@ const Program = () => {
                           <div className="text-center">
                             <Link
                               to={{
-                                pathname: "/View-Program",
+                                pathname: "/ViewProgram",
                                 search: `?id=${data?._id}`,
                               }}
                               target="_blank"
