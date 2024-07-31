@@ -21,7 +21,7 @@ const UserProfile = () => {
   const location = useLocation();
   const universityId = new URLSearchParams(location.search).get("id");
   const [university, setUniversity] = useState();
-  const [commission, setCommission] = useState([]);
+ 
   const [program, setProgram] = useState([]);
   const pageSize = 5;
   const [filter, setFilter] = useState(false);
@@ -81,7 +81,7 @@ const UserProfile = () => {
     const to = (page - 1) * pageSize + pageSize;
     setPagination({ ...pagination, from: from, to: to });
   };
-  // const filterProgramList = (event) => {
+  
   //   event?.preventDefault();
   //   setFilter(true);
   //   const data = {
@@ -125,7 +125,7 @@ const UserProfile = () => {
                       }}
                     >
                       <img
-                        src="https://www.southernliving.com/thmb/j4Qkk6s0y2DDN8wEsyq4OoAgzZc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/exterior-9299-min-526c3f4d70ed4403970991fcc99a0ff5.jpg"
+                        src={university?.banner?university?.banner:"https://www.southernliving.com/thmb/j4Qkk6s0y2DDN8wEsyq4OoAgzZc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/exterior-9299-min-526c3f4d70ed4403970991fcc99a0ff5.jpg"}
                         className="card-img img-fluid rounded-0 border-0"
                         alt="university_bg_image"
                         style={{
@@ -326,20 +326,7 @@ const UserProfile = () => {
                                   Course
                                 </a>
                               </li>
-                              <li class="nav-item" role="presentation">
-                                <a
-                                  class="nav-link text-Capitalize "
-                                  id="profile-tab"
-                                  data-bs-toggle="tab"
-                                  href="#Payment-course"
-                                  role="tab"
-                                  aria-controls="tab-profile"
-                                  aria-selected="false"
-                                  tabindex="-1"
-                                >
-                                  Payment Method
-                                </a>
-                              </li>
+                              
                               <li class="nav-item" role="presentation">
                                 <a
                                   class="nav-link text-Capitalize "
@@ -488,72 +475,7 @@ const UserProfile = () => {
                                   </div>
                                 </div>
                               </div>
-                              <div
-                                className="tab-pane fade"
-                                id="Payment-course"
-                                role="tabpanel"
-                                aria-labelledby="profile-tab"
-                              >
-                                <div className="row">
-                                  <div className="col-sm-12 pt-3 px-5">
-                                    
-                                    <div className="row">
-                                      <div className="card shadow-sm mt-3">
-                                        <div className="card-body">
-                                          <div className="row gy-3 py-2">
-                                            <div className="col-sm-6">
-                                              <div className="fw-light text-lead text-capitalize">
-                                                Payment Method
-                                              </div>
-                                              <div className="fw-semibold text-capitalize">
-                                                {commission.paymentMethod}
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div className="row gy-3 py-2">
-                                            <div className="col-sm-6">
-                                              <div className="fw-light text-lead text-capitalize">
-                                                Eligibility For Commission
-                                              </div>
-                                              <div className="fw-semibold text-capitalize">
-                                                {commission.eligibility}
-                                              </div>
-                                            </div>
-                                            <div className="col-sm-6">
-                                              <div className="fw-light text-lead text-capitalize">
-                                                Payment TAT
-                                              </div>
-                                              <div className="fw-nsemibold">
-                                                {commission.paymentType}
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div className="row gy-3 py-2">
-                                            <div className="col-sm-6">
-                                              <div className="fw-light text-lead text-capitalize">
-                                                Tax
-                                              </div>
-                                              <div className="fw-semibold text-capitalize">
-                                                {commission.tax}
-                                              </div>
-                                            </div>
-                                            <div className="col-sm-6">
-                                              <div className="fw-light text-lead text-capitalize">
-                                                Commission Paid On
-                                              </div>
-                                              <div className="fw-semibold text-capitalize">
-                                                {commission.commissionPaidOn
-                                                  ? commission.commissionPaidOn
-                                                  : "null"}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                              
 
                               <div
                                 class="tab-pane fade "

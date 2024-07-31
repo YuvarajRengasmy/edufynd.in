@@ -18,3 +18,8 @@ export const getSingleProgram = (data) => {
   export const getUniversityProgram = (data) => {
     return API.get(`${Program}/programDetails`, data);
   };
+  
+
+  export const getProgramUniversity = (data) => {
+    return API.get(`${Program}/publicGetProgramUniversity`, { params: {universityId: data } });
+  };
