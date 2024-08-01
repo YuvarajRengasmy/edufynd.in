@@ -32,7 +32,7 @@ const ViewProgram = () => {
       <Navbar />
     
 
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ fontFamily: "Plus Jakarta Sans", fontSize: "13px",marginTop:'10rem' }}>
                                 <div className="row">
                                     <div className="col-xl-12">
                                         <div className="border-0 rounded-0 bg-transparent p-3">
@@ -176,9 +176,7 @@ const ViewProgram = () => {
                                                                 <li className="nav-item" role="presentation">
                                                                     <a className="nav-link text-Capitalize" id="elt-tab" data-bs-toggle="tab" href="#elt" role="tab" aria-controls="elt" aria-selected="false" tabIndex="-1">ELT</a>
                                                                 </li>
-                                                                <li className="nav-item" role="presentation">
-                                                                    <a className="nav-link text-Capitalize" id="acadmic-tab" data-bs-toggle="tab" href="#acadmic" role="tab" aria-controls="acadmic" aria-selected="false" tabIndex="-1">Academic Requirements</a>
-                                                                </li>
+                                                               
                                                             </ul>
 
                                                             <div className="tab-content mt-3" id="myTabContent" style={{ height: "350px", overflowY: "auto", scrollbarWidth: 'none' }}>
@@ -213,12 +211,7 @@ const ViewProgram = () => {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="tab-pane fade" id="acadmic" role="tabpanel" aria-labelledby="acadmic-tab">
-                                                                    <div className="form-floating">
-                                                                        <textarea className="form-control" id="floatingTextarea2" placeholder="Leave a comment here" style={{ height: "200px" }}></textarea>
-                                                                        <label htmlFor="floatingTextarea2">Comments</label>
-                                                                    </div>
-                                                                </div>
+                                                            
                                                                 <div className="tab-pane fade" id="tab-profile" role="tabpanel" aria-labelledby="profile-tab">
                                                                     <div className='row'>
                                                                         <div className='border-0 pt-3 px-4'>
