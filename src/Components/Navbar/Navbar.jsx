@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { IoCallOutline } from 'react-icons/io5';
 import { IoIosArrowDown } from 'react-icons/io';
 import { CiMail, CiClock1 } from 'react-icons/ci';
 import { FaFlag, FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import './Navbar.css';
-import { NavLink } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(true);
@@ -63,14 +62,14 @@ const Navbar = () => {
 
         <nav className= 'navbar navbar-expand-lg bg-scrolled-nav'>
           <div className="container-fluid p-2">
-            <NavLink className="navbar-brand mx-lg-3  px-lg-5" to="/">
+            <a href='/' className="navbar-brand mx-lg-3  px-lg-5" >
               <img
                 src="https://www.edufynd.com/assets/images/edufynd-logo.svg"
                 alt="Edufynd Logo"
                 style={{ width: '200px', height: '60px' }}
                 className="img-fluid"
               />
-            </NavLink>
+            </a>
             <button
               class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation"
             >
@@ -79,78 +78,78 @@ const Navbar = () => {
             <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <ul className="navbar-nav mb-lg-0 me-auto">
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" aria-current="page" exact to="/" activeClassName="active-link">
+                  <a href='/' className="nav-link fw-bold" aria-current="page" >
                     Home
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/About" activeClassName="active-link">
+                  <a href='/About' className="nav-link fw-bold"  >
                     About
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/Program" activeClassName="active-link">
+                  <a href='/Program' className="nav-link fw-bold"  >
                     Program
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/University" activeClassName="active-link">
+                  <a href='/University' className="nav-link fw-bold"  >
                     University
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/RecruitingPartner" activeClassName="active-link">
+                  <a href='/RecruitingPartner' className="nav-link fw-bold"  >
                     Recruiting Partner
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item dropdown">
-                  <NavLink
+                  <a href='/StudyDestination'
                     className="nav-link fw-bold"
-                    to="/StudyDestination"
+                    
                     role="button"
                     aria-expanded="false"
                   >
                     Study Destinations <IoIosArrowDown />
-                  </NavLink>
+                  </a>
                   <ul className="dropdown-menu px-1 py-2 border-0 shadow">
-                    <li><NavLink to="/Study-In-USA" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in USA</NavLink></li>
-                    <li><NavLink to="/Study-in-UK" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in UK</NavLink></li>
-                    <li><NavLink to="/Study-in-Canada" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Canada</NavLink></li>
-                    <li><NavLink to="/Study-in-Australia" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Australia</NavLink></li>
-                    <li><NavLink to="/Study-in-Ireland" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Ireland</NavLink></li>
-                    <li><NavLink to="/Study-In-New-Zealand" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in New Zealand</NavLink></li>
-                    <li><NavLink to="/Study-In-Signapore" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Singapore</NavLink></li>
-                    <li><NavLink to="/Study-in-France" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in France</NavLink></li>
-                    <li><NavLink to="/Study-in-Europe" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Europe</NavLink></li>
+                    <li><a href='/Study-In-USA'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in USA</a></li>
+                    <li><a href='/Study-in-UK'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in UK</a></li>
+                    <li><a href='/Study-in-Canada'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Canada</a></li>
+                    <li><a href='/Study-in-Australia'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Australia</a></li>
+                    <li><a href='/Study-in-Ireland'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Ireland</a></li>
+                    <li><a href='/Study-In-New-Zealand'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in New Zealand</a></li>
+                    <li><a href='/Study-In-Signapore'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Singapore</a></li>
+                    <li><a href='/Study-in-France'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in France</a></li>
+                    <li><a href='/Study-in-Europe'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Study in Europe</a></li>
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
-                  <NavLink
+                  <a href='/Service'
                     className="nav-link fw-bold"
-                    to="/Service"
+                    
                     role="button"
                     aria-expanded="false"
                   >
                     Services <IoIosArrowDown />
-                  </NavLink>
+                  </a>
                   <ul className="dropdown-menu py-2 border-0 shadow">
-                    <li><NavLink to="/Admission-Support" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Admission Support</NavLink></li>
-                    <li><NavLink to="/SOP-Crafting" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>SOP Crafting</NavLink></li>
-                    <li><NavLink to="/Visa-Support" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Visa Support</NavLink></li>
-                    <li><NavLink to="/Financial-Aid" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Financial Aid</NavLink></li>
-                    <li><NavLink to="/Pre-and-Post-Support" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Pre and Post Support</NavLink></li>
-                    <li><NavLink to="/Forex" className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Forex</NavLink></li>
+                    <li><a href='/Admission-Support'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Admission Support</a></li>
+                    <li><a href='/SOP-Crafting'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>SOP Crafting</a></li>
+                    <li><a href='/Visa-Support'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Visa Support</a></li>
+                    <li><a href='/Financial-Aid'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Financial Aid</a></li>
+                    <li><a href='/Pre-and-Post-Support'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Pre and Post Support</a></li>
+                    <li><a href='/Forex'  className="dropdown-item fw-semibold"><span><FaFlag className="me-2" style={{ color: '#fe5722' }} /></span>Forex</a></li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/Blog" activeClassName="active-link">
+                  <a href='/Blog' className="nav-link fw-bold"  >
                     Blog
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link fw-bold" to="/Contact" activeClassName="active-link">
+                  <a href='/Contact' className="nav-link fw-bold"  >
                     Contact
-                  </NavLink>
+                  </a>
                 </li>
               </ul>
             </div>
