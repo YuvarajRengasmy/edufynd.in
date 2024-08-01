@@ -203,7 +203,7 @@ const ViewProgram = () => {
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>English Language Test</td>
-                                                                                        <td>{program?.englishLanguageTest}</td>
+                                                                                        <td>{program?.englishlanguageTest}</td>
                                                                                         <td><a href="#" className="btn btn-link btn-sm" style={{ color: '#fe5722',fontSize:'11px' }}>Learn more</a></td>
                                                                                     </tr>
                                                                                 </tbody>
