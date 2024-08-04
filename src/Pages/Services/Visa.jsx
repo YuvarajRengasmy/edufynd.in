@@ -1,40 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { isValidEmail, isValidPhone } from '../../Utils/validataion';
-import { toast } from 'react-toastify';
-import { useNavigate, Link } from 'react-router-dom';
-import {saveGeneralEnquiry} from '../../api/generalEnquiry';
-import Navbar from '../../Components/Navbar/Navbar'
-import Footer from '../../Components/Footer/Footer'
+import React, { useEffect, useState } from "react";
+import { isValidEmail, isValidPhone } from "../../Utils/validataion";
+import { toast } from "react-toastify";
+import { useNavigate, Link } from "react-router-dom";
+import { saveGeneralEnquiry } from "../../api/generalEnquiry";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaCircleCheck } from "react-icons/fa6";
-import { Helmet } from 'react-helmet';
-import  FixedEnquiry from '../../Components/fixed compoents/FixedEnquiry'
-import FixedWhatsapp from '../../Components/fixed compoents/FixedWhatsapp'
+import { Helmet } from "react-helmet";
+import FixedEnquiry from "../../Components/fixed compoents/FixedEnquiry";
+import FixedWhatsapp from "../../Components/fixed compoents/FixedWhatsapp";
 export const Visa = () => {
-
   const initialState = {
     name: "",
     country: "",
-    universityName: "",  
+    universityName: "",
     mobileNumber: "",
     email: "",
     studentId: "",
     message: "",
-  }
+  };
   const initialStateErrors = {
-    name:{ required: false },
-    country:{ required: false },
-    universityName:{ required: false },  
-    mobileNumber:{ required: false },
-    email:{ required: false },
-    studentId:{ required: false },
-    message:{ required: false },
-  }
+    name: { required: false },
+    country: { required: false },
+    universityName: { required: false },
+    mobileNumber: { required: false },
+    email: { required: false },
+    studentId: { required: false },
+    message: { required: false },
+  };
   const [open, setOpen] = useState(false);
-  const [forex, setForex] = useState(initialState)
-  const [errors, setErrors] = useState(initialStateErrors)
+  const [forex, setForex] = useState(initialState);
+  const [errors, setErrors] = useState(initialStateErrors);
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleValidation = (data) => {
     let error = initialStateErrors;
@@ -46,7 +45,7 @@ export const Visa = () => {
     }
     if (!data.universityName) {
       error.universityName.required = true;
-    }  
+    }
     if (!data.mobileNumber) {
       error.mobileNumber.required = true;
     }
@@ -59,18 +58,21 @@ export const Visa = () => {
     if (!isValidPhone(data.mobileNumber)) {
       error.mobileNumber.valid = true;
     }
-   
-    return error
-  }
+
+    return error;
+  };
 
   const handleInputs = (event) => {
-    const { name, value } = event.target
-    setForex({ ...forex, [event?.target?.name]: event?.target?.value })
+    const { name, value } = event.target;
+    setForex({ ...forex, [event?.target?.name]: event?.target?.value });
     if (submitted) {
-      const newError = handleValidation({ ...forex, [event.target.name]: event.target.value })
-      setErrors(newError)
+      const newError = handleValidation({
+        ...forex,
+        [event.target.name]: event.target.value,
+      });
+      setErrors(newError);
     }
-  }
+  };
   const handleErrors = (obj) => {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
@@ -81,7 +83,7 @@ export const Visa = () => {
       }
     }
     return true;
-  }
+  };
 
   const closeModal = () => {
     setOpen(false);
@@ -97,7 +99,6 @@ export const Visa = () => {
           toast.success("Enquiry Submitted Successfully");
           closeModal();
           navigate("/Pre-and-Post-Support");
-
         })
         .catch((err) => {
           toast.error(err?.response?.data?.message);
@@ -107,7 +108,7 @@ export const Visa = () => {
 
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title> Overseas Education Service in Chennai to Study Abroad</title>
@@ -201,24 +202,17 @@ export const Visa = () => {
           content="assets/img/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com/"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com/"
-          crossorigin
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&amp;family=Jost:wght@300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700&amp;display=swap"
           rel="stylesheet"
         />
       </Helmet>
-    <Navbar/>
-    <FixedEnquiry/>
-    <FixedWhatsapp/>
-    <div className="container-fluid p-0 overflow-hidden">
+      <Navbar />
+      <FixedEnquiry />
+      <FixedWhatsapp />
+      <div className="container-fluid p-0 overflow-hidden">
         <div className="row ">
           <div className="col-12">
             <div class="card text-bg-dark rounded-0 ">
@@ -230,7 +224,7 @@ export const Visa = () => {
               />
               <div class="card-img-overlay align-self-end">
                 <div className="text-uppercase text-white text-center fs-2 fw-bold">
-                Visa Support
+                  Visa Support
                 </div>
                 <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                   <div>
@@ -257,221 +251,398 @@ export const Visa = () => {
                   <div className="text-white">
                     <FaArrowRight />
                   </div>
-                  <div className="text-white fs-5">   Visa Support</div>
+                  <div className="text-white fs-5"> Visa Support</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-<div className="container my-5">
-    <div className="row">
-        
-        <h5 className="text-start text-uppercase fw-semibold " style={{color:'#fe5722'}}> OUR SERVICES</h5>
-        <h1 className="text-start fw-bold">Visa Support</h1>
-        <div className="col-md-7">
-        <p className="text-muted py-2" style={{textAlign:'justify'}}>At EduFynd, we understand that navigating visa procedures can be complex, and that's why we're here to simplify the process for you. Our comprehensive visa assistance services encompass a range of crucial elements, ensuring a smooth and confident journey towards securing your student visa.Our commitment goes beyond just facilitating visa procedures; we aim to empower you with the knowledge and preparation needed for a successful visa application. Trust EduFynd to simplify the complexities, so you can focus on realizing your dream of studying abroad with confidence and ease.</p>
-        <h4 className="text-start fw-bold py-1">Your Confidence, Our Priority</h4>
-        <div className="d-flex flex-row align-items-center justify-content-between">
+      <div className="container my-5">
+        <div className="row">
+          <h5
+            className="text-start text-uppercase fw-semibold "
+            style={{ color: "#fe5722" }}
+          >
+            {" "}
+            OUR SERVICES
+          </h5>
+          <h1 className="text-start fw-bold">Visa Support</h1>
+          <div className="col-md-7">
+            <p className="text-muted py-2" style={{ textAlign: "justify" }}>
+              At EduFynd, we understand that navigating visa procedures can be
+              complex, and that's why we're here to simplify the process for
+              you. Our comprehensive visa assistance services encompass a range
+              of crucial elements, ensuring a smooth and confident journey
+              towards securing your student visa.Our commitment goes beyond just
+              facilitating visa procedures; we aim to empower you with the
+              knowledge and preparation needed for a successful visa
+              application. Trust EduFynd to simplify the complexities, so you
+              can focus on realizing your dream of studying abroad with
+              confidence and ease.
+            </p>
+            <h4 className="text-start fw-bold py-1">
+              Your Confidence, Our Priority
+            </h4>
+            <div className="d-flex flex-row align-items-center justify-content-between">
               <div className="d-flex flex-column ">
-              <p class=" fw-semibold" style={{ color: '#0f2239', textAlign: 'justify' }}> <span className='pe-2' style={{ color: '#fe5722' }}><FaCircleCheck /></span> Document Compilation </p>
-            <p class=" fw-semibold" style={{ color: '#0f2239', textAlign: 'justify' }}> <span className='pe-2' style={{ color: '#fe5722' }}><FaCircleCheck /></span>Interview Preparation</p>
-            <p class=" fw-semibold" style={{ color: '#0f2239', textAlign: 'justify' }}> <span className='pe-2' style={{ color: '#fe5722' }}><FaCircleCheck /></span> Mock Interviews</p>
-    
+                <p
+                  class=" fw-semibold"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  {" "}
+                  <span className="pe-2" style={{ color: "#fe5722" }}>
+                    <FaCircleCheck />
+                  </span>{" "}
+                  Document Compilation{" "}
+                </p>
+                <p
+                  class=" fw-semibold"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  {" "}
+                  <span className="pe-2" style={{ color: "#fe5722" }}>
+                    <FaCircleCheck />
+                  </span>
+                  Interview Preparation
+                </p>
+                <p
+                  class=" fw-semibold"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  {" "}
+                  <span className="pe-2" style={{ color: "#fe5722" }}>
+                    <FaCircleCheck />
+                  </span>{" "}
+                  Mock Interviews
+                </p>
               </div>
-           
             </div>
-        </div>
-        <div className="col-md-5">
+          </div>
+          <div className="col-md-5">
             <div className="h-100 text-center">
-            <img src="https://st2.depositphotos.com/39091214/48280/i/450/depositphotos_482803198-stock-photo-word-admission-written-wooden-cubes.jpg" alt="" className="img-fluid  h-100 mx-auto d-block " />
+              <img
+                src="https://st2.depositphotos.com/39091214/48280/i/450/depositphotos_482803198-stock-photo-word-admission-written-wooden-cubes.jpg"
+                alt=""
+                className="img-fluid  h-100 mx-auto d-block "
+              />
             </div>
-            
-        </div>
-        
-    </div>
-</div>
-<div className="container my-5">
-    <div className="row g-5 justify-content-center">
-    <div className="col-md-4">
-        <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3" >
-           
-            <div className="card-body ">
-                <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Document Compilation</h5>
-                <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Our team assists you in compiling all necessary documents meticulously. From financial statements to letters of admission, we ensure that your application is thorough and meets all visa requirements.</p>
-                <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div className="col-md-4">
-        <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3" >
-         
-            <div className="card-body ">
-                <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Interview Preparation</h5>
-                <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Facing a visa interview can be daunting, but our experts are here to prepare you thoroughly. We provide tailored guidance on what to expect, common questions, and effective communication strategies.</p>
-                <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div className="col-md-4">
-        <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3" >
-           
-            <div className="card-body ">
-                <h5 className="card-title fw-bold" style={{color:'#0f2239'}}>Mock Interviews</h5>
-                <p className="card-text" style={{color:'#0f2239',textAlign:'justify'}}>Boost your confidence through mock interviews designed to simulate the actual visa interview experience. This hands-on practice allows you to refine your responses, overcome nerves, and present yourself confidently.
-
-</p>
-<div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
-            <a href="" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal3" style={{backgroundColor:'#fe5722',color:'#fff'}}>Enquire Now</a>
-            </div>
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Enquriy Form</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form action="" className="p-2 needs-validation" novalidate style={{fontSize:'12px'}} onSubmit={handleSubmit}>
-
-<div class="modal-body">
-  <div className="row"></div>
-    <div className="row g-3 mb-3">
-      <div className="col">
-        <div className="form-floating">
-        <input type="text" className='form-control' name='name' onChange={handleInputs} placeholder='Name' id="floatingInputGrid" />
-        <label for='floatingInputGrid'>Name</label>
-        {errors.name.required ? (
-                  <div className="text-danger form-text">
-                    This field is required.
-                  </div>
-                ) : null}
-        </div>
-       
-      </div>
-      <div className="col">
-        <div className="form-floating">
-        <input type="text" className='form-control' onChange={handleInputs} name='country' placeholder='Country' id="floatingInputGrid" />
-        <label for='floatingInputGrid'>Country</label>
-        {errors.country.required ? (
-                  <div className="text-danger form-text">
-                    This field is required.
-                  </div>
-                ) : null}
-       
-        </div>
-       
-      </div>
-    </div>
-    <div className="row g-3 mb-3">
-      <div className="col">
-        <div className="form-floating">
-        <input type="text" className='form-control' name='universityName' onChange={handleInputs} placeholder='University' id="floatingInputGrid" required />
-        <label for='floatingInputGrid'>University</label>
-        {errors.universityName.required ? (
-                  <div className="text-danger form-text">
-                    This field is required.
-                  </div>
-                ) : null}
-        </div>
-       
-      </div>
-       <div className="col">
-        <div className="form-floating">
-        <input type="text" className='form-control' name='studentId' onChange={handleInputs}  placeholder='Student ID' id="floatingInputGrid" />
-        <label for='floatingInputGrid'>Student ID</label>
-        </div>
-       
-      </div>
-    </div> 
-    <div className="row g-3 mb-3">
-      <div className="col">
-        <div className="form-floating">
-        <input type="text" name='email' onChange={handleInputs} className='form-control' placeholder='E-Mail' id="floatingInputGrid" />
-        <label for='floatingInputGrid'>E-Mail</label>
-        {errors.email.required ? (
-                  <div className="text-danger form-text">
-                    This field is required.
-                  </div>
-                ) : errors.email.valid ? (
-                  <div className="text-danger form-text">
-                    Enter valid Email Id.
-                  </div>
-                ) : null}
-      
-        </div>
-       
-      </div>
-      <div className="col">
-        <div className="form-floating">
-        <input type="text" onChange={handleInputs} name='mobileNumber'  className='form-control' placeholder='Contact' id="floatingInputGrid" />
-        <label for='floatingInputGrid'>Contact</label>
-        {errors.mobileNumber.required ? (
-                  <div className="text-danger form-text">
-                    This field is required.
-                  </div>
-                ) : errors.mobileNumber.valid ? (
-                  <div className="text-danger form-text">
-                    Enter valid Contact Number.
-                  </div>
-                ) : null}
-     
-        </div>
-       
-      </div>
-
-    </div>
-    <div className="row g-3 mb-3  ">
-          <div className="col">
-            <select
-              class="form-select   "
-              aria-label="Large select example"
-              
-            >
-              <option selected>Type of Enquiry</option>
-              <option value="Student Enquiry">Student Enquiry</option>
-              <option value="Accommodation Enquiry">
-                Accommodation Enquiry
-              </option>
-              <option value="Forex Enquiry">Forex Enquiry</option>
-              <option value="Flight Ticket Enquiry">
-                Flight Ticket Enquiry
-              </option>
-              <option value="Loan Enquiry">Loan Enquiry</option>
-              <option value="Business Enquiry">Business Enquiry</option>
-              <option value="Genaral Enquiry">Genaral Enquiry</option>
-            </select>
           </div>
         </div>
-    <div class="form-floating">
-<textarea class="form-control" placeholder="Message" name='message' onChange={handleInputs} id="floatingTextarea" style={{height:'110px'}}></textarea>
-<label for="floatingTextarea">Message</label>
-</div>
- 
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn  fw-semibold btn-secondary" data-bs-dismiss="modal">Close</button>
-  <button type="submit" class="btn fw-semibold "data-bs-dismiss="modal" style={{backgroundColor:'#fe5722',color:'#fff'}}>Submit</button>
-</div>
-</form>
       </div>
-     
-    </div>
-  </div>
-</div>
-
+      <div className="container my-5">
+        <div className="row g-5 justify-content-center">
+          <div className="col-md-4">
+            <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3">
+              <div className="card-body ">
+                <h5 className="card-title fw-bold" style={{ color: "#0f2239" }}>
+                  Document Compilation
+                </h5>
+                <p
+                  className="card-text"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  Our team assists you in compiling all necessary documents
+                  meticulously. From financial statements to letters of
+                  admission, we ensure that your application is thorough and
+                  meets all visa requirements.
+                </p>
+                <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
+                  <a
+                    href=""
+                    className="btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3"
+                    style={{ backgroundColor: "#fe5722", color: "#fff" }}
+                  >
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
+          <div className="col-md-4">
+            <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3">
+              <div className="card-body ">
+                <h5 className="card-title fw-bold" style={{ color: "#0f2239" }}>
+                  Interview Preparation
+                </h5>
+                <p
+                  className="card-text"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  Facing a visa interview can be daunting, but our experts are
+                  here to prepare you thoroughly. We provide tailored guidance
+                  on what to expect, common questions, and effective
+                  communication strategies.
+                </p>
+                <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
+                  <a
+                    href=""
+                    className="btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3"
+                    style={{ backgroundColor: "#fe5722", color: "#fff" }}
+                  >
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className=" card h-100 position-relative  rounded-0 border-0 shadow-lg  p-3">
+              <div className="card-body ">
+                <h5 className="card-title fw-bold" style={{ color: "#0f2239" }}>
+                  Mock Interviews
+                </h5>
+                <p
+                  className="card-text"
+                  style={{ color: "#0f2239", textAlign: "justify" }}
+                >
+                  Boost your confidence through mock interviews designed to
+                  simulate the actual visa interview experience. This hands-on
+                  practice allows you to refine your responses, overcome nerves,
+                  and present yourself confidently.
+                </p>
+                <div className="position-absolute position-absolute bottom-0 start-50 translate-middle-x py-2  ">
+                  <a
+                    href=""
+                    className="btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3"
+                    style={{ backgroundColor: "#fe5722", color: "#fff" }}
+                  >
+                    Enquire Now
+                  </a>
+                </div>
+                <div
+                  class="modal fade"
+                  id="exampleModal3"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          Enquriy Form
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form
+                          action=""
+                          className="p-2 needs-validation"
+                          novalidate
+                          style={{ fontSize: "12px" }}
+                          onSubmit={handleSubmit}
+                        >
+                          <div class="modal-body">
+                            <div className="row"></div>
+                            <div className="row g-3 mb-3">
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    name="name"
+                                    onChange={handleInputs}
+                                    placeholder="Name"
+                                    id="floatingInputGrid"
+                                  />
+                                  <label for="floatingInputGrid">Name</label>
+                                  {errors.name.required ? (
+                                    <div className="text-danger form-text">
+                                      This field is required.
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={handleInputs}
+                                    name="country"
+                                    placeholder="Country"
+                                    id="floatingInputGrid"
+                                  />
+                                  <label for="floatingInputGrid">Country</label>
+                                  {errors.country.required ? (
+                                    <div className="text-danger form-text">
+                                      This field is required.
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row g-3 mb-3">
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    name="universityName"
+                                    onChange={handleInputs}
+                                    placeholder="University"
+                                    id="floatingInputGrid"
+                                    required
+                                  />
+                                  <label for="floatingInputGrid">
+                                    University
+                                  </label>
+                                  {errors.universityName.required ? (
+                                    <div className="text-danger form-text">
+                                      This field is required.
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    name="studentId"
+                                    onChange={handleInputs}
+                                    placeholder="Student ID"
+                                    id="floatingInputGrid"
+                                  />
+                                  <label for="floatingInputGrid">
+                                    Student ID
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row g-3 mb-3">
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    name="email"
+                                    onChange={handleInputs}
+                                    className="form-control"
+                                    placeholder="E-Mail"
+                                    id="floatingInputGrid"
+                                  />
+                                  <label for="floatingInputGrid">E-Mail</label>
+                                  {errors.email.required ? (
+                                    <div className="text-danger form-text">
+                                      This field is required.
+                                    </div>
+                                  ) : errors.email.valid ? (
+                                    <div className="text-danger form-text">
+                                      Enter valid Email Id.
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className="form-floating">
+                                  <input
+                                    type="text"
+                                    onChange={handleInputs}
+                                    name="mobileNumber"
+                                    className="form-control"
+                                    placeholder="Contact"
+                                    id="floatingInputGrid"
+                                  />
+                                  <label for="floatingInputGrid">Contact</label>
+                                  {errors.mobileNumber.required ? (
+                                    <div className="text-danger form-text">
+                                      This field is required.
+                                    </div>
+                                  ) : errors.mobileNumber.valid ? (
+                                    <div className="text-danger form-text">
+                                      Enter valid Contact Number.
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row g-3 mb-3  ">
+                              <div className="col">
+                                <select
+                                  class="form-select   "
+                                  aria-label="Large select example"
+                                >
+                                  <option selected>Type of Enquiry</option>
+                                  <option value="Student Enquiry">
+                                    Student Enquiry
+                                  </option>
+                                  <option value="Accommodation Enquiry">
+                                    Accommodation Enquiry
+                                  </option>
+                                  <option value="Forex Enquiry">
+                                    Forex Enquiry
+                                  </option>
+                                  <option value="Flight Ticket Enquiry">
+                                    Flight Ticket Enquiry
+                                  </option>
+                                  <option value="Loan Enquiry">
+                                    Loan Enquiry
+                                  </option>
+                                  <option value="Business Enquiry">
+                                    Business Enquiry
+                                  </option>
+                                  <option value="Genaral Enquiry">
+                                    Genaral Enquiry
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-floating">
+                              <textarea
+                                class="form-control"
+                                placeholder="Message"
+                                name="message"
+                                onChange={handleInputs}
+                                id="floatingTextarea"
+                                style={{ height: "110px" }}
+                              ></textarea>
+                              <label for="floatingTextarea">Message</label>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn  fw-semibold btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              type="submit"
+                              class="btn fw-semibold "
+                              data-bs-dismiss="modal"
+                              style={{
+                                backgroundColor: "#fe5722",
+                                color: "#fff",
+                              }}
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <Footer />
     </div>
-  
-    </div>
-</div>
-    <Footer/>
-</div>
-  )
-}
-export default Visa
+  );
+};
+export default Visa;

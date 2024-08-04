@@ -1,7 +1,7 @@
 // src/components/RoutePage.js
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ScrollToTop from '../Components/ScrollToTop/ScrollToTop';
+import {  Routes, Route } from 'react-router-dom';
+
 import Program from '../Pages/Program';
 import Home from '../Pages/Home';
 import University from '../Pages/University';
@@ -32,8 +32,8 @@ import ViewUniversity from '../Pages/ViewUniversity';
 
 const RoutePage = () => {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
+    
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Program" element={<Program />} />
@@ -63,7 +63,7 @@ const RoutePage = () => {
         <Route path="/ViewProgram" element={<ViewProgram />} />
         <Route path="/ViewUniversity" element={<ViewUniversity />} />
       </Routes>
-    </BrowserRouter>
+   
   );
 };
 

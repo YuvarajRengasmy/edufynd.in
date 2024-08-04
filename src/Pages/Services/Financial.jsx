@@ -213,7 +213,6 @@ export const Financial = () => {
       <FixedEnquiry />
       <FixedWhatsapp />
 
-
       <div className="container-fluid p-0 overflow-hidden">
         <div className="row ">
           <div className="col-12">
@@ -226,7 +225,7 @@ export const Financial = () => {
               />
               <div class="card-img-overlay align-self-end">
                 <div className="text-uppercase text-white text-center fs-2 fw-bold">
-                 Financial Aid
+                  Financial Aid
                 </div>
                 <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                   <div>
@@ -253,7 +252,7 @@ export const Financial = () => {
                   <div className="text-white">
                     <FaArrowRight />
                   </div>
-                  <div className="text-white fs-5">  Financial Aid</div>
+                  <div className="text-white fs-5"> Financial Aid</div>
                 </div>
               </div>
             </div>
