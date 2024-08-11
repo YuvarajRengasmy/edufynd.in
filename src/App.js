@@ -1,13 +1,14 @@
-import './App.css';
-import RoutePage from './Route/RoutePage';
-
-
+import "./App.css";
+import RoutePage from "./Route/RoutePage";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div >
-    <RoutePage/>
-    </div>
+    <>
+      <BrowserRouter>
+        <RoutePage />
+      </BrowserRouter>
+    </>
   );
 }
 

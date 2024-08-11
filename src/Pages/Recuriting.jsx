@@ -139,8 +139,8 @@ export const Recuriting = () => {
               />
               <div class="card-img-overlay align-self-end">
                 <div className="text-uppercase text-white text-center fs-2 fw-bold">
-        Recruting partner
-            </div>
+                  Recruting partner
+                </div>
                 <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                   <div>
                     <Link
@@ -154,8 +154,7 @@ export const Recuriting = () => {
                   <div className="text-white">
                     <FaArrowRight />
                   </div>
-               
-                 
+
                   <div className="text-white fs-5"> Recruting Partner</div>
                 </div>
               </div>
@@ -694,7 +693,7 @@ export const Recuriting = () => {
                 >
                   Let's shape the future of education together
                 </h4>
-              <TypesofEnquiry/>
+                <TypesofEnquiry />
               </div>
             </div>
           </div>

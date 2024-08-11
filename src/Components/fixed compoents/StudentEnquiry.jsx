@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { isValidEmail, isValidPhone } from '../../Utils/validataion';
-import { toast } from 'react-toastify';
-import { useNavigate, Link } from 'react-router-dom';
-import { saveStudnetEnquiry } from '../../api/studentEnquiry';
+import React, { useEffect, useState } from "react";
+import { isValidEmail, isValidPhone } from "../../Utils/validataion";
+import { toast } from "react-toastify";
+import { useNavigate, Link } from "react-router-dom";
+import { saveStudnetEnquiry } from "../../api/studentEnquiry";
 
 export const StudentEnquiry = () => {
   const initialState = {
     name: "",
-    primaryNumber: "",  
+    primaryNumber: "",
     email: "",
-    message: "", 
+    message: "",
   };
 
   const initialStateErrors = {
     name: { required: false },
-    primaryNumber: { required: false, valid: false },   
+    primaryNumber: { required: false, valid: false },
     email: { required: false, valid: false },
     message: { required: false },
   };
@@ -82,8 +82,17 @@ export const StudentEnquiry = () => {
 
   return (
     <div className="card my-3 bg-light">
-      <h5 className="card-title text-center fw-bold p-2" style={{ color: '#fe5722' }}>ENQUIRY WITH US!</h5>
-      <img src="https://harnesstechniques.com/img/enquiry.jpg" alt="" className="card-img-top rounded-0 h-100 p-2 rounded-0" />
+      <h5
+        className="card-title text-center fw-bold p-2"
+        style={{ color: "#fe5722" }}
+      >
+        ENQUIRY WITH US!
+      </h5>
+      <img
+        src="https://harnesstechniques.com/img/enquiry.jpg"
+        alt=""
+        className="card-img-top rounded-0 h-100 p-2 rounded-0"
+      />
       <form className="p-2" onSubmit={handleSubmit}>
         <div className="form-floating mb-3">
           <input
@@ -94,7 +103,9 @@ export const StudentEnquiry = () => {
             onChange={handleInputs}
           />
           <label htmlFor="floatingInput">Enter Your Name..</label>
-          {errors.name.required && <span className="text-danger">Name is required</span>}
+          {errors.name.required && (
+            <span className="text-danger">Name is required</span>
+          )}
         </div>
         <div className="form-floating mb-3">
           <input
@@ -105,13 +116,17 @@ export const StudentEnquiry = () => {
             onChange={handleInputs}
           />
           <label htmlFor="floatingPassword">Enter Your Email..</label>
-          {errors.email.required && <span className="text-danger">Email is required</span>}
-          {errors.email.valid && <span className="text-danger">Invalid email</span>}
+          {errors.email.required && (
+            <span className="text-danger">Email is required</span>
+          )}
+          {errors.email.valid && (
+            <span className="text-danger">Invalid email</span>
+          )}
         </div>
         <div className="input-group mb-3">
           <button
             className="btn dropdown-toggle"
-            style={{ backgroundColor: '#fe5722', color: '#fff' }}
+            style={{ backgroundColor: "#fe5722", color: "#fff" }}
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -119,7 +134,11 @@ export const StudentEnquiry = () => {
             +91
           </button>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">+91</a></li>
+            <li>
+              <a className="dropdown-item" href="#">
+                +91
+              </a>
+            </li>
           </ul>
           <input
             type="text"
@@ -128,8 +147,12 @@ export const StudentEnquiry = () => {
             placeholder="Enter Your Phone.."
             onChange={handleInputs}
           />
-          {errors.primaryNumber.required && <span className="text-danger">Mobile number is required</span>}
-          {errors.primaryNumber.valid && <span className="text-danger">Invalid mobile number</span>}
+          {errors.primaryNumber.required && (
+            <span className="text-danger">Mobile number is required</span>
+          )}
+          {errors.primaryNumber.valid && (
+            <span className="text-danger">Invalid mobile number</span>
+          )}
         </div>
         <div className="form-floating mb-3">
           <textarea
@@ -142,8 +165,12 @@ export const StudentEnquiry = () => {
           <label htmlFor="floatingTextarea2">Type Message</label>
         </div>
         <div className="modal-footer">
-          <button type="submit" className="btn btn-success">Send</button>
-          <button type="button" className="btn btn-danger">Close</button>
+          <button type="submit" className="btn btn-success">
+            Send
+          </button>
+          <button type="button" className="btn btn-danger">
+            Close
+          </button>
         </div>
       </form>
     </div>

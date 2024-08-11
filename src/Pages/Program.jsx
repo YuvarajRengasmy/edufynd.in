@@ -186,8 +186,8 @@ const Program = () => {
               />
               <div class="card-img-overlay align-self-end">
                 <div className="text-uppercase text-white text-center fs-2 fw-bold">
-          Program
-            </div>
+                  Program
+                </div>
                 <div className="d-flex flex-row align-items-center justify-content-center gap-3">
                   <div>
                     <Link
@@ -201,8 +201,7 @@ const Program = () => {
                   <div className="text-white">
                     <FaArrowRight />
                   </div>
-               
-                 
+
                   <div className="text-white fs-5">Program</div>
                 </div>
               </div>
@@ -429,7 +428,6 @@ const Program = () => {
                           aria-controls="tab-profile"
                           aria-selected="false"
                         >
-                          {" "}
                           <IoMdGrid /> Grid View
                         </Link>
                       </li>
@@ -450,10 +448,10 @@ const Program = () => {
                   <div key={index} className="row ">
                     <div className="col-xl-12 " data-aos="fade-up">
                       <div
-                        class="card mb-3 border-0 rounded-0 shadow-sm p-3  d-sm-none d-lg-block"
+                        class="card mb-3 rounded-1    d-sm-none d-lg-block"
                         style={{ height: "6rem" }}
                       >
-                        <div class="row g-0">
+                        <div class="row g-0  align-items-center">
                           <div class="col-md-1">
                             <div className="text-center ">
                               <img
@@ -464,11 +462,11 @@ const Program = () => {
                                 }
                                 class="img-fluid rounded-pill  img-thumbnail mx-auto d-block "
                                 alt="..."
-                                style={{ width: "4rem", height: "4rem" }}
+                                style={{ width: "5rem", height: "5rem" }}
                               />
                             </div>
                           </div>
-                          <div class="col-md-11">
+                          <div class="col-md-11 ">
                             <div class="card-body">
                               <div className="d-flex flex-row align-items-center justify-content-between ">
                                 <h6 className="">{data.universityName}</h6>
@@ -493,18 +491,18 @@ const Program = () => {
 
                                 <Link
                                   to={{
-                                    pathname: "/View-Program",
+                                    pathname: "/ViewProgram",
                                     search: `?id=${data?._id}`,
                                   }}
                                   target="_blank"
-                                  className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
+                                  className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-2 py-1"
                                   style={{
                                     backgroundColor: "#fe5722",
                                     color: "#fff",
-                                    fontSize: "12px",
+                                    fontSize: "10px",
                                   }}
                                 >
-                                  View{" "}
+                                  View
                                   <i
                                     class="fa fa-eye ms-1"
                                     aria-hidden="true"
@@ -535,21 +533,21 @@ const Program = () => {
                 role="tabpanel"
                 aria-labelledby="profile-tab"
               >
-                <div className="row g-3" data-aos="fade-up">
+                <div className="row " data-aos="fade-up">
                   {program.map((data, index) => (
                     <div
                       key={index}
                       className="col-xl-3 col-lg-4 col-md-6 col-sm-12"
                       data-aos="fade-up"
                     >
-                      <div className="card rounded-0 border-0 shadow-sm ">
+                      <div className="card rounded-1  mb-4">
                         <div
-                          class="card rounded-0 border-0  "
+                          class="card-img-top position-relative rounded-1 rounded-bottom-0  "
                           style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
                         >
                           <img
                             src="https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg"
-                            class="img-fluid rounded-0   "
+                            class="card-img img-fluid rounded-1 rounded-bottom-0   "
                             alt="program_bg"
                             style={{ height: "8rem", mixBlendMode: "multiply" }}
                           />
@@ -568,24 +566,28 @@ const Program = () => {
                         </div>
 
                         <div className="card-body">
-                          <h6 className="text-center">{data.universityName}</h6>
+                          <h6 className="text-center fw-semibold">
+                            <i class="fas fa-university nav-icon"></i>
+                            {data.universityName}
+                          </h6>
                           <div className="d-flex flex-column justify-content-between">
-                            <div className="d-flex flex-row mb-3 justify-content-evenly">
-                              <p className="card-text">
-                                Course: <b> {data.programTitle}</b>
-                              </p>
-                            </div>
-                            <div className="d-flex flex-row justify-content-evenly">
-                              <p className="">
-                                Course Fee: <b>{data.courseFees}</b>
-                              </p>
-                              <p className="">
-                                Country: <b>{data.country}</b>
-                              </p>
-                              <p className="">
-                                Intake: <b>{data?.inTake}</b>
-                              </p>
-                            </div>
+                            <p className="card-text mb-1">
+                              <i class="fas fa-book nav-icon"></i>{" "}
+                              <b> {data.programTitle}</b>
+                            </p>
+
+                            <p className="mb-1">
+                              <i class="fas fa-money-bill-wave nav-icon"></i>{" "}
+                              <b>{data.courseFees}</b>
+                            </p>
+                            <p className="mb-1">
+                              <i class="fas fa-globe nav-icon"></i>{" "}
+                              <b>{data.country}</b>
+                            </p>
+                            <p className="mb-1">
+                              <i class="fas fa-calendar-alt nav-icon"></i>{" "}
+                              <b>{data?.inTake}</b>
+                            </p>
                           </div>
                           <div className="text-center">
                             <Link
@@ -601,8 +603,8 @@ const Program = () => {
                                 fontSize: "12px",
                               }}
                             >
-                              View{" "}
-                              <i class="fa fa-eye ms-1" aria-hidden="true"></i>
+                              View
+                              <i class="fas fa-eye nav-icon"></i>
                             </Link>
                           </div>
                         </div>

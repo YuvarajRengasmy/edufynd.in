@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 * {
@@ -12,8 +11,7 @@ body {
   font-style: normal;
 }
 
-
-.btn  {
+.btn {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: weight;
