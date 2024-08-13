@@ -444,90 +444,76 @@ export const University = () => {
                 role="tabpanel"
                 aria-labelledby="home-tab"
               >
-                <div className="row">
-                  {university.map((data, index) => (
-                    <div className="col-xl-12" data-aos="fade-up" key={index}>
-                      <div
-                        className="card mb-3 rounded-1 d-none d-lg-flex"
-                        style={{ height: "6rem" }}
-                      >
-                        <div className="row g-0 align-items-center mt-2">
-                          <div className="col-md-1  ">
-                            <div className="text-center">
-                              <img
-                                src={
-                                  data?.universityLogo
-                                    ? data?.universityLogo
-                                    : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
-                                }
-                                className="img-fluid rounded-pill img-thumbnail mx-auto d-block"
-                                alt="University Logo"
-                                style={{ width: "5rem", height: "5rem" }}
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-11">
-                            <div className="card-body">
-                              <div className="d-flex  align-items-center justify-content-between">
-                                <h6>
-                                  <i className="fas fa-university nav-icon"></i>
-                                  &nbsp;&nbsp;
-                                  {data.universityName}
-                                </h6>
-                                <p className="mb-0">
-                                  <i className="fas fa-money-bill-wave nav-icon"></i>
-                                  &nbsp;&nbsp;
-                                  {data?.averageFees}
-                                </p>
-                                <p className="mb-0">
-                                  <i className="fas fa-book nav-icon"></i>
-                                  &nbsp;&nbsp;
-                                  {data?.courseType.join(", ")}
-                                </p>
-                                <p className="mb-0">
-                                  <i className="fas fa-globe nav-icon"></i>
-                                  &nbsp;&nbsp;
-                                  {data?.country}
-                                </p>
-                                <p className="mb-0">
-                                  <i className="fas fa-calendar-alt nav-icon"></i>
-                                  &nbsp;&nbsp;
-                                  {data?.inTake.join(", ")}
-                                </p>
-                                <Link
-                                  to={{
-                                    pathname: "/ViewUniversity",
-                                    search: `?id=${data?._id}`,
-                                  }}
-                                  className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-2 py-1"
-                                  style={{
-                                    backgroundColor: "#fe5722",
-                                    fontSize: "10px",
-                                  }}
-                                >
-                                  View{" "}
-                                  <i
-                                    className="fa fa-eye ms-1"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  <div className="d-flex justify-content-end my-2">
-                    <Pagination
-                      count={Math.ceil(pagination.count / pageSize)}
-                      onChange={handlePageChange}
-                      variant="outlined"
-                      shape="rounded"
-                      color="primary"
-                    />
-                  </div>
+              <div className="row">
+  {university.map((data, index) => (
+    <div className="col-xl-12" data-aos="fade-up" key={index}>
+      <div className="card mb-3 rounded-1 shadow border-0 d-none d-lg-flex" style={{ height: "6rem" }}>
+        <div className="row g-0 align-items-center h-100">
+          <div className="col-md-1 text-center">
+            <img
+              src={
+                data?.universityLogo
+                  ? data?.universityLogo
+                  : "https://static.vecteezy.com/system/resources/previews/021/996/239/non_2x/university-logo-design-vector.jpg"
+              }
+              className="img-fluid rounded-pill  mx-auto d-block"
+              alt="University Logo"
+              style={{ width: "4rem", height: "4rem" }}
+            />
+          </div>
+          <div className="col-md-11">
+            <div className="card-body">
+              <div className="row gx-3 align-items-center">
+                <div className="col text-truncate">
+                  <i className="fas fa-university nav-icon"></i>
+                  &nbsp;{data.universityName}
                 </div>
+                <div className="col text-truncate">
+                  <i className="fas fa-money-bill-wave nav-icon"></i>
+                  &nbsp;{data?.averageFees}
+                </div>
+                <div className="col text-truncate">
+                  <i className="fas fa-book nav-icon"></i>
+                  &nbsp;{data?.courseType.join(", ")}
+                </div>
+                <div className="col text-truncate">
+                  <i className="fas fa-globe nav-icon"></i>
+                  &nbsp;{data?.country}
+                </div>
+                <div className="col text-truncate">
+                  <i className="fas fa-calendar-alt nav-icon"></i>
+                  &nbsp;{data?.inTake.join(", ")}
+                </div>
+                <div className="col-auto">
+                  <Link
+                    to={{
+                      pathname: "/ViewUniversity",
+                      search: `?id=${data?._id}`,
+                    }}
+                    className="btn btn-sm text-white fw-bold text-capitalize border-0 rounded-1"
+                    style={{ backgroundColor: "#fe5722", fontSize: "10px" }}
+                  >
+                    Apply <i className="fas fa-paper-plane ms-1" aria-hidden="true"></i>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+  <div className="d-flex justify-content-end my-2">
+    <Pagination
+      count={Math.ceil(pagination.count / pageSize)}
+      onChange={handlePageChange}
+      variant="outlined"
+      shape="rounded"
+      color="primary"
+    />
+  </div>
+</div>
+
               </div>
               <div
                 class="tab-pane fade show active"
@@ -578,47 +564,47 @@ export const University = () => {
                         </div>
                         <div className="card-body">
                           <h6
-                            className=" text-center fw-semibold"
+                            className=" text-center fw-semibold text-truncate"
                             style={{ fontSize: "15px" }}
                           >
                             <i class="fas fa-university nav-icon"></i>
                             &nbsp;&nbsp;{data?.universityName}
                           </h6>
 
-                          <p className="mb-1">
+                          <p className="mb-1 text-truncate">
                             <i class="fas fa-money-bill-wave nav-icon"></i>
                             &nbsp;&nbsp;<b>{data?.averageFees}</b>
                           </p>
-                          <p className="mb-1">
+                          <p className="mb-1 text-truncate">
                             <i class="fas fa-book nav-icon"></i>&nbsp;&nbsp;
                             <b>{data?.courseType.join(", ")}</b>
                           </p>
 
-                          <p className="mb-1">
+                          <p className="mb-1 text-truncate">
                             <i class="fas fa-globe nav-icon"></i>&nbsp;&nbsp;{" "}
                             <b>{data?.country}</b>
                           </p>
-                          <p className="mb-1">
+                          <p className="mb-1 text-truncate">
                             <i class="fas fa-calendar-alt nav-icon"></i>
                             &nbsp;&nbsp; <b>{data?.inTake.join(", ")}</b>
                           </p>
 
-                          <div className="text-center position-absolute top-100 start-50 translate-middle ">
+                          <div className="text-center position-absolute top-100 start-50 translate-middle  ">
                             <Link
                               to={{
                                 pathname: "/ViewUniversity",
                                 search: `?id=${data?._id}`,
                               }}
-                              className="btn btn-sm text-white fw-semibold text-uppercase border-0 px-4 py-2"
+                              className="btn btn-sm text-white fw-bold text-capitalize border-0 px-3 py-1 rounded-1"
                               style={{
                                 backgroundColor: "#fe5722",
                                 color: "#fff",
                                 fontSize: "12px",
                               }}
                             >
-                              View{" "}
+                             Apply{" "}
                               <i
-                                className="fa fa-eye ms-1"
+                                className="fas fa-paper-plane  ms-1"
                                 aria-hidden="true"
                               ></i>
                             </Link>

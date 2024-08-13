@@ -55,8 +55,8 @@ export const Footer = () => {
                 <span className="two">
                   <FaLocationDot />
                 </span>{" "}
-                17/3A2, Gandhi St,
-                <br /> Alwartirunagar, Chennai - 600087, Tamil Nadu, India.
+                17/3A2, Gandhi St Alwartirunagar,
+                <br />  Chennai - 600087, Tamil Nadu, <br />  India.
               </div>
               <div className="text-white mt-4">
                 <span className="two">
