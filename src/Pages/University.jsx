@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { getFilterUniversity } from "../api/university";
-import { Link } from "react-router-dom";
+import { getSuperAdminForSearch } from "../api/superAdmin";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { FaListCheck } from "react-icons/fa6";
 import { IoMdGrid } from "react-icons/io";
@@ -17,6 +18,12 @@ import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 export const University = () => {
   const [university, setUniversity] = useState([]);
   const pageSize = 8;
+  
+  const location = useLocation();
+  const [link, setLink] = useState("");
+  const [data, setData] = useState(false);
+  const search = useRef(null);
+  var searchValue = location.state;
   const [pagination, setPagination] = useState({
     count: 0,
     from: 0,
@@ -44,6 +51,38 @@ export const University = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    if (search.current) {
+      search.current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchValue) {
+      search.current.value = searchValue.substring(1);
+      handleSearch();
+    }
+  }, [searchValue]);
+  const handleInputsearch = (event) => {
+    if (event.key === "Enter") {
+      search.current.blur();
+      handleSearch();
+    }
+  };
+
+  const handleSearch = (event) => {
+    const data = search.current.value;
+    event?.preventDefault();
+    getSuperAdminForSearch(data)
+      .then((res) => {
+        const universityList = res?.data?.result?.universityList;
+        setUniversity(universityList);
+        const result = universityList.length ? "universities" : "";
+        setLink(result);
+        setData(result === "" ? true : false);
+      })
+      .catch((err) => console.log(err));
   };
   const handlePageChange = (event, page) => {
     const from = (page - 1) * pageSize;
@@ -215,7 +254,7 @@ export const University = () => {
       >
         <div className="row">
           <div className="col-md-5">
-            <div class="input-group mb-3">
+            {/* <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control "
@@ -229,10 +268,37 @@ export const University = () => {
               >
                 <i class="fa fa-search" aria-hidden="true"></i>
               </span>
-            </div>
+            </div> */}
+             <form onSubmit={handleSearch}>
+              <div className="input-group" style={{ maxWidth: "1000px" }}>
+                <input
+                  type="search"
+                  placeholder="Search....."
+                  ref={search}
+                  onChange={handleInputsearch}
+                  aria-describedby="button-addon3"
+                  className="form-control border-1 border-dark rounded-4"
+                  style={{ fontSize: '14px' }}
+                />
+                <button
+                  className="input-group-text bg-transparent border-0"
+                  id="button-addon3"
+                  type="submit"
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <i className="fas fa-search" style={{ color: "black" }}></i>
+                </button>
+              </div>
+            </form>
           </div>
 
-          <div className="col-md-7">
+          {/* <div className="col-md-7">
             <div className="row">
               <div className="col">
                 <div class="dropdown ">
@@ -376,7 +442,7 @@ export const University = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div
             className="col-xl-12 justify-content-end align-items-center"
