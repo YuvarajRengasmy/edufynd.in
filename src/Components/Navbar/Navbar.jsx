@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-
+import logo from '../../assets/New folder/images/logo/edufynd-logo.svg'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
@@ -94,9 +94,9 @@ const Navbar = () => {
           <div className="container-fluid p-2">
             <Link to="/" className="navbar-brand mx-lg-3 px-lg-5">
               <img
-                src="https://www.edufynd.com/assets/images/edufynd-logo.svg"
+                src={logo}
                 alt="Edufynd Logo"
-                style={{ width: "200px", height: "60px" }}
+                style={{ width:'200px' }}
                 className="img-fluid"
               />
             </Link>
