@@ -133,7 +133,7 @@ export const About = () => {
 
       <FixedEnquiry />
       <FixedWhatsapp />
-      <div className="container-fluid p-0 overflow-hidden">
+      <div className="container-fluid p-0 overflow-hidden d-none d-lg-block">
         <div className="row ">
           <div className="col-12">
             <div class="card text-bg-dark rounded-0 ">
@@ -422,215 +422,145 @@ export const About = () => {
           </div>
         </div>
       </div>
+    
+
       <div className="container my-4" data-aos="zoom-in">
-        <div className="row g-4">
-          <div className="col-md-6">
-            <div className="mx-auto d-block mt-5">
-              <img
-                src={about_ban2}
-                alt="image"
-                className="img-fluid rounded-3"
-              />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div>
-              <h3 className="fw-light" style={{ color: "#fe5722" }}>
-                Let's Shape The Future Of
-              </h3>
-              <h3 className="fw-bold">Education Together</h3>
-              <p className="lh-base" style={{ textAlign: "justify" }}>
-                At EduFynd, we transcend the role of mere advisors we are
-                inspirers. Our belief is that the world is our classroom, and
-                within it, possibilities are boundless. Join us on this journey
-                where education becomes a transformative force, shaping not just
-                careers but entire lives.
-              </p>
-              <p className="lh-base" style={{ textAlign: "justify" }}>
-                From meticulous test preparation and program selection guidance
-                to invaluable admission assistance, loan and visa application
-                support, and seamless departure-landing services, our commitment
-                extends beyond enrollment—providing continuous assistance until
-                degree completion.
-              </p>
-              <p className="lh-base" style={{ textAlign: "justify" }}>
-                As a leader in overseas education services, EduFynd Global
-                Private Limited envisions a future where every student has the
-                opportunity to explore the world through education.
-              </p>
-            </div>
-          </div>
-        </div>
+  <div className="row gx-4">
+    <div className="col-md-6 d-flex justify-content-center">
+      <img
+        src={about_ban2}
+        alt="image"
+        className="img-fluid rounded-3"
+      />
+    </div>
+    <div className="col-md-6">
+      <div className="d-flex flex-column justify-content-center h-100">
+        <h3 className="fw-light text-danger">
+          Let's Shape The Future Of
+        </h3>
+        <h3 className="fw-bold">Education Together</h3>
+        <p className="lh-base">
+          At EduFynd, we transcend the role of mere advisors; we are
+          inspirers. Our belief is that the world is our classroom, and
+          within it, possibilities are boundless. Join us on this journey
+          where education becomes a transformative force, shaping not just
+          careers but entire lives.
+        </p>
+        <p className="lh-base">
+          From meticulous test preparation and program selection guidance
+          to invaluable admission assistance, loan and visa application
+          support, and seamless departure-landing services, our commitment
+          extends beyond enrollment—providing continuous assistance until
+          degree completion.
+        </p>
+        <p className="lh-base">
+          As a leader in overseas education services, EduFynd Global
+          Private Limited envisions a future where every student has the
+          opportunity to explore the world through education.
+        </p>
       </div>
+    </div>
+  </div>
+</div>
+
 
       <div className="container my-4">
-        <div className="row g-3">
-          <div className="col-12">
-            <h6
-              className="text-uppercase text-center h5 fw-bold"
-              style={{ color: "#fe5722" }}
-            >
-              OUR COUNSELLORS
-            </h6>
-            <h3
-              className="text-capitalize text-center"
-              style={{ fontWeight: "bold" }}
-            >
-              Meet Our Expert Counsellors
-            </h3>
+  <div className="row g-3">
+    <div className="col-12 text-center">
+      <h6 className="text-uppercase h5 fw-bold text-warning">
+        OUR TEAM
+      </h6>
+      <h3 className="text-capitalize fw-bold">
+        Meet Our Team
+      </h3>
+    </div>
+    <div className="row">
+      <div className="d-flex flex-row gap-4">
+        <div className="col-md-3">
+          <div className="card border-0">
+            <div className="text-center">
+              <img
+                src={team_1_1}
+                alt="Team Member"
+                className="img-fluid rounded-pill"
+                style={{ width: "12rem", height: "12rem" }}
+              />
+            </div>
+            <div className="card-body text-center">
+              <h4 className="card-title fw-bold">
+                Alex Johnson
+              </h4>
+              <p className="card-text text-warning fw-normal" style={{ fontSize: "13px" }}>
+                Senior Consultant
+              </p>
+            </div>
           </div>
-          <div className="row g-3">
-            <div className="col-md-3">
-              <div className="card border-0">
-                <div className="text-center position-relative">
-                  <img
-                    src={team_1_1}
-                    alt="image"
-                    className="mx-auto d-block img-fluid rounded-pill border border-success p-3 border-2 border-bottom-0"
-                    style={{ width: "250px", height: "250px" }}
-                  />
-                  <div
-                    className="position-absolute top-50 start-50 translate-middle rounded-circle px-3 pt-2 pb-3"
-                    style={{
-                      backgroundColor: "#fe5722",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <FaPlus />
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="card-title">
-                    <h4 className="text-capitalize text-center fw-bold">
-                      Lily Michelle
-                    </h4>
-                  </div>
-                  <div className="card-text">
-                    <p
-                      className="text-center fw-normal"
-                      style={{ color: "#fe5722", fontSize: "13px" }}
-                    >
-                      Founder & CEO
-                    </p>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card border-0">
+            <div className="text-center">
+              <img
+                src={team_1_2}
+                alt="Team Member"
+                className="img-fluid rounded-pill"
+                style={{ width: "12rem", height: "12rem" }}
+              />
             </div>
-            <div className="col-md-3">
-              <div className="card border-0">
-                <div className="text-center position-relative">
-                  <img
-                    src={team_1_2}
-                    alt="image"
-                    className="mx-auto d-block img-fluid rounded-pill border border-success p-3 border-2 border-bottom-0"
-                    style={{ width: "250px", height: "250px" }}
-                  />
-                  <div
-                    className="position-absolute top-50 start-50 translate-middle rounded-circle px-3 pt-2 pb-3"
-                    style={{
-                      backgroundColor: "#fe5722",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <FaPlus />
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="card-title">
-                    <h4 className="text-capitalize text-center fw-bold">
-                      Lily Michelle
-                    </h4>
-                  </div>
-                  <div className="card-text">
-                    <p
-                      className="text-center fw-normal"
-                      style={{ color: "#fe5722", fontSize: "13px" }}
-                    >
-                      Founder & CEO
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="card-body text-center">
+              <h4 className="card-title fw-bold">
+                Jordan Lee
+              </h4>
+              <p className="card-text text-warning fw-normal" style={{ fontSize: "13px" }}>
+                Lead Developer
+              </p>
             </div>
-            <div className="col-md-3">
-              <div className="card border-0">
-                <div className="text-center position-relative">
-                  <img
-                    src={team_1_3}
-                    alt="image"
-                    className="mx-auto d-block img-fluid rounded-pill border border-success p-3 border-2 border-bottom-0"
-                    style={{ width: "250px", height: "250px" }}
-                  />
-                  <div
-                    className="position-absolute top-50 start-50 translate-middle rounded-circle px-3 pt-2 pb-3"
-                    style={{
-                      backgroundColor: "#fe5722",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <FaPlus />
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="card-title">
-                    <h4 className="text-capitalize text-center fw-bold">
-                      Lily Michelle
-                    </h4>
-                  </div>
-                  <div className="card-text">
-                    <p
-                      className="text-center fw-normal"
-                      style={{ color: "#fe5722", fontSize: "13px" }}
-                    >
-                      Founder & CEO
-                    </p>
-                  </div>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card border-0">
+            <div className="text-center">
+              <img
+                src={team_1_3}
+                alt="Team Member"
+                className="img-fluid rounded-pill"
+                style={{ width: "12rem", height: "12rem" }}
+              />
             </div>
-            <div className="col-md-3">
-              <div className="card border-0">
-                <div className="text-center position-relative">
-                  <img
-                    src={team_1_4}
-                    alt="image"
-                    className="mx-auto d-block img-fluid rounded-pill border border-success p-3 border-2 border-bottom-0"
-                    style={{ width: "250px", height: "250px" }}
-                  />
-                  <div
-                    className="position-absolute top-50 start-50 translate-middle rounded-circle px-3 pt-2 pb-3"
-                    style={{
-                      backgroundColor: "#fe5722",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <FaPlus />
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="card-title">
-                    <h4 className="text-capitalize text-center fw-bold">
-                      Lily Michelle
-                    </h4>
-                  </div>
-                  <div className="card-text">
-                    <p
-                      className="text-center fw-normal"
-                      style={{ color: "#fe5722", fontSize: "13px" }}
-                    >
-                      Founder & CEO
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="card-body text-center">
+              <h4 className="card-title fw-bold">
+                Taylor Smith
+              </h4>
+              <p className="card-text text-warning fw-normal" style={{ fontSize: "13px" }}>
+                Marketing Specialist
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card border-0">
+            <div className="text-center">
+              <img
+                src={team_1_4}
+                alt="Team Member"
+                className="img-fluid rounded-pill"
+                style={{ width: "12rem", height: "12rem" }}
+              />
+            </div>
+            <div className="card-body text-center">
+              <h4 className="card-title fw-bold">
+                Morgan Davis
+              </h4>
+              <p className="card-text text-warning fw-normal" style={{ fontSize: "13px" }}>
+                Product Manager
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       <Footer />
     </div>

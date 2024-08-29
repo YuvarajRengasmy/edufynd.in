@@ -8,6 +8,7 @@ import { getUniversityProgram } from "../api/program";
 
 import { RichTextEditor } from "@mantine/rte";
 import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 const UserProfile = () => {
   const location = useLocation();
@@ -909,6 +910,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

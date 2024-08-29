@@ -69,3 +69,27 @@
   color: #fe5720 !important;
   font-weight: 600 !important;
 }
+/* Navbar.css */
+
+.nav-link {
+  text-decoration: none;
+  color: #333; /* Default link color */
+ 
+}
+
+.nav-link.active {
+  color: #fe5722 !important; /* Highlight color for the active link */
+  font-weight: bold !important;
+}
+/* Navbar.css */
+
+/* Ensure the offcanvas takes up the full height and desired width */
+.offcanvas {
+  width: 250px !important; /* Adjust width as needed */
+  max-width: 100% !important; /* Ensure it doesn't exceed the viewport width */
+  height: 100vh !important;
+}
+
+.offcanvas-body {
+  padding: 1rem !important; /* Adjust padding as needed */
+}

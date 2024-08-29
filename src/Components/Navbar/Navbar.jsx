@@ -10,23 +10,29 @@ import {
   FaYoutube,
   FaTwitter,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logo from '../../assets/New folder/images/logo/edufynd-logo.svg'
+import logo from '../../assets/New folder/images/logo/edufynd-logo.svg';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const location = useLocation();
 
   const handleScroll = () => {
     const scrollTop = window.scrollY;
-    setIsScrolled(scrollTop > 50); // Toggle navbar shadow based on scroll
-    setShowHeader(scrollTop <= 50); // Hide header initially
+    setIsScrolled(scrollTop > 50);
+    setShowHeader(scrollTop <= 50);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getNavLinkClass = (path) => {
+    return location.pathname === path ? "nav-link active" : "nav-link";
+  };
 
   return (
     <div
@@ -35,7 +41,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container-fluid text-white p-0">
-        {/* This one is header */}
+        {/* Header */}
         <div
           className="container-fluid text-center"
           style={{ backgroundColor: "#fe5722", color: "#fff" }}
@@ -85,7 +91,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* this one is navbar */}
+        {/* Navbar */}
         <nav
           className={`navbar navbar-expand-lg bg-white ${
             isScrolled ? "scrolled" : ""
@@ -96,56 +102,62 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Edufynd Logo"
-                style={{ width:'200px' }}
+                style={{ width: '200px' }}
                 className="img-fluid"
               />
             </Link>
+
             <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasDarkNavbar"
-              aria-controls="offcanvasDarkNavbar"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="offcanvas offcanvas-start"
-              tabIndex="-1"
-              id="offcanvasDarkNavbar"
-              aria-labelledby="offcanvasDarkNavbarLabel"
-            >
-              <ul className="navbar-nav mb-lg-0 me-auto">
-                <li className="nav-item">
-                  <Link to="/" className="nav-link " aria-current="page">
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div
+      className="offcanvas offcanvas-start"
+      tabIndex="-1"
+      id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel"
+    >
+      <div className="offcanvas-header">
+       
+        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div className="offcanvas-body">
+      <ul className="navbar-nav mb-lg-0 me-auto">
+                <li className="nav-item ">
+                  <Link to="/" className={getNavLinkClass("/")}>
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/About" className="nav-link ">
+                <li className="nav-item ">
+                  <Link to="/About" className={getNavLinkClass("/About")}>
                     About
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/Program" className="nav-link ">
+                <li className="nav-item ">
+                  <Link to="/Program" className={getNavLinkClass("/Program")}>
                     Program
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/University" className="nav-link ">
+                <li className="nav-item ">
+                  <Link to="/University" className={getNavLinkClass("/University")}>
                     University
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/RecruitingPartner" className="nav-link ">
+                <li className="nav-item ">
+                  <Link to="/RecruitingPartner" className={getNavLinkClass("/RecruitingPartner")}>
                     Recruiting Partner
                   </Link>
                 </li>
-                <li className="nav-item dropdown">
+                <li className="nav-item  dropdown">
                   <Link
                     to="/StudyDestination"
-                    className="nav-link "
+                    className={getNavLinkClass("/StudyDestination")}
                     role="button"
                     aria-expanded="false"
                   >
@@ -155,7 +167,8 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-In-USA"
-                        className="dropdown-item fw-semibold"
+                        
+                        className={getNavLinkClass("/Study-In-USA")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in USA
@@ -164,7 +177,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-UK"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-UK")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in UK
@@ -173,7 +186,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-Canada"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-Canada")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in Canada
@@ -182,7 +195,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-Australia"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-Australia")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in Australia
@@ -191,7 +204,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-Ireland"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-Ireland")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in Ireland
@@ -200,7 +213,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-In-New-Zealand"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-In-New-Zealand")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in New Zealand
@@ -209,7 +222,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-In-Singapore"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-In-Singapore")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in Singapore
@@ -218,7 +231,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-France"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-France")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in France
@@ -227,7 +240,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Study-in-Europe"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Study-in-Europe")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Study in Europe
@@ -235,20 +248,21 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </li>
-                <li className="nav-item dropdown">
+                <li className="nav-item  dropdown">
                   <Link
                     to="/Service"
-                    className="nav-link "
+                    className={getNavLinkClass("/Service")}
                     role="button"
                     aria-expanded="false"
                   >
                     Services <IoIosArrowDown />
                   </Link>
+
                   <ul className="dropdown-menu py-2 border-0 shadow">
                     <li>
                       <Link
                         to="/Admission-Support"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Admission-Support")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Admission Support
@@ -257,7 +271,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/SOP-Crafting"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/SOP-Crafting")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         SOP Crafting
@@ -266,7 +280,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Visa-Support"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Visa-Support")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Visa Support
@@ -275,7 +289,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Financial-Aid"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Financial-Aid")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Financial Aid
@@ -284,31 +298,44 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Pre-and-Post-Support"
-                        className="dropdown-item fw-semibold"
+                         className={getNavLinkClass("/Pre-and-Post-Support")}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Pre and Post Support
                       </Link>
                     </li>
                     <li>
-                      <Link to="/Forex" className="dropdown-item fw-semibold">
+                      <Link to="/Forex"  className={getNavLinkClass("/Forex")}>
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Forex
                       </Link>
                     </li>
                   </ul>
+                
+                 
                 </li>
-                <li className="nav-item">
-                  <Link to="/Blog" className="nav-link ">
-                    Blog
+                <li className="nav-item ">
+                  <Link to="/Blog" className={getNavLinkClass("/Blog")}>
+                  Blog
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/Contact" className="nav-link ">
-                    Contact
+               
+                <li className="nav-item ">
+                  <Link to="/Contact" className={getNavLinkClass("/Contact")}>
+                    Contact Us
                   </Link>
                 </li>
               </ul>
+      </div>
+      </div>
+         
+            <div
+              className="offcanvas offcanvas-start"
+              tabIndex="-1"
+              id="offcanvasDarkNavbar"
+              aria-labelledby="offcanvasDarkNavbarLabel"
+            >
+             
             </div>
           </div>
         </nav>
