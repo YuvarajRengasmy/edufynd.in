@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { isValidEmail, isValidPhone } from "../../Utils/validataion";
 import { toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
+import { getallCode } from "../../api/counteyCode";
 
 import { saveGeneralEnquiry } from "../../api/generalEnquiry";
 
@@ -11,11 +12,12 @@ export const FixedEnquiry = () => {
     mobileNumber: "",
     email: "",
     message: "",
+    dial1: "",
   };
   const initialStateErrors = {
     name: { required: false },
     mobileNumber: { required: false },
-
+dail:{required:false},
     email: { required: false },
     message: { required: false },
   };
@@ -24,7 +26,20 @@ export const FixedEnquiry = () => {
   const [errors, setErrors] = useState(initialStateErrors);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
-
+  const [dial, setDial] = useState([]);
+  useEffect(() => {
+   
+    getallCodeList();
+  }, []);
+  const getallCodeList = () => {
+    getallCode()
+      .then((res) => {
+        setDial(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const handleValidation = (data) => {
     let error = initialStateErrors;
     if (!data.name) {
@@ -163,22 +178,20 @@ export const FixedEnquiry = () => {
                         )}
                       </div>
                       <div className="input-group mb-3">
-                        <button
-                          className="btn dropdown-toggle"
-                          style={{ backgroundColor: "#fe5722", color: "#fff" }}
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          +91
-                        </button>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              +91
-                            </a>
-                          </li>
-                        </ul>
+                      <select className="form-select form-select-sm"
+                       name="dial1" style={{ maxWidth: '75px',backgroundColor: "#fe5722", color: "#fff" , fontFamily: "Plus Jakarta Sans",fontSize: "12px", }}  
+  onChange={handleInputs} value={forex?.dial1} >
+   <option style={{ backgroundColor: "#fe5722", color: "#fff" }} value="+91">+91-India-in</option>
+  {dial?.map((item) => (
+    <option value={item?.dialCode} key={item?.dialCode}>
+      {item?.dialCode} - {item?.name} -
+      
+    </option>
+  ))}
+
+   
+  </select>
+                       
                         <input
                           type="text"
                           className="form-control"

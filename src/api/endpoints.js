@@ -7,3 +7,4 @@ export const Contact ="generalEnquiry";
 export const Program ="program";
 export const University ="university";
 export const SuperAdmin ="superadmin";
+export const DialCode ="dialCode";
