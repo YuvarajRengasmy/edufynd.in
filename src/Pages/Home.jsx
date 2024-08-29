@@ -28,6 +28,8 @@ import CountUp from "react-countup";
 import cta_bg2_shape from "../assets/img/bg/cta-bg2-shape.png";
 import cta_2_shape1 from "../assets/img/normal/cta_2_shape1.png";
 import cta_2_shape2 from "../assets/img/normal/cta_2_shape2.png";
+import { getallCode } from "../api/counteyCode";
+
 import "aos/dist/aos.css";
 import AOS from "aos";
 import "animate.css";
@@ -64,7 +66,20 @@ export const Home = () => {
   const [errors, setErrors] = useState(initialStateErrors);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
-
+  const [dial, setDial] = useState([]);
+  useEffect(() => {
+   
+    getallCodeList();
+  }, []);
+  const getallCodeList = () => {
+    getallCode()
+      .then((res) => {
+        setDial(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const handleValidation = (data) => {
     let error = initialStateErrors;
     if (!data.name) {
@@ -124,7 +139,7 @@ export const Home = () => {
         .then((res) => {
           toast.success("Enquiry Submitted Successfully");
           closeModal();
-          navigate("/");
+          navigate("/Program");
         })
         .catch((err) => {
           toast.error(err?.response?.data?.message);
@@ -536,22 +551,19 @@ export const Home = () => {
                     )}
                   </div>
                   <div className="input-group mb-3">
-                    <button
-                      className="btn dropdown-toggle"
-                      style={{ backgroundColor: "#fe5722", color: "#fff" }}
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      +91
-                    </button>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          +91
-                        </a>
-                      </li>
-                    </ul>
+                  <select className="form-select form-select-sm"
+                       name="dial1" style={{ maxWidth: '75px',backgroundColor: "#fe5722", color: "#fff" , fontFamily: "Plus Jakarta Sans",fontSize: "12px", }}  
+  onChange={handleInputs} value={forex?.dial1} >
+   <option style={{ backgroundColor: "#fe5722", color: "#fff" }} value="+91">+91-India-in</option>
+  {dial?.map((item) => (
+    <option value={item?.dialCode} key={item?.dialCode}>
+      {item?.dialCode} - {item?.name} -
+      
+    </option>
+  ))}
+
+   
+  </select>
                     <input
                       type="text"
                       className="form-control"
