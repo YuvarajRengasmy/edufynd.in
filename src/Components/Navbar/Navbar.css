@@ -1,56 +1,56 @@
 /* Navbar Dropdown */
 .dropdown:hover .dropdown-menu {
-  background: #fff;
-  color: #0f2239;
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  transition: all 0.4s linear;
-  top: 100%;
+  background: #fff !important;
+  color: #0f2239 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: all 0.4s linear !important;
+  top: 100% !important;
 }
 
 .dropdown {
-  position: relative;
+  position: relative !important;
 
-  z-index: 1;
-  transform: perspective(1000px);
+  z-index: 1 !important;
+  transform: perspective(1000px) !important;
 }
 
 .dropdown-menu {
-  background: #fff;
-  color: #0f2239;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  z-index: 1000;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  background: #fff !important;
+  color: #0f2239 !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  z-index: 1000 !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
 
 /* Navbar and Fixed Top Styles */
 /* Ensure the header is hidden initially */
 .header-hidden {
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%) !important;
+  transition: transform 0.3s ease-in-out !important;
 }
 
 .header-visible {
-  transform: translateY(0);
+  transform: translateY(0) !important;
 }
 
 .navbar {
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out !important;
 }
 
 /* Add box-shadow for better visibility when navbar is fixed */
 .navbar.scrolled {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Active and hover styles */
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #f8f9fa; /* Background color on hover */
+  background-color: #f8f9fa !important; /* Background color on hover */
 }
 
 .nav-link {
