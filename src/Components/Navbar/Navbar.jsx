@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Logo from "../../assets/images/edufynd-logo.svg";
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,7 +96,7 @@ const Navbar = () => {
           <div className="container-fluid p-2">
             <Link to="/" className="navbar-brand mx-lg-3 px-lg-5">
               <img
-                src="https://www.edufynd.com/assets/images/edufynd-logo.svg"
+                src={Logo}
                 alt="Edufynd Logo"
                 style={{ width: "200px", height: "60px" }}
                 className="img-fluid"

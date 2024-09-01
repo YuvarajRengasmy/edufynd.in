@@ -675,18 +675,16 @@ export const Europe = () => {
                   Study in USA
                 </Link>
               </li>
-              <li
-                class="list-group-item  active border-0 py-3"
-                style={{ backgroundColor: "#fe5722" }}
-              >
+              <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-UK"
-                  className="text-decoration-none text-white"
-                  style={{ backgroundColor: "#fe5722" }}
+                  className="text-decoration-none"
+                  style={{ color: "#fe5722" }}
                 >
                   Study in UK
                 </Link>
               </li>
+              
               <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-Canada"
@@ -723,15 +721,19 @@ export const Europe = () => {
                   Study in New Zealand
                 </Link>
               </li>
-              <li class="list-group-item py-3">
+              <li
+                class="list-group-item  active border-0 py-3"
+                style={{ backgroundColor: "#fe5722" }}
+              >
                 <Link
                   to="/Study-In-Europe"
-                  className="text-decoration-none"
-                  style={{ color: "#fe5722" }}
+                  className="text-decoration-none text-white"
+                  style={{ backgroundColor: "#fe5722" }}
                 >
-                  Study in Europe
+                 Study in Europe
                 </Link>
               </li>
+              
               <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-France"

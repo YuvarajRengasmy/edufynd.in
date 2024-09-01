@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
@@ -10,7 +10,41 @@ import { Helmet } from "react-helmet";
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 import { Link } from "react-router-dom";
+import {getallBlog} from "../api/blog"
+import { formatDate } from "../Utils/dateTime";
+
 export const Blog = () => {
+
+  const [blog, setBlog] = useState([]);
+  const pageSize = 8;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
+  useEffect(() => {
+    getAllUniversityDetails();
+  }, [pagination.from, pagination.to]);
+
+  const getAllUniversityDetails = () => {
+    const data = {
+      limit: 8,
+      page: pagination.from,
+    };
+    getallBlog(data)
+      .then((res) => {
+        console.log(res?.data?.result);
+        setBlog(res?.data?.result);
+        setPagination({
+          ...pagination,
+          count: res?.data?.result,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <Helmet>
@@ -156,63 +190,73 @@ export const Blog = () => {
 
       <div className="container my-5">
         <div className="row">
+        {blog?.map((item) => (
           <div className="col-md-4 mb-4">
             <div className="card rounded-3 position-relative  shadow-sm ">
               <div
-                id="flag"
-                className="position-absolute top-0 start-0 translate-middle  rounded-3"
-              ></div>
+                 id="flag"
+                className="position-absolute top-0  start-0  rounded-3"
+              >
 
-              <div className="card-body p-3">
-                <div
-                  className="card-text text-end fw-semibold"
-                  style={{ fontSize: "13px" }}
-                >
-                  {" "}
-                  <span className="pe-1">
-                    <FaClock />
-                  </span>{" "}
-                  Published On
-                </div>
-                <div
-                  className="card-text text-end fw-semibold"
-                  style={{ fontSize: "13px" }}
-                >
-                  {" "}
-                  <span className="pe-1">
-                    {" "}
-                    <FaCalendar />
-                  </span>{" "}
-                  04/04/2024
-                </div>
-                <div
-                  className="card-title fw-bold p-4"
-                  style={{ fontSize: "20px" }}
-                >
-                  Challenges Faced by Indian Students in Studying Abroad and How
-                  to Conquer Them
-                </div>
-                <div className="position-absolute bottom-0 end-0">
-                  <img
-                    src={about_1_shape1}
-                    alt=""
-                    className="img-fluid p-2 vert-move"
-                    style={{ width: "150px", height: "150px" }}
-                  />
-                </div>
-                <div className="d-inline text-start ms-3">
-                  <Link
-                    to="/Blog-Details"
-                    className="btn text-uppercase text-white fw-bold border-0 rounded-1 px-4 py-2"
-                    style={{ backgroundColor: "#fe5722", fontSize: "12px" }}
-                  >
-                    View Blog &nbsp;{" "}
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                  </Link>
-                </div>
               </div>
+           
+               <div className="card-body p-3">
+               <div
+                 className="card-text text-end fw-semibold"
+                 style={{ fontSize: "13px" }}
+               >
+                 {" "}
+                 <span className="pe-1">
+                   <FaClock />
+                 </span>{" "}
+                 Published On
+               </div>
+               <div
+                 className="card-text text-end fw-semibold"
+                 style={{ fontSize: "13px" }}
+               >
+                 {" "}
+                 <span className="pe-1">
+                   {" "}
+                   <FaCalendar />
+                 </span>{" "}
+                 {formatDate(item.createdOn)}
+               </div>
+               <div
+                 className="card-title fw-bold p-4"
+                 style={{ fontSize: "20px" }}
+               >
+                {item.title}
+               </div>
+               <div className="position-absolute bottom-0 end-0">
+                 <img
+                   src={about_1_shape1}
+                   alt=""
+                   className="img-fluid p-2 vert-move"
+                   style={{ width: "150px", height: "150px" }}
+                 />
+               </div>
+               <div className="d-inline text-start ms-3">
+                 <Link
+                  to={{
+                    pathname: "/Blog-Details",
+                    search: `?id=${item?._id}`,
+                  }}
+                   
+                   className="btn text-uppercase text-white fw-bold border-0 rounded-1 px-4 py-2"
+                   style={{ backgroundColor: "#fe5722", fontSize: "12px" }}
+                 >
+                   View Blog &nbsp;{" "}
+                   <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                 </Link>
+               </div>
+             </div>
+         
+             
+
             </div>
           </div>
+             ))}
         </div>
       </div>
       <Footer />

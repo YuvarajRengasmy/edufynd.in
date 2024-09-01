@@ -678,14 +678,12 @@ export const Newzeland = () => {
                   Study in USA
                 </Link>
               </li>
-              <li
-                class="list-group-item  active border-0 py-3"
-                style={{ backgroundColor: "#fe5722" }}
-              >
+             
+              <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-UK"
-                  className="text-decoration-none text-white"
-                  style={{ backgroundColor: "#fe5722" }}
+                  className="text-decoration-none"
+                  style={{ color: "#fe5722" }}
                 >
                   Study in UK
                 </Link>
@@ -717,15 +715,19 @@ export const Newzeland = () => {
                   Study in Ireland
                 </Link>
               </li>
-              <li class="list-group-item py-3">
+              <li
+                class="list-group-item  active border-0 py-3"
+                style={{ backgroundColor: "#fe5722" }}
+              >
                 <Link
                   to="/Study-In-New-Zealand"
-                  className="text-decoration-none"
-                  style={{ color: "#fe5722" }}
+                  className="text-decoration-none text-white"
+                  style={{ backgroundColor: "#fe5722" }}
                 >
                   Study in New Zealand
                 </Link>
               </li>
+             
               <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-Europe"

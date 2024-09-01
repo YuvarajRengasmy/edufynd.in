@@ -735,16 +735,14 @@ export const Australia = () => {
                   Study in USA
                 </Link>
               </li>
-              <li
-                class="list-group-item  active border-0 py-3"
-                style={{ backgroundColor: "#fe5722" }}
-              >
+             
+              <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-UK"
-                  className="text-decoration-none text-white"
-                  style={{ backgroundColor: "#fe5722" }}
+                  className="text-decoration-none"
+                  style={{ color: "#fe5722" }}
                 >
-                  Study in UK
+                   Study in UK
                 </Link>
               </li>
               <li class="list-group-item py-3">
@@ -756,15 +754,19 @@ export const Australia = () => {
                   Study in Canada
                 </Link>
               </li>
-              <li class="list-group-item py-3">
+              <li
+                class="list-group-item  active border-0 py-3"
+                style={{ backgroundColor: "#fe5722" }}
+              >
                 <Link
                   to="/Study-In-Australia"
-                  className="text-decoration-none"
-                  style={{ color: "#fe5722" }}
+                  className="text-decoration-none text-white"
+                  style={{ backgroundColor: "#fe5722" }}
                 >
-                  Study in Australia
+                 Study in Australia
                 </Link>
               </li>
+             
               <li class="list-group-item py-3">
                 <Link
                   to="/Study-In-Ireland"

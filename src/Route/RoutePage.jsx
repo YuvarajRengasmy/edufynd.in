@@ -52,7 +52,7 @@ const RoutePage = () => {
         <Route path="/Study-In-France" element={<France />} />
         <Route path="/Study-In-Ireland" element={<Ireland />} />
         <Route path="/Study-In-New-Zealand" element={<NewZealand />} />
-        <Route path="/Study-In-Singapore" element={<Singapore />} />
+        <Route path="/Study-In-Signapore" element={<Singapore />} />
         <Route path="/Admission-Support" element={<Admission />} />
         <Route path="/Financial-Aid" element={<Financial />} />
         <Route path="/Forex" element={<Forex />} />
