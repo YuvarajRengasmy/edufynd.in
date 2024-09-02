@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
 import blog_1 from "../assets/img/blog/blog-s-1-1.jpg";
+import { getSuperAdminForSearch } from "../api/superAdmin";
+
 import blog_inner_1 from "../assets/img/blog/blog_inner_1.jpg";
 import { FaFacebook } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -16,6 +18,7 @@ import { Helmet } from "react-helmet";
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
 import {getSingleBlog  } from "../api/blog";
+import { RichTextEditor } from "@mantine/rte";
 import { Link, useLocation } from "react-router-dom";
 
 export const Blogdetails = () => {
@@ -23,11 +26,79 @@ export const Blogdetails = () => {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get("id");
   const [blog, setBlog] = useState([]);
+  const [link, setLink] = useState("");
+  const [data, setData] = useState(false);
+  const search = useRef(null);
+  const pageSize = 3;
 
+  var searchValue = location.state;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
+  useEffect(() => {
+    if (search.current) {
+      search.current.focus();
+    }
+  }, []);
 
   useEffect(() => {
+    if (searchValue) {
+      search.current.value = searchValue.substring(1);
+      handleSearch();
+    }
+  }, [searchValue]);
+  const handleInputsearch = (event) => {
+    if (event.key === "Enter") {
+      search.current.blur();
+      handleSearch();
+    }
+  };
+
+  const handleSearch = (event) => {
+    const data = search.current.value;
+    event?.preventDefault();
+    getSuperAdminForSearch(data)
+      .then((res) => {
+        const blogList = res?.data?.result?.blogList;
+        setBlog(blogList);
+        const result = blogList.length ? "blog" : "";
+        setLink(result);
+        setData(result === "" ? true : false);
+      })
+      .catch((err) => console.log(err));
+  };
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
+  useEffect(() => {
     getblogDetails();
-  }, []);
+    getAllUniversityDetails();
+  }, [pagination.from, pagination.to]);
+  const getAllUniversityDetails = () => {
+    const data = {
+      limit: 8,
+      page: pagination.from,
+    };
+    getallBlog(data)
+      .then((res) => {
+        console.log(res?.data?.result);
+        setBlog(res?.data?.result);
+        setPagination({
+          ...pagination,
+          count: res?.data?.result,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+ 
   const getblogDetails = () => {
     getSingleBlog(id)
       .then((res) => {
@@ -203,163 +274,70 @@ export const Blogdetails = () => {
                   {blog?.title}
                 </h4>
             <div className="card rounded-2 border-0 shadow p-3 h-100">
-            {Array.isArray(blog?.uploadFile) &&
-                                    blog.uploadFile.map((data, index) => ( 
-  <div id="carouselExample" className="carousel slide">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <img src={data?.uploadImage} className="d-block w-100"  style={{ borderRadius: "10px" }} alt="blog-image" />
+            {Array.isArray(blog?.uploadFile) && blog.uploadFile.length > 0 && (
+    <div id="carouselExample" className="carousel slide">
+      <div className="carousel-inner">
+        {blog.uploadFile.map((data, index) => (
+          <div
+            key={index}
+            className={`carousel-item ${index === 0 ? "active" : ""}`}
+          >
+            <img
+              src={data?.uploadImage}
+              className="d-block w-100"
+              style={{ borderRadius: "10px" }}
+              alt={`blog-image-${index}`}
+            />
+          </div>
+        ))}
+      </div>
+      <button
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span className="carousel-control-prev-icon btn btn-dark" aria-hidden="true" />
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button
+        className="carousel-control-next "
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span className="carousel-control-next-icon btn btn-dark " aria-hidden="true" />
+        <span className="visually-hidden">Next</span>
+      </button>
     </div>
-  
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true" />
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true" />
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
-                                    )
-                                    )}
+  )}
               <div className="card-body">
               
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  Introduction
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Studying abroad is a dream for many Indian students, offering
-                  unparalleled opportunities for academic and personal growth.
-                  However, the journey is not without its challenges. From
-                  cultural adjustments to academic rigor, Indian students
-                  encounter various hurdles during their overseas education
-                  pursuit. In this blog, we'll explore some common challenges
-                  faced by Indian students studying abroad and provide practical
-                  solutions to help them overcome these obstacles.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  1. Cultural Adjustment
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Challenge: Adapting to a new culture can be overwhelming for
-                  Indian students, leading to feelings of homesickness and
-                  cultural shock. Solution: Take proactive steps to immerse
-                  yourself in the local culture. Engage in cultural exchange
-                  programs, join student clubs or organizations, and participate
-                  in community events. Building relationships with local
-                  students and exploring the host country's traditions can ease
-                  the transition and foster a sense of belonging.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  2. Academic Rigour
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Challenge: Indian students may struggle to cope with the
-                  rigorous academic standards and unfamiliar teaching methods in
-                  foreign universities. Solution: Develop effective study habits
-                  and time management skills. Utilize academic support services
-                  offered by the blog, such as tutoring centers and study
-                  groups. Seek guidance from professors and academic advisors to
-                  better understand course requirements and expectations.
-                  Additionally, take advantage of online resources and
-                  educational apps to supplement your learning.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  3. Financial Constraints
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Challenge: The cost of studying abroad can be prohibitive for
-                  many Indian students and their families. Solution: Research
-                  scholarship opportunities and financial aid programs available
-                  for international students. Consider part-time employment or
-                  internships to supplement your income. Create a realistic
-                  budget and prioritize expenses to manage finances effectively.
-                  Additionally, explore affordable accommodation options and
-                  cost-saving strategies, such as cooking meals at home and
-                  using public transportation.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  4. Language Barrier
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Challenge: Indian students studying in non-English speaking
-                  countries may encounter language barriers that impede their
-                  academic progress and social integration. Solution: Improve
-                  your language skills through language courses, conversation
-                  groups, and language exchange programs. Practice speaking and
-                  writing in the host country's language as much as possible.
-                  Utilize language learning apps and online resources to
-                  supplement your language studies. Don't hesitate to seek help
-                  from language tutors or professors if you're struggling with
-                  language comprehension or communication.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  5. Homesickness and Social Isolation
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  Challenge: Being away from family and friends can lead to
-                  feelings of loneliness and isolation among Indian students
-                  studying abroad. Solution: Stay connected with loved ones back
-                  home through regular video calls, messages, and emails. Build
-                  a support network of friends, classmates, and fellow
-                  international students. Participate in social activities and
-                  cultural events on campus to meet new people and form
-                  meaningful connections. Explore your host city and engage in
-                  hobbies or interests that bring you joy and fulfillment. Get
-                  Accommodation Assistance to study in abroad with EduFynd.
-                </p>
-                <h6
-                  className="card-title fw-bold fs-5 py-1"
-                  style={{ color: "#0f2239" }}
-                >
-                  Conclusion
-                </h6>
-                <p className="card-text" style={{ textAlign: "justify" }}>
-                  While studying abroad presents its fair share of challenges,
-                  Indian students can overcome these obstacles with resilience,
-                  determination, and the right support system in place. By
-                  embracing the opportunity for personal and academic growth,
-                  Indian students can make the most of their overseas education
-                  experience and emerge stronger, more confident, and better
-                  prepared for success in a globalized world.
-                </p>
+              <p
+                                  className="clearfix"
+                                  style={{ textAlign: "justify" }}
+                                >
+                                  <RichTextEditor
+                                    value={blog?.content}
+                                    readOnly
+                                  />{" "}
+                                </p>
                 <hr />
                 <div className="row">
                   <div className="col-lg-6 col-12 mb-3 mb-lg-0">
-                    <div className="d-flex flex-row align-items-center gap-3">
+                  {Array.isArray(blog?.tags) &&
+                                    blog.tags.map((data, index) => (
+                    <div key={index} className="d-flex flex-row align-items-center gap-3">
                       <h6 className="fw-bold h5">Tags:</h6>
                       <a
                         href="#"
                         className="text-decoration-none text-dark bg-light p-2 rounded-2"
                       >
-                        Education
+                        {data}
                       </a>
-                      <a
-                        href="#"
-                        className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                      >
-                        Online
-                      </a>
+                     
                     </div>
+                  ))}
                   </div>
                   <div className="col-lg-6 col-12">
                     <div className="d-flex flex-row align-items-center gap-2">
@@ -407,22 +385,27 @@ export const Blogdetails = () => {
           </div>
           <div className="col-md-5 col-12">
             <div className="card card-body rounded-2 border-0 shadow mb-4">
+            <form onSubmit={handleSearch}>
               <div className="input-group p-4">
                 <input
                   type="text"
+                  ref={search}
+                  onChange={handleInputsearch}
                   className="form-control form-control-lg"
                   style={{ fontSize: "15px" }}
                   placeholder="Search Product..."
                   aria-label="Search"
                 />
-                <a
-                  href="#"
+                <button
+                 
+                   type="submit"
                   className="input-group-text btn btn-lg"
                   style={{ backgroundColor: "#fe5722", color: "#fff" }}
                 >
                   <FaSearch />
-                </a>
+                </button>
               </div>
+              </form>
             </div>
             <div className="card card-body rounded-2 border-0 shadow mb-4">
               <h4 className="fw-bold" style={{ color: "#0f2239" }}>
