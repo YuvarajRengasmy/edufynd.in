@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
@@ -15,8 +15,28 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
-import { Link } from "react-router-dom";
+import {getSingleBlog  } from "../api/blog";
+import { Link, useLocation } from "react-router-dom";
+
 export const Blogdetails = () => {
+
+  const location = useLocation();
+  const id = new URLSearchParams(location.search).get("id");
+  const [blog, setBlog] = useState([]);
+
+
+  useEffect(() => {
+    getblogDetails();
+  }, []);
+  const getblogDetails = () => {
+    getSingleBlog(id)
+      .then((res) => {
+        setBlog(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <Helmet>
@@ -174,24 +194,37 @@ export const Blogdetails = () => {
 
       <div className="container my-5">
         <div className="row">
+        
           <div className="col-md-7 col-12 mb-4">
-            <div className="card rounded-2 border-0 shadow p-3 h-100">
-              <div>
-                <img
-                  src={blog_1}
-                  alt="blog-image"
-                  className="card-img-top img-fluid"
-                  style={{ borderRadius: "10px" }}
-                />
-              </div>
-              <div className="card-body">
-                <h4
+          <h4
                   className="card-title fs-3 fw-bold"
                   style={{ color: "#0f2239" }}
                 >
-                  Challenges Faced by Indian Students in Studying Abroad and How
-                  to Conquer Them
+                  {blog?.title}
                 </h4>
+            <div className="card rounded-2 border-0 shadow p-3 h-100">
+            {Array.isArray(blog?.uploadFile) &&
+                                    blog.uploadFile.map((data, index) => ( 
+  <div id="carouselExample" className="carousel slide">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src={data?.uploadImage} className="d-block w-100"  style={{ borderRadius: "10px" }} alt="blog-image" />
+    </div>
+  
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true" />
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true" />
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+                                    )
+                                    )}
+              <div className="card-body">
+              
                 <h6
                   className="card-title fw-bold fs-5 py-1"
                   style={{ color: "#0f2239" }}
@@ -235,7 +268,7 @@ export const Blogdetails = () => {
                   rigorous academic standards and unfamiliar teaching methods in
                   foreign universities. Solution: Develop effective study habits
                   and time management skills. Utilize academic support services
-                  offered by the university, such as tutoring centers and study
+                  offered by the blog, such as tutoring centers and study
                   groups. Seek guidance from professors and academic advisors to
                   better understand course requirements and expectations.
                   Additionally, take advantage of online resources and
