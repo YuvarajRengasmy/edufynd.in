@@ -328,21 +328,23 @@ export const Blogdetailing = () => {
                                 </p>
                 <hr />
                 <div className="row">
-                  <div className="col-lg-6 col-12 mb-3 mb-lg-0">
-                  {Array.isArray(blog?.tags) &&
-                                    blog.tags.map((data, index) => (
-                    <div key={index} className="d-flex flex-row align-items-center gap-3">
-                      <h6 className="fw-bold h5">Tags:</h6>
-                      <a
-                        href="#"
-                        className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                      >
-                        {data}
-                      </a>
-                     
-                    </div>
-                  ))}
-                  </div>
+                <div className="col-lg-6 col-12 mb-3 mb-lg-0">
+                 
+                 <div className="d-flex flex-row align-items-center gap-3">
+                   <h6 className="fw-bold h5">Tags:</h6>
+                   {Array.isArray(blog?.tags) &&
+                                 blog.tags.map((data, index) => (
+                   <a
+                   key={index} 
+                     href="#"
+                     className="text-decoration-none text-dark bg-light p-2 rounded-2"
+                   >
+                     {data}
+                   </a>
+                     ))}
+                 </div>
+            
+               </div>
                   <div className="col-lg-6 col-12">
                     <div className="d-flex flex-row align-items-center gap-2">
                       <h6 className="fw-bold h5">Share:</h6>
