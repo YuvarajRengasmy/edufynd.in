@@ -17,8 +17,7 @@ import logo from '../../assets/New folder/images/logo/edufynd-logo.svg';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const location = useLocation();
-
+  
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     setIsScrolled(scrollTop > 50);
@@ -30,17 +29,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const getNavLinkClass = (path) => {
-    return location.pathname === path ? "nav-link active" : "nav-link";
-  };
+  const location = useLocation();
+
+  // Check if a path is active
+  const isActivePath = (path) => location.pathname === path;
+
+  // Determine the class for nav links and dropdown items
+  const getNavLinkClass = (path) => isActivePath(path) ? "nav-link active" : "nav-link";
+
+  // Determine if dropdown should be active
+  const isDropdownActive = (paths) => paths.some(path => isActivePath(path));
+
 
   return (
+    <>
     <div
       className={`fixed-top navbar-container ${
         showHeader ? "header-visible" : "header-hidden"
       }`}
     >
-      <div className="container-fluid text-white p-0">
+      <div className="container-fluid text-white p-0 mb-0">
         {/* Header */}
         <div
           className="container-fluid text-center"
@@ -92,12 +100,12 @@ const Navbar = () => {
         </div>
 
         {/* Navbar */}
-        <nav
+        <nav 
           className={`navbar navbar-expand-lg bg-white ${
             isScrolled ? "scrolled" : ""
           }`}
         >
-          <div className="container-fluid p-2">
+          <div className="container-fluid p-0 m-0">
             <Link to="/" className="navbar-brand mx-lg-3 px-lg-5">
               <img
                 src={logo}
@@ -154,115 +162,173 @@ const Navbar = () => {
                     Recruiting Partner
                   </Link>
                 </li>
-                <li className="nav-item  dropdown">
-                  <Link
-                    to="/StudyDestination"
-                    className={getNavLinkClass("/StudyDestination")}
-                    role="button"
-                    aria-expanded="false"
-                  >
-                    Study Destinations <IoIosArrowDown />
-                  </Link>
-                  <ul className="dropdown-menu px-1 py-2 border-0 shadow">
-                    <li>
-                      <Link
-                        to="/Study-In-USA"
-                        
-                        className={getNavLinkClass("/Study-In-USA")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in USA
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-UK"
-                         className={getNavLinkClass("/Study-in-UK")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in UK
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-Canada"
-                         className={getNavLinkClass("/Study-in-Canada")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in Canada
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-Australia"
-                         className={getNavLinkClass("/Study-in-Australia")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in Australia
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-Ireland"
-                         className={getNavLinkClass("/Study-in-Ireland")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in Ireland
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-In-New-Zealand"
-                         className={getNavLinkClass("/Study-In-New-Zealand")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in New Zealand
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-In-Singapore"
-                         className={getNavLinkClass("/Study-In-Singapore")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in Singapore
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-France"
-                         className={getNavLinkClass("/Study-in-France")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in France
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/Study-in-Europe"
-                         className={getNavLinkClass("/Study-in-Europe")}
-                      >
-                        <FaFlag className="me-2" style={{ color: "#fe5722" }} />
-                        Study in Europe
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item  dropdown">
-                  <Link
-                    to="/Service"
-                    className={getNavLinkClass("/Service")}
-                    role="button"
-                    aria-expanded="false"
-                  >
-                    Services <IoIosArrowDown />
-                  </Link>
 
-                  <ul className="dropdown-menu py-2 border-0 shadow">
+                <li className={`nav-item dropdown ${isDropdownActive([
+                    "/Study-In-USA",
+                    "/Study-in-UK",
+                    "/Study-in-Canada",
+                    "/Study-in-Australia",
+                    "/Study-in-Ireland",
+                    "/Study-In-New-Zealand",
+                    "/Study-In-Singapore",
+                    "/Study-in-France",
+                    "/Study-in-Europe"
+                  ]) ? 'active' : ''}`}>
+                    <Link
+                      to="/StudyDestination"
+                      className={`nav-link  ${isDropdownActive([
+                        "/StudyDestination",
+                        "/Study-In-USA",
+                        "/Study-in-UK",
+                        "/Study-in-Canada",
+                        "/Study-in-Australia",
+                        "/Study-in-Ireland",
+                        "/Study-In-New-Zealand",
+                        "/Study-In-Singapore",
+                        "/Study-in-France",
+                        "/Study-in-Europe"
+                      ]) ? 'active' : ''}`}
+                      role="button"
+                      aria-expanded={isDropdownActive([
+                        "/StudyDestination",
+                        "/Study-In-USA",
+                        "/Study-in-UK",
+                        "/Study-in-Canada",
+                        "/Study-in-Australia",
+                        "/Study-in-Ireland",
+                        "/Study-In-New-Zealand",
+                        "/Study-In-Singapore",
+                        "/Study-in-France",
+                        "/Study-in-Europe"
+                      ])}
+                    >
+                      Study Destinations <IoIosArrowDown />
+                    </Link>
+                    <ul className="dropdown-menu p-2 border-0 shadow">
+                      <li>
+                        <Link
+                          to="/Study-In-USA"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-In-USA")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in USA
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-UK"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-UK")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in UK
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-Canada"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-Canada")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in Canada
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-Australia"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-Australia")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in Australia
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-Ireland"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-Ireland")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in Ireland
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-In-New-Zealand"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-In-New-Zealand")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in New Zealand
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-In-Singapore"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-In-Singapore")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in Singapore
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-France"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-France")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in France
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/Study-in-Europe"
+                          className={`dropdown-item fw-semibold ${getNavLinkClass("/Study-in-Europe")}`}
+                        >
+                          <FaFlag className="me-2" style={{ color: "#fe5722" }} />
+                          Study in Europe
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+             
+             
+
+<li className={`nav-item dropdown ${isDropdownActive([
+                    "/Admission-Support",
+                    "/SOP-Crafting",
+                     "/Visa-Support",
+                     "/Financial-Aid",
+                     "/Pre-and-Post-Support",
+                    "/Forex",
+                  ]) ? 'active' : ''}`}>
+                    <Link
+                      to="/Service"
+                      className={`nav-link  ${isDropdownActive([
+                        "/Service",
+                        "/Admission-Support",
+                        "/SOP-Crafting",
+                         "/Visa-Support",
+                         "/Financial-Aid",
+                         "/Pre-and-Post-Support",
+                        "/Forex",
+                      ]) ? 'active' : ''}`}
+                      role="button"
+                      aria-expanded={isDropdownActive([
+                        "/Service",
+                        "/Admission-Support",
+                        "/SOP-Crafting",
+                         "/Visa-Support",
+                         "/Financial-Aid",
+                         "/Pre-and-Post-Support",
+                        "/Forex",
+                      ])}
+                    >
+                    Services<IoIosArrowDown />
+                    </Link>
+
+                  <ul className="dropdown-menu p-2 border-0 shadow">
                     <li>
                       <Link
                         to="/Admission-Support"
-                         className={getNavLinkClass("/Admission-Support")}
+                         className={`dropdown-item fw-semibold ${getNavLinkClass("/Admission-Support")}`}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Admission Support
@@ -271,7 +337,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/SOP-Crafting"
-                         className={getNavLinkClass("/SOP-Crafting")}
+                         className={`dropdown-item fw-semibold ${getNavLinkClass("/SOP-Crafting")}`}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         SOP Crafting
@@ -280,7 +346,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Visa-Support"
-                         className={getNavLinkClass("/Visa-Support")}
+                         className={`dropdown-item fw-semibold ${getNavLinkClass("/Visa-Support")}`}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Visa Support
@@ -289,7 +355,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Financial-Aid"
-                         className={getNavLinkClass("/Financial-Aid")}
+                         className={`dropdown-item fw-semibold ${getNavLinkClass("/Financial-Aid")}`}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Financial Aid
@@ -298,14 +364,14 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/Pre-and-Post-Support"
-                         className={getNavLinkClass("/Pre-and-Post-Support")}
+                         className={`dropdown-item fw-semibold ${getNavLinkClass("/Pre-and-Post-Support")}`}
                       >
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Pre and Post Support
                       </Link>
                     </li>
                     <li>
-                      <Link to="/Forex"  className={getNavLinkClass("/Forex")}>
+                      <Link to="/Forex"  className={`dropdown-item fw-semibold ${getNavLinkClass("/Forex")}`}>
                         <FaFlag className="me-2" style={{ color: "#fe5722" }} />
                         Forex
                       </Link>
@@ -314,6 +380,9 @@ const Navbar = () => {
                 
                  
                 </li>
+
+                 
+             
                 <li className="nav-item ">
                   <Link to="/Blog" className={getNavLinkClass("/Blog")}>
                   Blog
@@ -341,6 +410,7 @@ const Navbar = () => {
         </nav>
       </div>
     </div>
+    </>
   );
 };
 

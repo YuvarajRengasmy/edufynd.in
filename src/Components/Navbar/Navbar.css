@@ -57,6 +57,7 @@
   transition: color 0.3s ease-in-out;
   color: #231f20 !important;
   font-weight: 600 !important;
+  font-size: 14px !important;
 }
 
 .nav-link:hover {
