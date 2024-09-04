@@ -109,7 +109,7 @@ dail:{required:false},
 
   return (
     <>
-      <div className="container">
+      <div className="container d-none d-lg-block">
         <div className="row">
           <div className="col">
             <button

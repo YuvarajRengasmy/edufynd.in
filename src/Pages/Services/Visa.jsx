@@ -98,7 +98,7 @@ export const Visa = () => {
         .then((res) => {
           toast.success("Enquiry Submitted Successfully");
           closeModal();
-          navigate("/Pre-and-Post-Support");
+          navigate("/Visa-Support");
         })
         .catch((err) => {
           toast.error(err?.response?.data?.message);

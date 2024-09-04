@@ -3,7 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 export const FixedWhatsapp = () => {
   return (
     <>
-      <div className="container">
+      <div className="container d-none d-lg-block">
         <div className="row">
           <div className="col">
             <a href="https://api.whatsapp.com/send/?phone=919840591820&text&type=phone_number&app_absent=0">

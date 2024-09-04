@@ -152,7 +152,7 @@ export const Blog = () => {
 
       <FixedEnquiry />
       <FixedWhatsapp />
-      <div className="container-fluid p-0 overflow-hidden">
+      <div className="container-fluid p-0 overflow-hidden d-none d-lg-block">
         <div className="row ">
           <div className="col-12">
             <div class="card text-bg-dark rounded-0 ">

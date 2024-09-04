@@ -45,6 +45,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 import { saveGeneralEnquiry } from "../api/generalEnquiry";
+import cta_bg2 from '../assets/images/home/cta-bg2.png'
 
 export const Home = () => {
   const initialState = {
@@ -817,15 +818,16 @@ export const Home = () => {
               <div className="card rounded-0 border-0">
                 <img
                   src={success}
-                  className="card-img img-fluid rounded-0 border-0 h-100 object-fit-cover"
+                  className="card-img img-fluid  rounded-0 border-0 "
                   alt="Success"
+                  style={{ width: '100%', maxWidth: '100%', minWidth: '100%', height: '70vh', minHeight: '60vh', maxHeight: '80vh' }}
                 />
                 <div className="card-img-overlay p-0">
                   <img
                     src={bg_overlay_1}
-                    className="card-img img-fluid rounded-0 border-0 p-0 h-100 object-fit-cover"
+                    className="card-img-top  rounded-0 border-0 p-0 h-100 object-fit-cover"
                     alt="Overlay"
-                    style={{ mixBlendMode: "multiply" }}
+                    style={{ mixBlendMode: "multiply", width: '100%', maxWidth: '100%', minWidth: '100%', height: '70vh', minHeight: '60vh', maxHeight: '80vh' }}
                   />
                   <div className="card-img-overlay d-flex flex-column align-items-center justify-content-center h-100 text-center text-white">
                     <div className="display-6 fw-normal">
@@ -877,7 +879,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="container-fluid my-5 py-4  about-home-img position-relative">
+        <div className="container-fluid my-5 py-4   position-relative">
           <div className="container">
             <div className="row g-3">
               <div className="col-lg-6" data-aos="slide-right">
@@ -890,7 +892,7 @@ export const Home = () => {
                   <img
                     src={about_1_shape1}
                     alt="Image 3"
-                    className="rounded-2 w-25  img-fluid position-absolute top-50 start-0 vert-move"
+                    className="rounded-2 w-25  img-fluid position-absolute top-50 start-0 translate-y vert-move"
                   />
                 </div>
                 <div className="text-end mt-4">
@@ -924,8 +926,8 @@ export const Home = () => {
                     Your Gateway to Global Educational Opportunities
                   </div>
                   <div
-                    className="fw-normal py-2 black1"
-                    style={{ textAlign: "justify", fontSize: "16px" }}
+                    className="fw-normal py-2 black1 fs-6"
+                    style={{ textAlign: "justify" }}
                   >
                     At Edufynd, transparency and integrity are paramount. We
                     provide honest, up-to-date information to empower you to
@@ -937,8 +939,8 @@ export const Home = () => {
                     success story with Edufynd.
                   </div>
                   <div
-                    className="fw-normal text-justify py-2"
-                    style={{ textAlign: "justify", fontSize: "16px" }}
+                    className="fw-normal text-justify py-2 fs-6"
+                    style={{ textAlign: "justify" }}
                   >
                     With years of experience, Edufynd's team of education
                     consultants offers expert guidance for studying abroad. From
@@ -959,7 +961,7 @@ export const Home = () => {
           <div className="row">
             {stats.map((stat) => (
               <div key={stat.id} className="col-sm-6 col-lg-3">
-                <div className="text-center py-5 px-2 border-end border-light">
+                <div className="text-center py-5 px-2 border-bottom border-lg-bottom-0 border-end border-sm-end-0">
                   <div className="text-white fw-bold fs-1">
                     <CountUp end={stat.value} duration={4} />+
                   </div>
@@ -973,48 +975,68 @@ export const Home = () => {
         </div>
 
         <div
-          className="container-fluid img1 mt-4 position-relative"
+          className="container-fluid position-relative overflow-x-hidden mt-4"
+          style={{
+            backgroundImage: `url(${cta_bg2})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            backgroundBlendMode: 'multiply',
+            width: '100%',
+            height: '90vh',
+            minHeight: '60vh',
+          }}
           data-aos="zoom-in-up"
         >
           <img
             src={cta_bg2_shape}
             alt=""
-            className="p-0 img-fluid"
-            style={{ maxWidth: "100%", height: "auto" }}
+            className="img-fluid position-absolute top-0 start-0 w-100 h-100 d-none d-lg-block"
+            style={{
+              objectFit: 'cover',
+              zIndex: -1,
+            }}
           />
           <img
             src={cta_2_shape1}
             alt=""
-            className="img-fluid position-absolute bottom-0 start-0 vert-move"
+            className="img-fluid position-absolute bottom-0 start-0 d-none d-lg-block"
+            style={{
+              width: 'auto',
+              height: 'auto',
+            }}
           />
           <img
             src={cta_2_shape2}
             alt=""
-            className="img-fluid position-absolute top-0 end-0 vert-move"
+            className="img-fluid position-absolute top-0 end-0 d-none d-lg-block"
+            style={{
+              width: 'auto',
+              height: 'auto',
+            }}
           />
-          <div className="position-absolute top-50 start-50 translate-middle">
-            <div className="row">
-              <div className="col text-center">
-                <div className="text-center mt-2">
-                  <div className="text-white text-capitalize fs-1 fw-bold">
-                    our <span className="two">recruiting</span> partner
+          <div className="position-absolute top-50 start-50 translate-middle text-center w-100 px-3">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10 col-lg-8">
+                <div className="mt-2">
+                  <div className="text-white text-capitalize fs-1 fw-bold mb-3">
+                    Our <span className="two">recruiting</span> partner
                   </div>
                   <div
-                    className="text-white px-md-5 mt-3 lh-base"
-                    style={{ fontSize: "16px", textAlign: "justify" }}
+                    className="text-white px-2 px-md-4 mt-3 fs-5 lh-base"
+                    style={{ textAlign: 'justify' }}
                   >
-                    With global presence across 2 continents, strategic
-                    partnerships with 500+ universities worldwide, and a team of
-                    seasoned experts well-versed in the intricacies of the
-                    industry. Collaborate with us to discover how our services
-                    can revolutionize your business.
+                    With a global presence across 2 continents, strategic partnerships
+                    with 500+ universities worldwide, and a team of seasoned experts
+                    well-versed in the intricacies of the industry. Collaborate with
+                    us to discover how our services can revolutionize your business.
                   </div>
                   <div className="text-center my-5">
                     <Link
                       to="/RecruitingPartner"
-                      className="btn btn-transparent btn-outline-light text-uppercase px-4 py-3 fw-bold"
+                      className="btn btn-transparent btn-outline-light rounded-1 text-uppercase px-3 py-2 fw-bold"
                     >
-                      partner with us{" "}
+                      Partner with us{" "}
                       <span className="fs-5">
                         <FaArrowRightLong />
                       </span>
@@ -1168,18 +1190,18 @@ export const Home = () => {
           className="container-fluid mt-5 admission overflow-hidden"
           data-aos="zoom-in-right"
         >
-          <div className="row">
-            <div className="col-lg-6 p-0">
+          <div className="row ">
+            <div className="col-lg-6 p-0 d-none d-lg-block">
               <div>
                 <img
                   src={instant}
-                  style={{ width: "100%", height: "42rem" }}
+
                   alt="image"
-                  className="img-fluid "
+                  className="object-fit-fill"
                 />
               </div>
             </div>
-            <div className="col-lg-6 p-4">
+            <div className="col-lg-6 px-5">
               <div className="two fw-bold text-uppercase mt-1 fs-4">
                 <span>
                   <FaRegFlag />

@@ -8,6 +8,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import { RiMiniProgramFill } from "react-icons/ri";
 import { FaUniversity } from "react-icons/fa";
 import { FaGlobeAmericas } from "react-icons/fa";
+import Footer from "../Components/Footer/Footer";
 const ViewProgram = () => {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get("id");
@@ -733,6 +734,7 @@ const ViewProgram = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
