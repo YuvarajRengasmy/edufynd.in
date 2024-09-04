@@ -27,6 +27,8 @@ import Sop from '../Pages/Services/Sop';
 import Visa from '../Pages/Services/Visa';
 import Support from '../Pages/Services/Support';
 import BlogDetails from '../Pages/Blogdetails';
+import BlogDetail from '../Pages/BlogDetail';
+
 import ViewProgram from '../Pages/viewProgram';
 import ViewUniversity from '../Pages/ViewUniversity';
 
@@ -60,6 +62,8 @@ const RoutePage = () => {
         <Route path="/Visa-Support" element={<Visa />} />
         <Route path="/Pre-and-Post-Support" element={<Support />} />
         <Route path="/Blog-Details" element={<BlogDetails />} />
+        <Route path="/Blog-Detail" element={<BlogDetail />} />
+
         <Route path="/ViewProgram" element={<ViewProgram />} />
         <Route path="/ViewUniversity" element={<ViewUniversity />} />
       </Routes>

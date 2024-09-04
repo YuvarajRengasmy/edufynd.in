@@ -12,5 +12,5 @@ export const getSingleBlog = (data) => {
     return API.get(`${Blog}/publicGetSingleBlog`, { params: { _id: data } });
   };
  
-
+ 
 

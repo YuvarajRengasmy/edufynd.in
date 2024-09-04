@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 import { FaArrowRight } from "react-icons/fa";
 import blog_1 from "../assets/img/blog/blog-s-1-1.jpg";
 import { getSuperAdminForSearch } from "../api/superAdmin";
-
+import { formatDate } from "../Utils/dateTime";
 import blog_inner_1 from "../assets/img/blog/blog_inner_1.jpg";
 import { FaFacebook } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -17,15 +17,19 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import FixedEnquiry from "../Components/fixed compoents/FixedEnquiry";
 import FixedWhatsapp from "../Components/fixed compoents/FixedWhatsapp";
-import {getSingleBlog  } from "../api/blog";
+import {getSingleBlog,getFilterBlog} from "../api/blog";
 import { RichTextEditor } from "@mantine/rte";
 import { Link, useLocation } from "react-router-dom";
 
 export const Blogdetails = () => {
 
+  const renderedCategories = new Set();
+
   const location = useLocation();
   const id = new URLSearchParams(location.search).get("id");
   const [blog, setBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+
   const [link, setLink] = useState("");
   const [data, setData] = useState(false);
   const search = useRef(null);
@@ -62,7 +66,7 @@ export const Blogdetails = () => {
     getSuperAdminForSearch(data)
       .then((res) => {
         const blogList = res?.data?.result?.blogList;
-        setBlog(blogList);
+        setBlogs(blogList);
         const result = blogList.length ? "blog" : "";
         setLink(result);
         setData(result === "" ? true : false);
@@ -80,16 +84,16 @@ export const Blogdetails = () => {
   }, [pagination.from, pagination.to]);
   const getAllUniversityDetails = () => {
     const data = {
-      limit: 8,
+      limit: 3,
       page: pagination.from,
     };
-    getallBlog(data)
+    getFilterBlog(data)
       .then((res) => {
-        console.log(res?.data?.result);
-        setBlog(res?.data?.result);
+        console.log(res?.data?.result?.blogList);
+        setBlogs(res?.data?.result?.blogList);
         setPagination({
           ...pagination,
-          count: res?.data?.result,
+          count: res?.data?.result?.blogCount,
         });
       })
       .catch((err) => {
@@ -407,16 +411,18 @@ export const Blogdetails = () => {
               </div>
               </form>
             </div>
+           
             <div className="card card-body rounded-2 border-0 shadow mb-4">
               <h4 className="fw-bold" style={{ color: "#0f2239" }}>
                 Recent Posts
               </h4>
               <hr className="border-4 border-warning rounded-2" />
-              <div className="card rounded-2 border-0 mb-3">
+              {blogs?.map((item,index) => (
+              <div key={index} className="card rounded-2 border-0 mb-3">
                 <div className="row g-0">
                   <div className="col-4">
                     <img
-                      src={blog_inner_1}
+                      src={item?.uploadFiles}
                       className="img-fluid rounded-3 mx-auto d-block"
                       alt="Recent post 1"
                     />
@@ -424,7 +430,17 @@ export const Blogdetails = () => {
                   <div className="col-8">
                     <div className="card-body">
                       <h6 className="card-title">
-                        How to build a career in education for your future.
+                      <Link
+                                className="text-decoration-none text-dark"
+                                to={{
+                                  pathname: "/Blog-Detail",
+                                  search: `?id=${item?._id}`,
+                                }}
+                              >
+                                {item?.title}
+                               
+                              </Link>
+                       
                       </h6>
                       <p className="card-text">
                         <small className="text-body-secondary">
@@ -434,128 +450,45 @@ export const Blogdetails = () => {
                           >
                             <FaCalendar />
                           </span>{" "}
-                          21/6/2023
+                          {formatDate(item.createdOn)}
                         </small>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="card rounded-2 border-0 mb-3">
-                <div className="row g-0">
-                  <div className="col-4">
-                    <img
-                      src={blog_inner_1}
-                      className="img-fluid rounded-3 mx-auto d-block "
-                      alt="Recent post 2"
-                    />
-                  </div>
-                  <div className="col-8">
-                    <div className="card-body">
-                      <h6 className="card-title">
-                        A Guide for Teachers and Education Staff.
-                      </h6>
-                      <p className="card-text">
-                        <small className="text-body-secondary">
-                          <span
-                            className="align-self-center"
-                            style={{ color: "#fe5722" }}
-                          >
-                            <FaCalendar />
-                          </span>{" "}
-                          22/6/2023
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="card rounded-2 border-0">
-                <div className="row g-0">
-                  <div className="col-4">
-                    <img
-                      src={blog_inner_1}
-                      className="img-fluid rounded-3 mx-auto d-block"
-                      alt="Recent post 3"
-                    />
-                  </div>
-                  <div className="col-8">
-                    <div className="card-body">
-                      <h6 className="card-title">
-                        Educate Empower Excel Discover the Power.
-                      </h6>
-                      <p className="card-text">
-                        <small className="text-body-secondary">
-                          <span
-                            className="align-self-center"
-                            style={{ color: "#fe5722" }}
-                          >
-                            <FaCalendar />
-                          </span>{" "}
-                          25/6/2023
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-            <div className="card card-body rounded-2 border-0 shadow">
+           
+            <div  className="card card-body rounded-2 border-0 shadow">
               <h4 className="fw-bold" style={{ color: "#0f2239" }}>
-                Popular Tags
+                Popular category
               </h4>
               <hr className="border-4 border-warning rounded-2" />
-              <div className="d-flex flex-wrap gap-2">
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Business
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Courses
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Online
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Remote
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Education
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Solution
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  Students
-                </a>
-                <a
-                  href="#"
-                  className="text-decoration-none text-dark bg-light p-2 rounded-2"
-                >
-                  UX
-                </a>
-              </div>
+              {blogs?.map((item, index) => {
+  if (renderedCategories.has(item?.category)) {
+    return null; // Skip this iteration if the category is already rendered
+  }
+  
+  renderedCategories.add(item?.category);
+  
+  return (
+    <div key={index} className="row flex-wrap gap-2">
+      <a
+        href="#"
+        className="text-decoration-none text-dark bg-light p-2 rounded-2"
+      >
+        {item?.category}
+      </a>
+    </div>
+  );
+})}
+
+
+
+
             </div>
+           
           </div>
         </div>
       </div>

@@ -194,9 +194,15 @@ export const Blog = () => {
           <div className="col-md-4 mb-4">
             <div className="card rounded-3 position-relative  shadow-sm ">
               <div
-                 id="flag"
+               
                 className="position-absolute top-0  start-0  rounded-3"
               >
+                <img
+                  src={item.uploadFiles}
+                  alt=""
+                  className="img-fluid p-2 vert-move"
+                  style={{ width: "100px", height: "100px" }}
+                />
 
               </div>
            
