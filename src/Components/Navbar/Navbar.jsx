@@ -398,14 +398,7 @@ const Navbar = () => {
       </div>
       </div>
          
-            <div
-              className="offcanvas offcanvas-start"
-              tabIndex="-1"
-              id="offcanvasDarkNavbar"
-              aria-labelledby="offcanvasDarkNavbarLabel"
-            >
-             
-            </div>
+         
           </div>
         </nav>
       </div>
